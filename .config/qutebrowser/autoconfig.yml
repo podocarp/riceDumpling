@@ -12,6 +12,16 @@ settings:
     global: true
   backend:
     global: webengine
+  bindings.key_mappings:
+    global:
+      <Ctrl-6>: <Ctrl-^>
+      <Ctrl-Enter>: <Ctrl-Return>
+      <Ctrl-J>: <Return>
+      <Ctrl-M>: <Return>
+      <Ctrl-[>: <Escape>
+      <Enter>: <Return>
+      <Shift-Enter>: <Return>
+      <Shift-Return>: <Return>
   colors.tabs.bar.bg:
     global: '#444444'
   colors.tabs.even.bg:
@@ -44,6 +54,8 @@ settings:
     global: 12pt monospace
   fonts.tabs:
     global: 12pt monospace
+  input.insert_mode.auto_load:
+    global: false
   scrolling.bar:
     global: true
   scrolling.smooth:
@@ -59,6 +71,16 @@ settings:
       left: 0
       right: 10
       top: 2
+  statusbar.widgets:
+    global:
+    - keypress
+    - url
+    - scroll
+    - history
+    - tabs
+    - progress
+  tabs.background:
+    global: true
   tabs.last_close:
     global: ignore
   tabs.padding:
@@ -69,6 +91,8 @@ settings:
       top: 2
   tabs.width:
     global: 20%
+  tabs.wrap:
+    global: true
   url.default_page:
     global: about:blank
   url.searchengines:

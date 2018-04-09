@@ -28,13 +28,12 @@ i3lock \
 --keyhlcolor=$W       \
 --bshlcolor=$W        \
 \
---clock               \
---indicator           \
 --timestr="%H:%M:%S"  \
 --datestr="%A, %m %Y" \
 --wrongtext="Invalid key"       \
 --veriftext="Wait..." \
 --verifsize=20        \
+--wrongsize=20        \
 \
 --ignore-empty-password \
 --radius 100          \

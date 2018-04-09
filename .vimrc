@@ -28,6 +28,12 @@ let g:jedi#auto_initialization = 1
 """"""
 
 Plugin 'w0rp/ale'
+let g:ale_lint_on_text_changed = 'never'
+
+Plugin 'Chiel92/vim-autoformat'
+noremap <F1> :Autoformat<CR>
+let g:formatdef_autopep8 = '"autopep8 -aa -"'
+let g:formatters_python = ['autopep8']
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -44,9 +50,9 @@ autocmd InsertEnter * highlight CursorLine cterm=Bold ctermbg=LightBlue ctermfg=
 autocmd InsertLeave * highlight CursorLine cterm=None ctermbg=Blue ctermfg=Black
 
 augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
+	autocmd!
+	autocmd WinEnter * set cul
+	autocmd WinLeave * set nocul
 augroup END
 
 " Tab completion stuff
@@ -73,7 +79,9 @@ noremap x "_x
 
 " Scroll in wrapped lines
 map <silent> <Up> gk
+map <silent> <k> gk
 map <silent> <Down> gj
+map <silent> <j> gj
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""""
 
 " Press i i to exit insert mode.
@@ -93,9 +101,6 @@ nnoremap <silent><Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
-" Remove any trailing whitespace that is in the file
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Sends things away without overwriting the register
 nnoremap <leader>d "_d
@@ -128,3 +133,7 @@ imap <C-w> <C-o><C-w>
 """""""""""""""""""""VISUAL MODE MAPS""""""""""""""""""""""
 " Sends things away without overwriting the register
 vnoremap <leader>d "_d
+
+" Indent without exiting visual
+vnoremap > >gv
+vnoremap < <gv
