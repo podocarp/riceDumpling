@@ -1,0 +1,54 @@
+general {
+    interval	= 1
+    colors	= true
+    color_good 	    = '#88b090'
+    color_degraded  = '#ccdc90'
+    color_bad       = '#e89393'
+}
+
+order += "volume master"
+order += "disk /"
+order += "ethernet enp0s3"
+order += "ethernet enp0s8"
+order += "cpu_usage 0"
+order += "load"
+order += "tztime local"
+
+ethernet enp0s3{
+    format_up = "Internet: %ip"
+    format_down = "enp0s3"
+}
+
+ethernet enp0s8 {
+	format_up = "Host Only: %ip"
+	format_down = "enp0s8"
+}
+
+tztime local {
+    format = "%A %V %e.%B  %H:%M:%S"
+}
+
+load {
+    format = "Load: %1min"
+}
+
+cpu_usage {
+    format = "Use: %usage"
+    max_threshold = 90
+    degraded_threshold = 75 
+}
+
+disk "/" {
+	format = "Free: %free (U/T: %used/%total)"
+	prefix_type = custom
+	low_threshold = 10
+	threshold_type = percentage_avail
+}
+
+volume master {
+    format = "Vol: %volume"
+    format_muted = "Vol: %volume"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
