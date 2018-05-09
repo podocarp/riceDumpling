@@ -30,12 +30,13 @@
 
 URxvt.intensityStyles:	false
 URxvt.background:       rgba:0000/0000/0200/c800
-URxvt.font: 		xft:Ubuntu Mono:size=11
+URxvt.font: 		xft:Ubuntu Mono:size=11 Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt.depth		32
-URxvt.scrollBar:	false	
+URxvt.scrollBar:	false
 URxvt.cursorColor:	magenta
+URxvt.letterspace:	1
 URxvt.transparent:	true
-URxvt.shading:		20	
+URxvt.shading:		20
 !! Extensions
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
 URxvt.colorUL:		#4682B4
