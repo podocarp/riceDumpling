@@ -6,5 +6,6 @@ Slowly accumulating as it goes, hopefully not too much.
 # Stuff that it uses
 - rxvt-unicode
 - ranger
+- pywal
 - w3m
 - i3
