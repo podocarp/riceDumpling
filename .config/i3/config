@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Ubuntu, Light 10
+font pango:Ubuntu, Light 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,7 +30,7 @@ font pango:Ubuntu, Light 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -fn 'xft:Ubuntu Mono:pixelsize=16'
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -116,8 +116,8 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-set $default_gaps_inner 10
-set $default_gaps_outer 10
+set $default_gaps_inner 20
+set $default_gaps_outer 15
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
@@ -149,9 +149,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+set $pixels 1
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -160,20 +159,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-	bindsym 1 mode "default", resize set 1000 600
-	bindsym 2 mode "default", resize set 1500 600
-	bindsym 3 mode "default", resize set 1200 1000
+        bindsym h resize grow width $pixels px or $pixels ppt
+        bindsym j resize grow height $pixels px or $pixels ppt
+        bindsym k resize shrink height $pixels px or $pixels ppt
+        bindsym l resize shrink width $pixels px or $pixels ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -201,47 +190,59 @@ set $black       #282828
 set $darkblack   #1d2021
 set $transparent #00000000
 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg foreground #f0f0f0
+set_from_resource $bg background #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         verbose yes
-	status_command i3blocks
     	i3bar_command i3bar -t
 	position top
-    	font pango:Hack, FontAwesome 11
-    	strip_workspace_numbers yes
+    	font pango:Ubuntu Mono 12
+    	strip_workspace_numbers no
     	separator_symbol "|"
     	tray_output eDP1
     	tray_output LVDS-0
     	tray_padding 0
-    	height $height
+    	height 30
+
     colors {
         statusline         $white
-        background         $transparent
-        separator          $transparent
+        background         $black
+        separator          $white
 
 #                          BORDER       BACKGROUND   TEXT
-        focused_workspace  $transparent $transparent $darkwhite
-        inactive_workspace $transparent $transparent $white
+        focused_workspace  $transparent $transparent $white
+        inactive_workspace $transparent $transparent $gray
         active_workspace   $transparent $transparent $white
         urgent_workspace   $darkred     $darkred     $transparent
         binding_mode       $darkred     $darkred     $transparent
     }
 	status_command i3status --config ~/.config/i3status/config
-	tray_output primary
-	font pango:Ubuntu Mono 12
-	separator_symbol "||"
 }
 
 floating_minimum_size -1 x -1
 floating_maximum_size -1 x -1
 
-set $height 34
-
 set $mode_gaps gaps
 set $mode_gaps_outer outer gaps
 set $mode_gaps_inner inner gaps
-bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+g mode "$mode_gaps"
 mode "$mode_gaps" {
     bindsym o      mode "$mode_gaps_outer"
     bindsym i      mode "$mode_gaps_inner"
@@ -254,6 +255,9 @@ mode "$mode_gaps" {
 }
 
 mode "$mode_gaps_inner" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+
     bindsym plus  gaps inner current plus 5
     bindsym minus gaps inner current minus 5
     bindsym 0     mode "default", gaps inner current set 0
@@ -269,6 +273,9 @@ mode "$mode_gaps_inner" {
 }
 
 mode "$mode_gaps_outer" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+
     bindsym plus  gaps outer current plus 5
     bindsym minus gaps outer current minus 5
     bindsym 0     mode "default", gaps outer current set 0
@@ -285,13 +292,6 @@ mode "$mode_gaps_outer" {
 
 workspace_auto_back_and_forth yes
 force_display_urgency_hint 500ms
-
-#			border	bkgd	txt	indicator	border
-client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
-client.unfocused        $black      $black      $white      $darkblack  $darkblack
-client.focused_inactive $black      $black      $white      $darkblack  $darkblack
-client.urgent           $darkred    $darkred    $black      $darkred    $darkred
-client.background       $darkblack
 
 # fix graphics glitch
 new_window none

@@ -1,7 +1,7 @@
-*foreground: #00cc00
-*foreground_bold: #a8a19f
-*cursor: #a8a19f
-*background: rgba(0, 0, 0, .7)
+foreground: #00cc00
+foreground_bold: #a8a19f
+cursor: #a8a19f
+background:       #1b1918
 
 !! black
 *color0: #1b1918
@@ -28,40 +28,27 @@
 *color7: #a8a19f
 *color15: #f1efee
 
-URxvt.intensityStyles:	false
-URxvt.background:       rgba:0000/0000/0200/c800
-URxvt.font: 		xft:Ubuntu Mono:size=11 Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
-URxvt.depth		32
-URxvt.scrollBar:	false
-URxvt.cursorColor:	magenta
-URxvt.letterspace:	1
 URxvt.transparent:	true
-URxvt.shading:		20
-!! Extensions
-URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.shading:		10
+URxvt.intensityStyles:	false
+URxvt.background:       #000000
+URxvt.depth:		32
+URxvt.font: 		xft:Ubuntu Mono:size=12
+URxvt.scrollBar:	false
+URxvt.cursorColor:      #FFFF00
+
+! Extensions
+URxvt.perl-ext-common:	default,font-size,url-select,keyboard-select,matcher
 URxvt.colorUL:		#4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: webview
+URxvt.url-select.launcher: qutebrowser
 URxvt.url-select.underline: true
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !! resize-font
-URxvt.resize-font.smaller:	C-Down
-URxvt.resize-font.bigger:	C-Up
-!! Matcher
-URxvt.url-launcher:	w3m
-URxvt.matcher.button:	1
-
-rofi.color-enabled:	true
-rofi.color-window:	#000, #000, #000
-rofi.color-normal:	#111, #819396, #222, #008ed4, #ffffff
-rofi.color-active:	#002b37, #008ed4, #003643, #008ed4, #66c6ff
-rofi.color-urgent:	#002b37, #da4281, #003643, #008ed4, #890661
-
-rofi.fake-transparency:	true
-rofi.lines:		3
-rofi.bw:		0
-rofi.opacity:		"10"
-rofi.hide-scrollbar:	true
-rofi.width:		30
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+!! matcher
+URxvt.url-launcher: qutebrowser
+URxvt.matcher.button: 1
