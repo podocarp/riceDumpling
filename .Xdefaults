@@ -35,7 +35,7 @@ URxvt.background:       #000000
 URxvt.depth:		32
 URxvt.font: 		xft:Ubuntu Mono:size=12
 URxvt.scrollBar:	false
-URxvt.cursorColor:      #FFFF00
+URxvt.cursorColor:     	magenta
 
 ! Extensions
 URxvt.perl-ext-common:	default,font-size,url-select,keyboard-select,matcher

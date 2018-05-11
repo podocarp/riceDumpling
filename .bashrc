@@ -12,6 +12,10 @@ complete -cf sud
 
 cdl(){ cd "$@" && ls; }
 
+set -o vi
+
+export PATH=$PATH:~/go/bin
+
 export PS1=$'\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 4)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[\e[0m\\]\n ⇝ \$ '
 
 # Import colorscheme from 'wal' asynchronously
