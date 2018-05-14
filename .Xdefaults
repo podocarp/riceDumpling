@@ -28,6 +28,9 @@ background:       #1b1918
 *color7: #a8a19f
 *color15: #f1efee
 
+URxvt.iso14755: true
+URxvt.iso14755_52: false
+
 URxvt.transparent:	true
 URxvt.shading:		10
 URxvt.intensityStyles:	false
@@ -35,6 +38,7 @@ URxvt.background:       #000000
 URxvt.depth:		32
 URxvt.font: 		xft:Ubuntu Mono:size=12
 URxvt.scrollBar:	false
+URxvt.cursorColor2:	magenta
 URxvt.cursorColor:     	magenta
 
 ! Extensions
