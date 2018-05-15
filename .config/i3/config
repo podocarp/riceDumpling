@@ -11,23 +11,13 @@
 
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font pango:monospace 10
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:Ubuntu, Light 12
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# no no no no no
+focus_follows_mouse no
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -82,13 +72,13 @@ bindsym $mod+w layout tabbed
 bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Control+space floating toggle
+bindsym $mod+space floating toggle
 
 # make floating terminal sticky
 bindsym $mod+s sticky toggle
 
 # toggle mark
-bindsym $mod+m mark --toggle priority
+bindsym $MOD+m mark --toggle priority
 bindsym $mod+n [con_mark="priority"] focus
 
 # scratchpad (hidden workspace) stuff
@@ -96,7 +86,7 @@ bindsym $mod+p scratchpad show
 bindsym $mod+Shift+p move scratchpad
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Control+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+z focus parent
@@ -105,7 +95,6 @@ bindsym $mod+z focus parent
 bindsym $mod+x focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -159,20 +148,20 @@ bindsym $mod+r mode "$resize"
 mode "$resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        bindsym h resize grow width $resizepixels px or $resizepixels ppt
+        bindsym h resize shrink width $resizepixels px or $resizepixels ppt
         bindsym j resize grow height $resizepixels px or $resizepixels ppt
         bindsym k resize shrink height $resizepixels px or $resizepixels ppt
-        bindsym l resize shrink width $resizepixels px or $resizepixels ppt
+        bindsym l resize grow width $resizepixels px or $resizepixels ppt
 
 	bindsym Shift+w move up $movepixel
     	bindsym Shift+a move left $movepixel
     	bindsym Shift+s move down $movepixel
     	bindsym Shift+d move right $movepixel
 
-	bindsym Shift+h resize grow width $bigresizepixels px or $bigresizepixels ppt
+	bindsym Shift+h resize shrink width $bigresizepixels px or $bigresizepixels ppt
 	bindsym Shift+j resize grow height $bigresizepixels px or $bigresizepixels ppt
 	bindsym Shift+k resize shrink height $bigresizepixels px or $bigresizepixels ppt
-	bindsym Shift+l resize shrink width $bigresizepixels px or $bigresizepixels ppt
+	bindsym Shift+l resize grow width $bigresizepixels px or $bigresizepixels ppt
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"

@@ -5,9 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+alias ls='ls --color=always'
 alias la='ls -a'
 alias ll='ls -l'
+alias lla='ls -a -l'
+alias weather='curl http://wttr.in/Singapore'
+
 complete -cf sud
 
 cdl(){ cd "$@" && ls; }
