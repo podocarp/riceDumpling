@@ -28,7 +28,7 @@ background:       #1b1918
 *color7: #a8a19f
 *color15: #f1efee
 
-URxvt.iso14755: true
+URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.transparent:	true
@@ -42,12 +42,10 @@ URxvt.cursorColor2:	magenta
 URxvt.cursorColor:     	magenta
 
 ! Extensions
-URxvt.perl-ext-common:	default,font-size,url-select,keyboard-select,matcher
+URxvt.perl-ext-common:	default,font-size,,keyboard-select,matcher
 URxvt.colorUL:		#4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: qutebrowser
-URxvt.url-select.underline: true
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !! resize-font
@@ -55,4 +53,4 @@ URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
 !! matcher
 URxvt.url-launcher: qutebrowser
-URxvt.matcher.button: 1
+URxvt.matcher.button: 2

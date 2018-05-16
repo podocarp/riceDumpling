@@ -234,9 +234,6 @@ bar {
 	status_command i3status --config ~/.config/i3status/config
 }
 
-floating_minimum_size -1 x -1
-floating_maximum_size -1 x -1
-
 set $mode_gaps gaps
 set $mode_gaps_outer outer gaps
 set $mode_gaps_inner inner gaps
@@ -295,11 +292,11 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
-
+for_window [title="float"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
-exec --no-startup-id i3-msg "exec urxvt -geometry 200x50 -name ranger -e ranger"
+exec --no-startup-id i3-msg "exec urxvt -name ranger -e ranger"
 for_window [class="URxvt" instance="ranger"] "move workspace 2"
 
 exec --no-startup-id "workspace 1;exec urxvt"
