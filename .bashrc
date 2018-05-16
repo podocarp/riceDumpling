@@ -15,7 +15,7 @@ complete -cf sud
 cdl(){ cd "$@" && ls; }
 
 weather(){
-	urxvt -geometry 140x40 -title float -e sh -c "curl "http://wttr.in/$1?m" -sS | head -n -3 ; read -p 'Press enter to quit';"
+	urxvt -geometry 140x40 -title float -e sh -c "curl "http://zh.wttr.in/$1?m" -sS | head -n -3 ; read -p 'Press enter to quit';"
 }
 
 

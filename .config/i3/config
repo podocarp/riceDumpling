@@ -23,7 +23,7 @@ focus_follows_mouse no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -95,16 +95,16 @@ bindsym $mod+z focus parent
 bindsym $mod+x focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 一
+set $ws2 二
+set $ws3 三
+set $ws4 四
+set $ws5 五
+set $ws6 六
+set $ws7 七
+set $ws8 八
+set $ws9 九
+set $ws10 十
 
 set $default_gaps_inner 20
 set $default_gaps_outer 15
@@ -225,7 +225,7 @@ bar {
         background         $black
         separator          $white
 #                          BORDER       BACKGROUND   TEXT
-        focused_workspace  $transparent $transparent $white
+        focused_workspace  $transparent $red $white
         inactive_workspace $transparent $transparent $gray
         active_workspace   $transparent $transparent $white
         urgent_workspace   $darkred     $darkred     $transparent
@@ -297,7 +297,7 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 exec --no-startup-id i3-msg "exec urxvt -name ranger -e ranger"
-for_window [class="URxvt" instance="ranger"] "move workspace 2"
+for_window [class="URxvt" instance="ranger"] "move workspace $ws2"
 
-exec --no-startup-id "workspace 1;exec urxvt"
+exec --no-startup-id "workspace $ws1;exec urxvt"
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
