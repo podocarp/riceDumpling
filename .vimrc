@@ -1,11 +1,3 @@
-""""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""
-
-call plug#begin('~/.vim/plugged')
-"Plug 'dylanaraps/wal.vim'
-
-call plug#end()
-
-"colorscheme wal
 """""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
 set mouse=a
 " line number
