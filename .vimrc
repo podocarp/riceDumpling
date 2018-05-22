@@ -1,6 +1,12 @@
-""""""""""""""""""""V E E M   A R E   S E E""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
+""""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""
+
+call plug#begin('~/.vim/plugged')
+"Plug 'dylanaraps/wal.vim'
+
+call plug#end()
+
+"colorscheme wal
+"""""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
 set mouse=a
 " line number
 set number relativenumber
@@ -12,8 +18,16 @@ set showcmd
 set autoindent
 set noswapfile
 
-"underlines the current line being edited
+
+" Highlights the cursor position VERY OBVIOUSLY
 set cursorline
+set cursorcolumn
+hi CursorColumn ctermbg=Black
+hi CursorLine cterm=Bold ctermbg=LightBlue ctermfg=Black
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLine ctermbg=Blue ctermfg=Black
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLine ctermbg=LightBlue ctermfg=Black
 
 " tab completion stuff
 set wildmenu
@@ -34,17 +48,9 @@ filetype on
 filetype plugin on
 syntax enable
 
-""""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""
-
-call plug#begin('~/.vim/plugged')
-Plug 'dylanaraps/wal.vim'
-
-call plug#end()
-
-colorscheme wal
 
 """"""""""""""""""""""""""GENERAL MAPS""""""""""""""""""""""""
-
+noremap x "_x
 
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""""
 

@@ -37,7 +37,7 @@ URxvt.shading:		10
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
 URxvt.depth:		32
-URxvt.font: 		xft:Ubuntu Mono:size=12:antialias=true,xft:Source Han Serif CN:size=14:style=Regular:antialias=true
+URxvt.font: 		xft:Ubuntu Mono:size=12:antialias=true,xft:Source Han Serif CN:size=14:style=Bold:antialias=true
 URxvt.scrollBar:	false
 URxvt.cursorColor2:	magenta
 URxvt.cursorColor:     	magenta
