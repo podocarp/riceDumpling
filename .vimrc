@@ -1,6 +1,5 @@
 """""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
 set mouse=a
-" line number
 set number relativenumber
 set ruler
 set nobackup
@@ -10,6 +9,23 @@ set showcmd
 set autoindent
 set noswapfile
 
+"""""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'lifepillar/vim-mucomplete'
+set completeopt+=menuone,noselect
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
+let g:mucomplete#enable_auto_at_startup = 1
+
+Plugin 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+"""""""""""""""""""""""""""AESTHETICS"""""""""""""""""""""""""""
 
 " Highlights the cursor position VERY OBVIOUSLY
 set cursorline
@@ -21,13 +37,19 @@ autocmd InsertEnter * highlight  CursorLine ctermbg=Blue ctermfg=Black
 " Revert Color to default when leaving Insert Mode
 autocmd InsertLeave * highlight  CursorLine ctermbg=LightBlue ctermfg=Black
 
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+
 " tab completion stuff
 set wildmenu
 set wildmode=list:longest,full
 
 " highlight search
 set hlsearch
-
+nnoremap <F3> :noh<CR>
 " scrolling past the line pops you below
 set whichwrap+=<,>,h,l,[,]
 
@@ -39,7 +61,6 @@ set splitbelow
 filetype on
 filetype plugin on
 syntax enable
-
 
 """"""""""""""""""""""""""GENERAL MAPS""""""""""""""""""""""""
 noremap x "_x
