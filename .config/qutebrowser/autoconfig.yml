@@ -3,6 +3,38 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      q: quit
+      w: session-save
+      wq: quit --save
+  colors.tabs.bar.bg:
+    global: '#444444'
+  colors.tabs.even.bg:
+    global: '#AAAAAA'
+  colors.tabs.even.fg:
+    global: white
+  colors.tabs.odd.bg:
+    global: '#888888'
+  colors.tabs.selected.even.bg:
+    global: black
+  colors.tabs.selected.even.fg:
+    global: white
+  colors.tabs.selected.odd.bg:
+    global: black
+  colors.tabs.selected.odd.fg:
+    global: white
+  editor.command:
+    global:
+    - vim
+    - -f
+    - '{file}'
+    - -c
+    - normal {line}G{column0}l
+  fonts.statusbar:
+    global: 12pt monospace
+  fonts.tabs:
+    global: 12pt monospace
   scrolling.bar:
     global: true
   scrolling.smooth:
@@ -10,3 +42,26 @@ settings:
   spellcheck.languages:
     global:
     - en-US
+  statusbar.hide:
+    global: false
+  statusbar.padding:
+    global:
+      bottom: 2
+      left: 0
+      right: 10
+      top: 2
+  tabs.padding:
+    global:
+      bottom: 2
+      left: 0
+      right: 5
+      top: 2
+  tabs.width:
+    global: 20%
+  url.default_page:
+    global: about:blank
+  url.searchengines:
+    global:
+      DEFAULT: https://ecosia.org/search?q={}
+  url.start_pages:
+    global: about:blank

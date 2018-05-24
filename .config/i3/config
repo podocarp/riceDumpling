@@ -196,10 +196,10 @@ set $transparent #00000000
 set_from_resource $fg foreground #f0f0f0
 set_from_resource $bg background #f0f0f0
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 5
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $white
+client.focused          $bg     $bg     $fg  $bg       #FF7050
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
