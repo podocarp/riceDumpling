@@ -15,5 +15,5 @@ Of course you can not use them if you want.
   - mupdf
 - i3-gaps
 - fonts (of course you can change these to whatever you want)
-  -adobe-source-han-serif-cn-fonts
-  -ttf-ubuntu-font-family
+  - adobe-source-han-serif-cn-fonts
+  - ttf-ubuntu-font-family
