@@ -10,7 +10,8 @@ do
 	if [ -e ~/$mod ] || [ -L ~/$mod ] || [ -d ~/$mod ]
 	then
 		rm ~/$mod -r
-		ln -s $dir/$mod ~/$mod
 	fi
+
+	ln -s $dir/$mod ~/$mod
 done
 
