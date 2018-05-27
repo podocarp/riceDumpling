@@ -3,7 +3,7 @@
 # Destroys everything you once had.
 dir="$(dirname "$(realpath "$0")")"
 
-modifications=( ".bashrc" ".config" ".vimrc" ".inputrc" )
+modifications=(".Xmodmap" ".Xdefaults" ".bashrc" ".config" ".vimrc" ".inputrc" )
 
 for mod in "${modifications[@]}"
 do

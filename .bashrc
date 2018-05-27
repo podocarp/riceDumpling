@@ -15,15 +15,18 @@ complete -cf sud
 cdl(){ cd "$@" && ls; }
 
 weather(){
-	urxvt -geometry 140x40 -title float -e sh -c "curl "http://wttr.in/$1?m" -sS | head -n -3 ; read -p 'Press enter to quit';"
+	urxvt -geometry 130x40 -title float -e sh -c "curl "http://wttr.in/$1?m" -sS | head -n -3 ; read -p 'Press enter to quit';"
+}
+
+AURClone(){
+	git clone https://aur.archlinux.org/$1.git
 }
 
 stty -ixon
 
 set -o vi
-
+export GOPATH=$HOME/go
 export PATH=$PATH:~/go/bin
-
 export PS1=$'\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 4)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[\e[0m\\]\n ⇝ \$ '
 
 # Import colorscheme from 'wal' asynchronously

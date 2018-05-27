@@ -1,0 +1,2 @@
+keysym XF86Back = Page_Up
+keysym XF86Forward = Page_Down

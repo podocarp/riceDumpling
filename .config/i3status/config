@@ -8,20 +8,20 @@ general {
 
 order += "volume master"
 order += "disk /"
-order += "ethernet enp0s3"
-order += "ethernet enp0s8"
+order += "ethernet enp0s25"
+order += "ethernet wlp3s0"
 order += "cpu_usage 0"
 order += "load"
 order += "tztime local"
 
-ethernet enp0s3{
-    format_up = "Internet: %ip"
-    format_down = "enp0s3"
+ethernet enp0s25{
+    format_up = "LAN: %ip"
+    format_down = "No Lan"
 }
 
-ethernet enp0s8 {
-	format_up = "Host Only: %ip"
-	format_down = "enp0s8"
+ethernet wlp3s0 {
+	format_up = "Wireless: %ip"
+	format_down = "No Wifi"
 }
 
 tztime local {
