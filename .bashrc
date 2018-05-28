@@ -10,7 +10,10 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -a -l'
 
-complete -cf sud
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
+
+complete -cf sudo
 
 cdl(){ cd "$@" && ls; }
 
