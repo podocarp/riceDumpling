@@ -10,7 +10,7 @@ set autoindent
 set noswapfile
 set nowrap
 " Displays full path in status bar
-set statusline+=%F
+set statusline+=%F\ %l\:%c
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -98,6 +98,9 @@ nnoremap <C-S> :w<CR>
 " Generate pandoc preview F5 processes and F4 opens
 nmap <F5> :!pandoc -o /tmp/vimtemp.pdf % && pkill -HUP mupdf<CR><CR>
 nmap <F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
+
+" Enters tabs
+nnoremap <Tab> i<Tab>
 
 """"""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""
 
