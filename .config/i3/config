@@ -94,6 +94,15 @@ bindsym $mod+z focus parent
 # focus the child container
 bindsym $mod+x focus child
 
+# fn brightness keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+# volume keys
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute 0 false; pactl set-sink-volume 0 +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 0 false; pactl set-sink-volume 0 -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
+
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 一
 set $ws2 二

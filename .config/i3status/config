@@ -10,13 +10,17 @@ order += "volume master"
 order += "disk /"
 order += "ethernet enp0s25"
 order += "ethernet wlp3s0"
+order += "battery 0"
+order += "battery 1"
 order += "cpu_usage 0"
-order += "load"
+order += "cpu_temperature 0"
+order += "cpu_temperature 1"
 order += "tztime local"
 
 ethernet enp0s25{
     format_up = "LAN: %ip"
     format_down = "No Lan"
+    separator = false
 }
 
 ethernet wlp3s0 {
@@ -36,10 +40,11 @@ cpu_usage {
     format = "Use: %usage"
     max_threshold = 90
     degraded_threshold = 75
+    separator = false
 }
 
 disk "/" {
-	format = "Free: %free (U/T: %used/%total)"
+	format = "U/T: %used/%total"
 	prefix_type = custom
 	low_threshold = 10
 	threshold_type = percentage_avail
@@ -47,8 +52,50 @@ disk "/" {
 
 volume master {
     format = "Vol: %volume"
-    format_muted = "Vol: %volume"
-    device = "default"
+    format_muted = "Mute: %volume"
+    device = "pulse:0"
     mixer = "Master"
     mixer_idx = 0
+}
+
+battery 0 {
+    format = "B1%status %percentage %remaining"
+    format_down = ""
+    last_full_capacity = true
+    integer_battery_capacity = false
+    low_threshold = 10
+    threshold_type = percentage
+    hide_seconds = true
+    status_chr = "(⚡)"
+    status_bat = "(DC)"
+    status_unk = "(?)"
+    status_full = "(F)"
+    separator = false
+}
+
+battery 1 {
+    format = "B2%status %percentage %remaining"
+    format_down = ""
+    last_full_capacity = true
+    integer_battery_capacity = false
+    low_threshold = 10
+    threshold_type = percentage
+    hide_seconds = true
+    status_chr = "(⚡)"
+    status_bat = "(DC)"
+    status_unk = "(?)"
+    status_full = "(F)"
+}
+
+cpu_temperature 0 {
+	format = "C1: %degrees°"
+	path = "/sys/class/thermal/thermal_zone0/temp"
+	max_threshold = 95
+	separator = false
+}
+
+cpu_temperature 1 {
+	format = "C2: %degrees°"
+	path = "/sys/class/thermal/thermal_zone1/temp"
+	max_threshold = 95
 }
