@@ -18,15 +18,15 @@ Plugin 'VundleVim/Vundle.vim'
 
 """""""Autocomplete stuff
 Plugin 'lifepillar/vim-mucomplete'
-set completeopt+=menuone,noselect
-set shortmess+=c   " Shut off completion messages
+set completeopt+=menuone,noselect,noinsert
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
-
 Plugin 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot = 0
+let g:jedi#auto_initialization = 0
 """"""
 
+Plugin 'w0rp/ale'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
