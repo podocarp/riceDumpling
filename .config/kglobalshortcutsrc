@@ -1,5 +1,0 @@
-[kcm_touchpad]
-Disable Touchpad=Touchpad Off,Touchpad Off,
-Enable Touchpad=Touchpad On,Touchpad On,
-Toggle Touchpad=Touchpad Toggle,Touchpad Toggle,
-_k_friendly_name=KWin
