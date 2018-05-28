@@ -123,6 +123,10 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+# alt tab around
+bindsym	mod1+Tab workspace next_on_output
+bindsym mod1+Shift+Tan workspace prev_on_output
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
@@ -297,6 +301,7 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 exec --no-startup-id i3-msg "exec urxvt -name ranger -e ranger"
+exec --no-startup-id i3-msg "exec qutebrowser"
 for_window [class="URxvt" instance="ranger"] "move workspace $ws2"
 
 exec --no-startup-id "workspace $ws1;exec urxvt"

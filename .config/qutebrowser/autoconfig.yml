@@ -50,6 +50,8 @@ settings:
       left: 0
       right: 10
       top: 2
+  tabs.last_close:
+    global: close
   tabs.padding:
     global:
       bottom: 2
