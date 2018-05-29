@@ -8,6 +8,8 @@ settings:
       q: quit
       w: session-save
       wq: quit --save
+  backend:
+    global: webengine
   colors.tabs.bar.bg:
     global: '#444444'
   colors.tabs.even.bg:
@@ -24,6 +26,8 @@ settings:
     global: black
   colors.tabs.selected.odd.fg:
     global: white
+  downloads.location.directory:
+    global: ~/Downloads
   editor.command:
     global:
     - vim
@@ -41,7 +45,7 @@ settings:
     global: false
   spellcheck.languages:
     global:
-    - en-US
+    - en-GB
   statusbar.hide:
     global: false
   statusbar.padding:

@@ -309,9 +309,6 @@ for_window [title="float"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
-exec --no-startup-id i3-msg "exec urxvt -name ranger -e ranger"
-exec --no-startup-id i3-msg "exec qutebrowser"
-for_window [class="URxvt" instance="ranger"] "move workspace $ws2"
-
 exec --no-startup-id "workspace $ws1;exec urxvt"
+exec --no-startup-id "workspace $ws2;exec qutebrowser"
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
