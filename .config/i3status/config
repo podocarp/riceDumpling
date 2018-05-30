@@ -7,47 +7,25 @@ general {
 }
 
 order += "volume master"
-order += "disk /"
-order += "ethernet enp0s25"
-order += "ethernet wlp3s0"
+order += "wireless wlp3s0"
 order += "battery 0"
 order += "battery 1"
-order += "cpu_usage 0"
+order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "cpu_temperature 1"
 order += "tztime local"
 
-ethernet enp0s25{
-    format_up = "LAN: %ip"
-    format_down = "No Lan"
-    separator = false
-}
-
-ethernet wlp3s0 {
-	format_up = "Wireless: %ip"
-	format_down = "No Wifi"
+wireless wlp3s0 {
+	format_up = "Wifi:%quality %essid"
+	format_down = "Wifi disconnected"
 }
 
 tztime local {
-    format = "%A %V %B  %H:%M:%S"
+    format = "%V %B %H:%M:%S"
 }
 
 load {
     format = "Load: %1min"
-}
-
-cpu_usage {
-    format = "Use: %usage"
-    max_threshold = 90
-    degraded_threshold = 75
-    separator = false
-}
-
-disk "/" {
-	format = "U/T: %used/%total"
-	prefix_type = custom
-	low_threshold = 10
-	threshold_type = percentage_avail
 }
 
 volume master {
@@ -63,14 +41,13 @@ battery 0 {
     format_down = ""
     last_full_capacity = true
     integer_battery_capacity = false
-    low_threshold = 10
+    low_threshold = 30
     threshold_type = percentage
     hide_seconds = true
-    status_chr = "(⚡)"
-    status_bat = "(DC)"
-    status_unk = "(?)"
-    status_full = "(F)"
-    separator = false
+    status_chr = "⚡"
+    status_bat = "*"
+    status_unk = ""
+    status_full = ""
 }
 
 battery 1 {
@@ -78,24 +55,33 @@ battery 1 {
     format_down = ""
     last_full_capacity = true
     integer_battery_capacity = false
-    low_threshold = 10
+    low_threshold = 30
     threshold_type = percentage
     hide_seconds = true
-    status_chr = "(⚡)"
-    status_bat = "(DC)"
-    status_unk = "(?)"
-    status_full = "(F)"
+    status_chr = "⚡"
+    status_bat = "*"
+    status_unk = ""
+    status_full = ""
+}
+
+cpu_usage {
+    format = "CPU: %cpu0 %cpu1 %cpu2 %cpu3"
+    max_threshold = 75
+    degraded_threshold = 25
+    separator = false
+    separator_block_width = 10
 }
 
 cpu_temperature 0 {
-	format = "C1: %degrees°"
-	path = "/sys/class/thermal/thermal_zone0/temp"
-	max_threshold = 95
-	separator = false
+    format = "%degrees°C"
+    path = "/sys/class/thermal/thermal_zone0/temp"
+    max_threshold = 50
+    separator = false
+    separator_block_width = 8
 }
 
 cpu_temperature 1 {
-	format = "C2: %degrees°"
+	format = "%degrees°C"
 	path = "/sys/class/thermal/thermal_zone1/temp"
-	max_threshold = 95
+	max_threshold = 50
 }

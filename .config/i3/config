@@ -104,16 +104,16 @@ bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 0 false; pactl set-sink-v
 bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 
 # Define names for default workspaces for which we configure key bindings later on.
-set $ws1 一
-set $ws2 二
-set $ws3 三
-set $ws4 四
-set $ws5 五
-set $ws6 六
-set $ws7 七
-set $ws8 八
-set $ws9 九
-set $ws10 十
+set $ws1 1:一
+set $ws2 2:二
+set $ws3 3:三
+set $ws4 4:四
+set $ws5 5:五
+set $ws6 6:六
+set $ws7 7:七
+set $ws8 8:八
+set $ws9 9:九
+set $ws10 10:十
 
 set $default_gaps_inner 20
 set $default_gaps_outer 15
@@ -225,13 +225,11 @@ bar {
         verbose yes
     	i3bar_command i3bar -t
 	position top
-    	font pango:Ubuntu Mono 12
-    	strip_workspace_numbers no
+    	font pango:DejaVu Sans Mono 10
+    	strip_workspace_numbers yes
     	separator_symbol "|"
-    	tray_output eDP1
-    	tray_output LVDS-0
-    	tray_padding 0
-    	height 30
+    	tray_output primary
+    	height 25
 
     colors {
         statusline         $white

@@ -82,7 +82,7 @@ imap <C-S> <C-[><C-S>
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
 
 " <leader> l will highlight the current line.
-nnoremap <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
+nnoremap <silent><Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')

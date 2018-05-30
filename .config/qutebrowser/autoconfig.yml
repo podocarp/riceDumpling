@@ -26,6 +26,9 @@ settings:
     global: black
   colors.tabs.selected.odd.fg:
     global: white
+  confirm_quit:
+    global:
+    - never
   downloads.location.directory:
     global: ~/Downloads
   editor.command:
@@ -55,7 +58,7 @@ settings:
       right: 10
       top: 2
   tabs.last_close:
-    global: close
+    global: ignore
   tabs.padding:
     global:
       bottom: 2
