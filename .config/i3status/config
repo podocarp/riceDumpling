@@ -13,15 +13,15 @@ order += "battery 1"
 order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "cpu_temperature 1"
-order += "tztime local"
+order += "time"
 
 wireless wlp3s0 {
 	format_up = "Wifi:%quality %essid"
 	format_down = "Wifi disconnected"
 }
 
-tztime local {
-    format = "%V %B %H:%M:%S"
+time {
+    format = "%d %B %H:%M:%S"
 }
 
 load {

@@ -20,7 +20,7 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -93,6 +93,12 @@ bindsym $mod+z focus parent
 
 # focus the child container
 bindsym $mod+x focus child
+
+# fn power keys
+set $lock sh ~/.config/scripts/lock && sleep 1
+bindsym XF86Sleep exec $lock && systemctl suspend, mode "default"
+bindsym XF86ScreenSaver exec $lock
+bindsym XF86Suspend exec $lock && systemctl hibernate, mode "default"
 
 # fn brightness keys
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10

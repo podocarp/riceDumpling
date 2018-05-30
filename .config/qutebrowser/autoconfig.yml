@@ -8,6 +8,8 @@ settings:
       q: quit
       w: session-save
       wq: quit --save
+  auto_save.session:
+    global: true
   backend:
     global: webengine
   colors.tabs.bar.bg:

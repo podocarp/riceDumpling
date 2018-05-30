@@ -3,12 +3,12 @@ set mouse=a
 set number relativenumber
 set ruler
 set nobackup
+set linebreak
 set nocompatible
 set viminfo=
 set showcmd
 set autoindent
 set noswapfile
-set nowrap
 " Displays full path in status bar
 set statusline+=%F\ %l\:%c
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
@@ -71,6 +71,9 @@ syntax enable
 """"""""""""""""""""""""""GENERAL MAPS""""""""""""""""""""""""
 noremap x "_x
 
+" Scroll in wrapped lines
+map <silent> <Up> gk
+map <silent> <Down> gj
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""""
 
 " Press i i to exit insert mode.
@@ -79,6 +82,10 @@ imap II <C-[>
 
 " Save file
 imap <C-S> <C-[><C-S>
+
+" Up and down in wrapped lines
+imap <silent> <C-o> gk
+imap <silent> <C-o> gj
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
 
 " <leader> l will highlight the current line.
