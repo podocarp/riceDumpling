@@ -10,6 +10,11 @@ do
 	then
 		rm ~/$mod -r
 	fi
-
 	ln -s $dir/$mod ~/$mod
+	echo "linked ~/$mod -> $dir/$mod"
 done
+
+echo "getting urxvt plugins..."
+./urxvtGetPlugins.sh
+
+echo "all done!"
