@@ -128,4 +128,3 @@ imap <C-w> <C-o><C-w>
 """""""""""""""""""""VISUAL MODE MAPS""""""""""""""""""""""
 " Sends things away without overwriting the register
 vnoremap <leader>d "_d
-vnoremap u ~
