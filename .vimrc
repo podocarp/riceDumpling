@@ -18,7 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 """""""Autocomplete stuff
 Plugin 'lifepillar/vim-mucomplete'
-set completeopt+=menuone,noselect,noinsert,longest
+set completeopt+=menuone,noselect,noinsert
 set shortmess+=c
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
