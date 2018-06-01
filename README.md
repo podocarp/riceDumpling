@@ -14,6 +14,6 @@ Of course you can not use them if you want.
   - pandoc
   - mupdf
 - i3-gaps
-- fonts (of course you can change these to whatever you want)
-  - adobe-source-han-serif-cn-fonts
-  - ttf-ubuntu-font-family
+  - i3-lock
+  - i3status
+
