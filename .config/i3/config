@@ -124,8 +124,8 @@ set $ws8 8:八
 set $ws9 9:九
 set $ws10 10:十
 
-set $default_gaps_inner 20
-set $default_gaps_outer 15
+set $default_gaps_inner 15
+set $default_gaps_outer 0
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
@@ -262,6 +262,9 @@ mode "$mode_gaps" {
     bindsym o      mode "$mode_gaps_outer"
     bindsym i      mode "$mode_gaps_inner"
 
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+
     bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
     bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
 
@@ -317,5 +320,4 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 exec --no-startup-id "workspace $ws1;exec urxvt"
-exec --no-startup-id "workspace $ws2;exec qutebrowser"
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
