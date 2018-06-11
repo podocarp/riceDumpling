@@ -25,8 +25,8 @@ let g:mucomplete#enable_auto_at_startup = 1
 Plugin 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot = 1
 let g:jedi#auto_initialization = 1
-""""""
 
+""""""Linting stuff
 Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 
@@ -34,6 +34,12 @@ Plugin 'Chiel92/vim-autoformat'
 noremap <F1> :Autoformat<CR>
 let g:formatdef_autopep8 = '"autopep8 -aa -"'
 let g:formatters_python = ['autopep8']
+""""""
+
+Plugin 'scrooloose/nerdtree'
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -73,6 +79,13 @@ set splitbelow
 filetype on
 filetype plugin on
 syntax enable
+
+" File picker
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 1
+let g:netrw_winsize = 20
+
 
 """"""""""""""""""""""""""GENERAL MAPS""""""""""""""""""""""""
 noremap x "_x
