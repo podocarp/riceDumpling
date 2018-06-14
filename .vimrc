@@ -37,9 +37,8 @@ let g:formatters_python = ['autopep8']
 """"""
 
 Plugin 'scrooloose/nerdtree'
-autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+map <C-n> :NERDTreeToggle<CR>
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -91,10 +90,8 @@ let g:netrw_winsize = 20
 noremap x "_x
 
 " Scroll in wrapped lines
-map <silent> <Up> gk
-map <silent> <k> gk
-map <silent> <Down> gj
-map <silent> <j> gj
+map <Up> gk
+map <Down> gj
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""""
 
 " Press i i to exit insert mode.
@@ -104,9 +101,6 @@ imap II <C-[>
 " Save file
 imap <C-S> <C-[><C-S>
 
-" Up and down in wrapped lines
-imap <silent> <C-o> gk
-imap <silent> <C-o> gj
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
 
 " <leader> l will highlight the current line.
