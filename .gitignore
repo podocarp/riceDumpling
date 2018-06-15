@@ -1,3 +1,12 @@
 .config/qutebrowser/bookmarks
 .config/qutebrowser/quickmarks
-.config/pulse
+.config
+
+!.config/i3
+!.config/i3status
+!.config/qutebrowser
+!.config/ranger
+!.config/scripts
+!.config/neofetch
+!.config/wall.png
+!.config/lock_wall.png
