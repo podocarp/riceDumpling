@@ -27,6 +27,8 @@ settings:
       <Enter>: <Return>
       <Shift+Enter>: <Return>
       <Shift+Return>: <Return>
+  colors.completion.scrollbar.bg:
+    global: black
   colors.tabs.bar.bg:
     global: '#444444'
   colors.tabs.even.bg:
@@ -64,7 +66,7 @@ settings:
   scrolling.bar:
     global: true
   scrolling.smooth:
-    global: false
+    global: true
   spellcheck.languages:
     global:
     - en-GB
