@@ -142,6 +142,7 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # alt tab around
+bindsym mod1+Shift+Tab workspace prev_on_output
 bindsym	mod1+Tab workspace next_on_output
 bindsym mod1+Shift+Tan workspace prev_on_output
 
