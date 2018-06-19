@@ -9,8 +9,9 @@ set viminfo=
 set showcmd
 set autoindent
 set noswapfile
-" Displays full path in status bar
 set statusline+=%F\ %l\:%c
+set columns=80
+set colorcolumn=81,161,241,321
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -101,6 +102,9 @@ imap II <C-[>
 " Save file
 imap <C-S> <C-[><C-S>
 
+" paste 
+inoremap <C-v> <ESC>"+pa
+
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
 
 " <leader> l will highlight the current line.
@@ -144,3 +148,6 @@ vnoremap <leader>d "_d
 " Indent without exiting visual
 vnoremap > >gv
 vnoremap < <gv
+
+vnoremap <C-c> "+y
+vnoremap <C-d> "+d

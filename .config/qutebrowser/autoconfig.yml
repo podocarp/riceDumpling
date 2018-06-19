@@ -48,6 +48,9 @@ settings:
   confirm_quit:
     global:
     - never
+  content.host_blocking.lists:
+    global:
+    - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-social/hosts
   downloads.location.directory:
     global: ~/Downloads
   editor.command:
@@ -66,7 +69,7 @@ settings:
   scrolling.bar:
     global: true
   scrolling.smooth:
-    global: true
+    global: false
   spellcheck.languages:
     global:
     - en-GB
