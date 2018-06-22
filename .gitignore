@@ -4,9 +4,10 @@
 
 !.config/i3
 !.config/i3status
-!.config/qutebrowser
+!.config/qutebrowser/autoconfig.yml
 !.config/ranger
 !.config/scripts
 !.config/neofetch
+!.config/mpv
 !.config/wall.png
 !.config/lock_wall.png

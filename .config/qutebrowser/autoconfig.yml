@@ -50,7 +50,7 @@ settings:
     - never
   content.host_blocking.lists:
     global:
-    - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-social/hosts
+    - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
   downloads.location.directory:
     global: ~/Downloads
   editor.command:
