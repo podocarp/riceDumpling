@@ -65,7 +65,7 @@ settings:
   fonts.tabs:
     global: 12pt monospace
   input.insert_mode.auto_load:
-    global: false
+    global: true
   scrolling.bar:
     global: true
   scrolling.smooth:

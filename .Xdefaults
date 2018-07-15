@@ -42,7 +42,7 @@ URxvt.cursorColor2:	magenta
 URxvt.cursorColor:     	magenta
 
 ! Extensions
-URxvt.perl-ext-common:	default,font-size,keyboard-select,matcher
+URxvt.perl-ext-common:	default,font-size,keyboard-select,matcher,tabbed
 URxvt.colorUL:		#4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
