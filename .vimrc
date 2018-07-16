@@ -23,9 +23,13 @@ set completeopt+=menuone,noselect,noinsert
 set shortmess+=c
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
+
 Plugin 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot = 1
 let g:jedi#auto_initialization = 1
+
+Plugin 'Rip-Rip/clang_complete'
+let g:clang_library_path='/usr/lib64/libclang.so.6'
 
 """"""Linting stuff
 Plugin 'w0rp/ale'

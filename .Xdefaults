@@ -36,21 +36,21 @@ URxvt.shading:		10
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
 URxvt.depth:		32
-URxvt.font: 		xft:Ubuntu Mono:size=12:antialias=true,xft:Noto Sans Mono CJK SC,Noto Sans Mono CJK SC Regular:size=12:style=Regular:anti-alias:true
+URxvt.font: 		xft:Ubuntu Mono:size=12:antialias=true,xft:Source Han Sans CN Bold:size=12
 URxvt.scrollBar:	false
-URxvt.cursorColor2:	magenta
-URxvt.cursorColor:     	magenta
+URxvt.secondaryScreen: 	1
+URxvt.secondaryScroll: 	0
 
 ! Extensions
-URxvt.perl-ext-common:	default,font-size,keyboard-select,matcher,tabbed
+URxvt.perl-ext-common:	default,font-size,keyboard-select,url-select,tabbed
 URxvt.colorUL:		#4682B4
 !! url-select
-URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.keysym.M-u:		perl:url-select:select_next
+URxvt.url-select.launcher: 	/usr/bin/xdg-open
+URxvt.url-select.underline: 	true
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !! resize-font
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
-!! matcher
-URxvt.url-launcher: qutebrowser
-URxvt.matcher.button: 2
+

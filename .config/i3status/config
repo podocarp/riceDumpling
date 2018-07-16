@@ -1,13 +1,15 @@
 general {
     interval	= 1
     colors	= true
-    color_good 	    = '#88b090'
-    color_degraded  = '#ccdc90'
-    color_bad       = '#e89393'
+    color_good 	    = '#00d000'
+    color_degraded  = '#cdcd55'
+    color_bad       = '#e83333'
 }
 
 order += "volume master"
 order += "wireless wlp3s0"
+order += "ethernet enp0s25"
+order += "ethernet tun0"
 order += "battery 0"
 order += "battery 1"
 order += "cpu_usage"
@@ -16,16 +18,22 @@ order += "cpu_temperature 1"
 order += "time"
 
 wireless wlp3s0 {
-	format_up = "Wifi:%quality %essid"
-	format_down = "Wifi disconnected"
+	format_up = "wlan:%quality %ip"
+	format_down = "wlan: down"
+}
+
+ethernet tun0{
+	format_up= "vpn: %ip"
+	format_down = "vpn: down"
+}
+
+ethernet enp0s25 {
+	format_up = "eth: %ip %speed"
+	format_down = "eth: down"
 }
 
 time {
-    format = "%d %B %H:%M:%S"
-}
-
-load {
-    format = "Load: %1min"
+    format = "%A %d %B %H:%M:%S"
 }
 
 volume master {
@@ -37,8 +45,10 @@ volume master {
 }
 
 battery 0 {
-    format = "B1%status %percentage %remaining"
+    format = "B1%status%percentage %remaining"
     format_down = ""
+    separator = false
+    separator_block_width = 10
     last_full_capacity = true
     integer_battery_capacity = false
     low_threshold = 30
@@ -46,12 +56,12 @@ battery 0 {
     hide_seconds = true
     status_chr = "⚡"
     status_bat = "*"
-    status_unk = ""
-    status_full = ""
+    status_unk = " "
+    status_full = " "
 }
 
 battery 1 {
-    format = "B2%status %percentage %remaining"
+    format = "B2%status%percentage %remaining"
     format_down = ""
     last_full_capacity = true
     integer_battery_capacity = false
@@ -60,20 +70,18 @@ battery 1 {
     hide_seconds = true
     status_chr = "⚡"
     status_bat = "*"
-    status_unk = ""
-    status_full = ""
+    status_unk = " "
+    status_full = " "
 }
 
 cpu_usage {
     format = "CPU: %cpu0 %cpu1 %cpu2 %cpu3"
     max_threshold = 75
-    degraded_threshold = 25
-    separator = false
-    separator_block_width = 10
+    degraded_threshold = 10 
 }
 
 cpu_temperature 0 {
-    format = "%degrees°C"
+    format = "Temp: %degrees°C"
     path = "/sys/class/thermal/thermal_zone0/temp"
     max_threshold = 50
     separator = false
