@@ -38,18 +38,22 @@ URxvt.background:       #000000
 URxvt.depth:		32
 URxvt.font: 		xft:Ubuntu Mono:size=12:antialias=true,xft:Source Han Sans CN Bold:size=12
 URxvt.scrollBar:	false
-URxvt.secondaryScreen: 	1
-URxvt.secondaryScroll: 	0
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
 
 ! Extensions
-URxvt.perl-ext-common:	default,font-size,keyboard-select,url-select,tabbed
+URxvt.perl-ext-common:	default,font-size,url-select,tabbedex
 URxvt.colorUL:		#4682B4
+!! tabbedex
+URxvt.tabbed.autohide: true
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
+URxvt.keysym.Control-Alt-Tab: perl:tabbedex:prev_tab
 !! url-select
 URxvt.keysym.M-u:		perl:url-select:select_next
 URxvt.url-select.launcher: 	/usr/bin/xdg-open
 URxvt.url-select.underline: 	true
-!! keyboard-select:
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !! resize-font
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease

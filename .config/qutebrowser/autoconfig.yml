@@ -92,7 +92,7 @@ settings:
   tabs.background:
     global: true
   tabs.last_close:
-    global: ignore
+    global: default-page
   tabs.padding:
     global:
       bottom: 2

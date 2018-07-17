@@ -10,7 +10,6 @@ set showcmd
 set autoindent
 set noswapfile
 set statusline+=%F\ %l\:%c
-set columns=80
 set colorcolumn=81,161,241,321
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,17 +18,21 @@ Plugin 'VundleVim/Vundle.vim'
 
 """""""Autocomplete stuff
 Plugin 'lifepillar/vim-mucomplete'
-set completeopt+=menuone,noselect,noinsert
+set completeopt-=preview
+set completeopt+=menuone,noselect
 set shortmess+=c
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
 
-Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim', {'for': 'python'}
 let g:jedi#popup_on_dot = 1
 let g:jedi#auto_initialization = 1
+let g:jedi#auto_vim_configuration = 0
 
-Plugin 'Rip-Rip/clang_complete'
-let g:clang_library_path='/usr/lib64/libclang.so.6'
+
+Plugin 'justmao945/vim-clang'
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 
 """"""Linting stuff
 Plugin 'w0rp/ale'
