@@ -32,7 +32,15 @@ export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
 export PATH=$PATH:~/go/bin
 
-export PS1=$'\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 4)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[\e[0m\\]\n ⇝ \$ '
+
+PS1temp=$'\[\u@\h \w\]'
+
+divider(){
+	promptlen=$(printf '%s\n' "${PS1temp@P}" | wc -m)
+	eval printf %.0s— {1..$(($(tput cols) - $promptlen))}\}
+}
+
+export PS1=$'\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 4)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[\e[0m\\]`divider`\n ⇝ \$ '
 
 HISTCONTROL=ignoreboth
 
