@@ -1,7 +1,6 @@
 .config/qutebrowser/bookmarks
 .config/qutebrowser/quickmarks
 .config
-
 !.config/i3
 !.config/i3status
 !.config/qutebrowser/autoconfig.yml
@@ -9,5 +8,3 @@
 !.config/scripts
 !.config/neofetch
 !.config/mpv
-!.config/wall.png
-!.config/lock_wall.png
