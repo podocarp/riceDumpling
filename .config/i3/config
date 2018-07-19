@@ -102,6 +102,7 @@ set $lock sh ~/.config/scripts/lock && sleep 1
 bindsym XF86Sleep exec $lock && systemctl suspend, mode "default"
 bindsym XF86ScreenSaver exec $lock
 bindsym XF86Suspend exec $lock && systemctl hibernate, mode "default"
+bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown?" "$shutdown"
 
 # fn brightness keys
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
@@ -318,6 +319,10 @@ for_window [window_role="Preferences"] floating enable
 for_window [title="float"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] move scratchpad
 
-exec --no-startup-id "workspace $ws1;exec urxvt"
+
+exec --no-startup-id "exec i3-sensible-terminal -name dropdown"
+exec --no-startup-id "workspace $ws1;exec i3-sensible-terminal"
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
