@@ -9,7 +9,7 @@ alias ls='ls --color=always'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -a -l'
-
+alias dfh='df -h'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 
@@ -30,7 +30,7 @@ set -o vi
 
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
-export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/go/bin:~/Scripts
 
 
 PS1temp=$'┌\[\u@\h \w\]'

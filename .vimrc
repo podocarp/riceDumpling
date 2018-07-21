@@ -3,6 +3,7 @@ set mouse=a
 set number relativenumber
 set ruler
 set nobackup
+set ignorecase
 set linebreak
 set nocompatible
 set viminfo=
