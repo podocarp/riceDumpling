@@ -8,6 +8,7 @@ set linebreak
 set nocompatible
 set viminfo=
 set showcmd
+set lazyredraw
 set autoindent
 set noswapfile
 set statusline+=%F\ %l\:%c
@@ -48,6 +49,8 @@ let g:formatters_python = ['autopep8']
 Plugin 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
+
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -96,16 +99,13 @@ let g:netrw_winsize = 20
 
 
 """"""""""""""""""""""""""GENERAL MAPS""""""""""""""""""""""""
-noremap x "_x
-
 " Scroll in wrapped lines
 map <Up> gk
 map <Down> gj
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""""
 
 " Press i i to exit insert mode.
-imap ii <C-[>
-imap II <C-[>
+imap ij <C-[>
 
 " Save file
 imap <C-S> <C-[><C-S>
@@ -128,8 +128,8 @@ nnoremap <leader>d "_d
 nnoremap <C-S> :w<CR>
 
 " Generate pandoc preview F5 processes and F4 opens
-nmap <F5> :!pandoc -o /tmp/vimtemp.pdf % && pkill -HUP mupdf<CR><CR>
-nmap <F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
+nmap <silent><F5> :!pandoc -o /tmp/vimtemp.pdf % && pkill -HUP mupdf<CR><CR>
+nmap <silent><F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
 
 " Enters tabs
 nnoremap <Tab> i<Tab>

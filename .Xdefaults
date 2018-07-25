@@ -36,7 +36,7 @@ URxvt.shading:		10
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
 URxvt.depth:		32
-URxvt.font: 		xft:Ubuntu Mono:size=12:antialias=true,xft:Source Han Sans CN Bold:size=12
+URxvt.font: 		xft:UbuntuMono Nerd Font:size=12:antialias=true,xft:UbuntuMono Nerd Font Mono:size=12,xft:Source Han Sans CN Bold:size=12
 URxvt.scrollBar:	false
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
