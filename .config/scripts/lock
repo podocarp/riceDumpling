@@ -1,0 +1,40 @@
+#!/bin/sh
+
+B='#55555588'  # blank
+C='#BBBBBBFF'  # clear ish
+D='BBBBBB99'  # default
+T='#CCCCCCFF'  # text
+W='#880000bb'  # wrong
+V='#222222bb'  # verifying
+
+i3lock \
+-i ~/.config/lock_wall.png 	\
+--insidevercolor=$V   \
+--ringvercolor=$V     \
+\
+--insidewrongcolor=$V \
+--ringwrongcolor=$W   \
+\
+--insidecolor=$B      \
+--ringcolor=$D        \
+--linecolor=$B        \
+--separatorcolor=$D   \
+\
+--verifcolor=$T       \
+--wrongcolor=$T       \
+--timecolor=$T        \
+--datecolor=$T        \
+--layoutcolor=$T      \
+--keyhlcolor=$W       \
+--bshlcolor=$W        \
+\
+--timestr="%H:%M:%S"  \
+--datestr="%A, %m %Y" \
+--wrongtext="Invalid key"       \
+--veriftext="Wait..." \
+--verifsize=20        \
+--wrongsize=20        \
+\
+--ignore-empty-password \
+--radius 100          \
+--ring-width 15       \
