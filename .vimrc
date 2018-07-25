@@ -128,7 +128,7 @@ nnoremap <leader>d "_d
 nnoremap <C-S> :w<CR>
 
 " Generate pandoc preview F5 processes and F4 opens
-nmap <silent><F5> :!pandoc -o /tmp/vimtemp.pdf % && pkill -HUP mupdf<CR><CR>
+nmap <silent><F5> :silent !(pandoc -o /tmp/vimtemp.pdf % & wait && pkill -HUP mupdf)&<CR><CR>:redraw!<CR>
 nmap <silent><F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
 
 " Enters tabs

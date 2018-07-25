@@ -1,7 +1,7 @@
-foreground: #00cc00
-foreground_bold: #a8a19f
-cursor: #a8a19f
-background:       #1b1918
+*foreground: #cccc00
+*foreground_bold: #a8a1af
+*cursor: #a8b29fcc
+*background: #1b1b1b
 
 !! black
 *color0: #1b1918
@@ -27,6 +27,8 @@ background:       #1b1918
 !! white
 *color7: #a8a19f
 *color15: #f1efee
+
+*font: UbuntuMono Nerd Font:size=14:antialias=true:autohint=false
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false

@@ -4,9 +4,7 @@ The files constantly change, some of the screenshots might be outdated as well.
 Generally the one on top marked "latest" is always up to date.
 
 # Screens
-
 Latest screen:
-
 ![](images/new.png)
 
 You can change the color theme by changing your wallpaper:
@@ -22,14 +20,14 @@ Generate and refresh markdown and latex previews with pandoc in vim:
 
 ![](images/md.png)
 
-
 # Stuff that I use 
 Of course you can not use them if you want.
 Dependencies are just there for extra rice, like ranger uses w3m for image previews. You can leave w3m out if you don't care about that.
 
 Fonts wise, I really suggest [nerd font](https://github.com/ryanoasis/nerd-fonts) because it just werks, and has all the glyphs.
 
-- rxvt-unicode
+- rxvt-unicode (I have stopped using it but it's still there)
+- [luke smith's st](https://github.com/LukeSmithxyz/st]
 - ranger
   - w3m (image preview)
   - pywal (set wallpaper & generate theme)
@@ -45,7 +43,6 @@ Fonts wise, I really suggest [nerd font](https://github.com/ryanoasis/nerd-fonts
 - fonts
   - [nerd font](https://github.com/ryanoasis/nerd-fonts)
   - Adobe Source (CN output)
-
 # Usage
 Just clone it anywhere, then run `./setup.sh`.
 This script makes all your configs a symlink of whatever files are in here, so it *will wipe your current configs*.

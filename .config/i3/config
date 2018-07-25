@@ -20,7 +20,7 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id st 
 
 # kill focused window
 bindsym $mod+q kill
@@ -220,7 +220,7 @@ set $transparent #00000000
 set_from_resource $fg foreground #f0f0f0
 set_from_resource $bg background #f0f0f0
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 1.5
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $blue 
@@ -324,7 +324,6 @@ for_window [window_type="menu"] floating enable
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] move scratchpad
 
-
-exec --no-startup-id "exec i3-sensible-terminal -name dropdown"
-exec --no-startup-id "workspace $ws1;exec i3-sensible-terminal"
+exec --no-startup-id compton
+exec --no-startup-id "exec st -n dropdown"
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
