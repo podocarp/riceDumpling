@@ -1,9 +1,14 @@
 # What's this
-My Race Inspired Car Enhancement (RICE) on a fresh arch linux install. 
-
-Quite a few features were inspired by [Luke Smith](lukesmith.xyz), shout out to him.
+My Race Inspired Car Enhancement (RICE).
+The files constantly change, some of the screenshots might be outdated as well.
+Generally the one on top marked "latest" is always up to date.
 
 # Screens
+
+Latest screen:
+
+![](images/new.png)
+
 You can change the color theme by changing your wallpaper:
 
 ![](images/color.png)
@@ -12,9 +17,6 @@ Color themes propagate into vim too
 
 ![](images/screen.png)
 
-Dankpad:
-
-![](images/fetch.png)
 
 Generate and refresh markdown and latex previews with pandoc in vim:
 
@@ -25,20 +27,24 @@ Generate and refresh markdown and latex previews with pandoc in vim:
 Of course you can not use them if you want.
 Dependencies are just there for extra rice, like ranger uses w3m for image previews. You can leave w3m out if you don't care about that.
 
+Fonts wise, I really suggest [nerd font](https://github.com/ryanoasis/nerd-fonts) because it just werks, and has all the glyphs.
+
 - rxvt-unicode
-- qutebrowser
 - ranger
   - w3m (image preview)
-  - pywal (set wallpape & generate theme)
-  - feh (set wallpape, invoked by pywal)
+  - pywal (set wallpaper & generate theme)
+  - feh (set wallpaper, invoked by pywal)
   - schemer2 (invoked by pywal as a color generator. can be left out.)
  - vim
-  - Vundle (plugins)
+  - Vundle
   - pandoc (generate live preview of markdown and stuff)
   - mupdf (open the live preview)
-- i3-gaps (a e s t h e t i c s)
-  - i3-lock (lock screen)
-  - i3status (status bar)
+- i3-gaps
+  - i3-lock
+  - polybar
+- fonts
+  - [nerd font](https://github.com/ryanoasis/nerd-fonts)
+  - Adobe Source (CN output)
 
 # Usage
 Just clone it anywhere, then run `./setup.sh`.
