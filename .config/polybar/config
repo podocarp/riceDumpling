@@ -265,10 +265,12 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98 
+time-format= %H:%S
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${xrdb:color9} 
 
+label-discharging = %percentage%% (%time%)
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 

@@ -4,7 +4,9 @@ The files constantly change, some of the screenshots might be outdated as well.
 Generally the one on top marked "latest" is always up to date.
 
 # Screens
+
 Latest screen:
+
 ![](images/new.png)
 
 You can change the color theme by changing your wallpaper:
