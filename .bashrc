@@ -11,6 +11,8 @@ alias ll='ls -l'
 alias lla='ls -a -l'
 alias dfh='df -h'
 alias v='vim'
+alias v.='v .'
+alias music="ncmpcpp"
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 

@@ -46,30 +46,59 @@ let g:formatdef_autopep8 = '"autopep8 -aa -"'
 let g:formatters_python = ['autopep8']
 """"""
 
+""""""Misc stuff
 Plugin 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "",
+    \ "Staged"    : "",
+    \ "Untracked" : "",
+    \ "Renamed"   : "",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "",
+    \ "Clean"     : "",
+    \ 'Ignored'   : '',
+    \ "Unknown"   : "?"
+    \ }
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 2
+
+Plugin 'dylanaraps/wal.vim'
+""""""
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 """""""""""""""""""""""""""AESTHETICS"""""""""""""""""""""""""""
+colorscheme wal
 
 " Highlights the cursor position VERY OBVIOUSLY
 set cursorline
 set cursorcolumn
-hi CursorColumn ctermbg=Black
-hi CursorLine cterm=None ctermbg=Blue ctermfg=Black
+hi CursorColumn ctermbg=Gray
+hi colorcolumn ctermbg=Black
+hi CursorLine cterm=None ctermbg=LightBlue ctermfg=Black
 " Change Color when entering Insert Mode
-autocmd InsertEnter * highlight CursorLine cterm=Bold ctermbg=LightBlue ctermfg=Black
+autocmd InsertEnter * hi CursorLine cterm=Bold ctermbg=LightBlue ctermfg=Black
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight CursorLine cterm=None ctermbg=Blue ctermfg=Black
+autocmd InsertLeave * hi CursorLine cterm=None ctermbg=Gray ctermfg=Black
 
 augroup BgHighlight
 	autocmd!
 	autocmd WinEnter * set cul
+	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Green ctermfg=Black
 	autocmd WinLeave * set nocul
+	autocmd WinLeave * hi StatusLine cterm=None ctermbg=Gray ctermfg=Gray
 augroup END
 
 " Tab completion stuff
