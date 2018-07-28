@@ -1,7 +1,6 @@
 #
 # ~/.bashrc
 #
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -21,20 +20,19 @@ complete -cf sudo
 cdl(){ cd "$@" && ls; }
 
 weather(){
-	urxvt -geometry 130x40 -title float -e sh -c "curl "http://wttr.in/$1?m" -sS | head -n -3 ; read -p 'Press enter to quit';"
+	st -g 130x40 -t float -e sh -c "curl "http://wttr.in/$1?m" -sS | head -n -3 ; read -p 'Press enter to quit';"
 }
 
 AURClone(){
 	git clone https://aur.archlinux.org/$1.git
 }
 
-stty -ixon
-set -o vi
-
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
 export PATH=$PATH:~/go/bin:~/Scripts
 
+stty -ixon
+set -o vi
 
 PS1temp=$'┌\[\u@\h \w\]'
 

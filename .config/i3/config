@@ -104,6 +104,9 @@ bindsym XF86ScreenSaver exec $lock
 bindsym XF86Suspend exec $lock && systemctl hibernate, mode "default"
 bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown?" "$shutdown"
 
+set $touchpadtoggle sh ~/.config/scripts/touchpad_toggle
+bindsym XF86TouchpadToggle exec $touchpadtoggle
+
 # fn brightness keys
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
