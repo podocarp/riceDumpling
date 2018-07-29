@@ -19,8 +19,9 @@ floating_modifier $mod
 # no no no no no
 focus_follows_mouse no
 
+set $tabbed tabbed -f 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id st 
+bindsym $mod+Return exec --no-startup-id $tabbed st -w 
 
 # kill focused window
 bindsym $mod+q kill
@@ -328,5 +329,5 @@ for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] move scratchpad
 
 exec --no-startup-id compton
-exec --no-startup-id "exec st -n dropdown -g 120x20"
+exec --no-startup-id $tabbed -n dropdown st -g 120x20 -w
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png

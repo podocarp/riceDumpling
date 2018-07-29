@@ -22,14 +22,13 @@ Generate and refresh markdown and latex previews with pandoc in vim:
 
 ![](images/md.png)
 
-# Stuff that I use 
-Of course you can not use them if you want.
-Dependencies are just there for extra rice, like ranger uses w3m for image previews. You can leave w3m out if you don't care about that.
+# Stuff used 
+These are the stuff that I use. I don't say they are configured here, because for the suckless tools the configs are not here.
 
-Fonts wise, I really suggest [nerd font](https://github.com/ryanoasis/nerd-fonts) because it just werks, and has all the glyphs.
 
 - rxvt-unicode (I have stopped using it but it's still there)
-- [ls st](https://github.com/LukeSmithxyz/st)
+- [this st](https://github.com/LukeSmithxyz/st)
+- [this tabbed](https://github.com/podocarp/tabbed)
 - ranger
   - w3m (image preview)
   - pywal (theme generation)
@@ -47,14 +46,13 @@ Fonts wise, I really suggest [nerd font](https://github.com/ryanoasis/nerd-fonts
   - [nerd font](https://github.com/ryanoasis/nerd-fonts)
   - Adobe Source (CN output)
 # Usage
-Just clone it anywhere, then run `./setup.sh`.
+`./setup.sh`.
 This script makes all your configs a symlink of whatever files are in here, so it *will wipe your current configs*.
-Otherwise you can just take a peep through and copy whatever you like.
-It's not a foolproof script yet, for example vim will throw a bunch of errors because it doesn't get Vundle for you
+Yea I use it to quickly set it up on new installs but you probably don't want it.
 
 # Keybinds
 Here are some extra stuff I added.
-Most of the other keybinds are default (I think), such as those in i3.
+Most of the other keybinds are default unless stated otherwise.
 
 ## General
 | Key combo | Function |
