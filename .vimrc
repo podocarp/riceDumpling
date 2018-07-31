@@ -49,6 +49,7 @@ let g:formatters_python = ['autopep8']
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
 
 Plugin 'ryanoasis/vim-devicons'
@@ -142,6 +143,9 @@ imap <C-S> <C-[><C-S>
 " paste 
 inoremap <C-v> <ESC>"+pa
 
+" Moves lines up and down
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
 
 " <leader> l will highlight the current line.
@@ -163,6 +167,9 @@ nmap <silent><F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
 " Enters tabs
 nnoremap <Tab> i<Tab>
 
+" Moves lines up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
 """"""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""
 
 " For moving split windows
@@ -182,9 +189,9 @@ imap <C-w> <C-o><C-w>
 " Sends things away without overwriting the register
 vnoremap <leader>d "_d
 
-" Indent without exiting visual
-vnoremap > >gv
-vnoremap < <gv
+" Move selected blocks up and down
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 vnoremap <C-c> "+y
-vnoremap <C-d> "+d
+vnoremap <C-x> "+d
