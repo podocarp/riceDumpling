@@ -2,7 +2,7 @@
 # This sets everything up on a fresh install
 # Destroys everything you once had.
 dir="$(dirname "$(realpath "$0")")"
-modifications=(".Xmodmap" ".Xdefaults" ".pythonrc" ".bashrc" ".config" ".vimrc" ".inputrc" )
+modifications=(".Xmodmap" ".Xdefaults" ".pythonrc" ".bashrc" ".config" ".vimrc" ".inputrc" ".local")
 
 for mod in "${modifications[@]}"
 do
