@@ -103,7 +103,6 @@ set $lock sh ~/.config/scripts/lock && sleep 1
 bindsym XF86Sleep exec $lock && systemctl suspend, mode "default"
 bindsym XF86ScreenSaver exec $lock
 bindsym XF86Suspend exec $lock && systemctl hibernate, mode "default"
-bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown?" "$shutdown"
 
 set $touchpadtoggle sh ~/.config/scripts/touchpad_toggle
 bindsym XF86TouchpadToggle exec $touchpadtoggle
@@ -116,6 +115,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute 0 false; pactl set-sink-volume 0 +5%"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 0 false; pactl set-sink-volume 0 -5%"
 bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
+
+bindsym mod1+Shift+Ctrl+Left exec "xrandr --output LVDS1 --rotate left"
+bindsym mod1+Shift+Ctrl+Right exec "xrandr --output LVDS1 --rotate right"
+bindsym mod1+Shift+Ctrl+Up exec "xrandr --output LVDS1 --rotate normal"
+bindsym mod1+Shift+Ctrl+Down exec "xrandr --output LVDS1 --rotate inverted"
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 1:一
@@ -149,7 +153,6 @@ bindsym $mod+0 workspace $ws10
 # alt tab around
 bindsym mod1+Shift+Tab workspace prev_on_output
 bindsym	mod1+Tab workspace next_on_output
-bindsym mod1+Shift+Tan workspace prev_on_output
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
