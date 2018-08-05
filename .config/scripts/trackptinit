@@ -1,0 +1,10 @@
+# Disables the trackpad
+# Enables tapping on the trackpad
+# Changes acceleration of trackpoint
+pad=`xinput list | grep TouchPad | cut -f2`
+pad=${pad:3}
+pt=`xinput list | grep TrackPoint | cut -f2`
+pt=${pt:3}
+xinput set-prop ${pt} 290 -1
+xinput set-prop ${pad} 140 0
+xinput set-prop ${pad} 275 1
