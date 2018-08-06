@@ -1,5 +1,6 @@
 """""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
 set mouse=a
+set path+=**
 set number relativenumber
 set ruler
 set nobackup
@@ -12,7 +13,7 @@ set lazyredraw
 set autoindent
 set noswapfile
 set statusline+=%F\ %l\:%c
-set colorcolumn=81,161,241,321
+set colorcolumn=80
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -55,17 +56,17 @@ map <C-n> :NERDTreeToggle<CR>
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "",
-    \ "Staged"    : "",
-    \ "Untracked" : "",
-    \ "Renamed"   : "",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "",
-    \ "Dirty"     : "",
-    \ "Clean"     : "",
-    \ 'Ignored'   : '',
-    \ "Unknown"   : "?"
-    \ }
+			\ "Modified"  : "",
+			\ "Staged"    : "",
+			\ "Untracked" : "",
+			\ "Renamed"   : "",
+			\ "Unmerged"  : "═",
+			\ "Deleted"   : "",
+			\ "Dirty"     : "",
+			\ "Clean"     : "",
+			\ 'Ignored'   : '',
+			\ "Unknown"   : "?"
+			\ }
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
@@ -76,6 +77,29 @@ let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 
 Plugin 'dylanaraps/wal.vim'
+Plugin 'junegunn/goyo.vim'
+nnoremap <silent> <leader>z :Goyo<cr>
+let g:goyo_height=100
+" Lets Goyo quit together with the buffer on :q
+function! s:goyo_enter()
+	let b:quitting = 0
+	let b:quitting_bang = 0
+	autocmd QuitPre <buffer> let b:quitting = 1
+	cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+function! s:goyo_leave()
+	" Quit Vim if this is the only remaining buffer
+	if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+		if b:quitting_bang
+			qa!
+		else
+			qa
+		endif
+	endif
+endfunction
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+" On window resize, if Goyo is active, resize the window
 """"""
 
 call vundle#end()            " required
@@ -108,7 +132,6 @@ set wildmode=list:longest,full
 
 " Highlight search
 set hlsearch
-nnoremap <F3> :noh<CR>
 " Scrolling past the line pops you below
 set whichwrap+=<,>,h,l,[,]
 
@@ -140,7 +163,7 @@ imap ij <C-[>
 " Save file
 imap <C-S> <C-[><C-S>
 
-" paste 
+" paste
 inoremap <C-v> <ESC>"+pa
 
 " Moves lines up and down
@@ -151,18 +174,21 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 " <leader> l will highlight the current line.
 nnoremap <silent><Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 
-" Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
 " Sends things away without overwriting the register
 nnoremap <leader>d "_d
 
 " Save with ctrl s
 nnoremap <C-S> :w<CR>
 
+" Ctags
+nnoremap <F2> :!ctags -R .
+
+" Remove search highlights
+nnoremap <F3> :noh<CR>
+
 " Generate pandoc preview F5 processes and F4 opens
-nmap <silent><F5> :silent !(pandoc -o /tmp/vimtemp.pdf % & wait && pkill -HUP mupdf)&<CR><CR>:redraw!<CR>
-nmap <silent><F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
+nnoremap <silent><F5> :silent !(pandoc -o /tmp/vimtemp.pdf % & wait && pkill -HUP mupdf)&<CR><CR>:redraw!<CR>
+nnoremap <silent><F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
 
 " Enters tabs
 nnoremap <Tab> i<Tab>
