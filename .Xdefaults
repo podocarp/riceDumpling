@@ -28,7 +28,7 @@
 *color7: #a8a19f
 *color15: #f1efee
 
-*font: UbuntuMono Nerd Font Mono:size=14:antialias=true:autohint=false
+*font: UbuntuMono Nerd Font Mono:size=14:antialias=true:autohint=true
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
