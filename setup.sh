@@ -2,7 +2,7 @@
 # This sets everything up on a fresh install
 # Destroys everything you once had.
 dir="$(dirname "$(realpath "$0")")"
-modifications=(".Xmodmap" ".Xdefaults" ".pythonrc" ".bashrc" ".config" ".vimrc" ".inputrc" ".local")
+modifications=(".Xmodmap" ".Xdefaults" ".pythonrc" ".bashrc" ".config" ".vimrc" ".inputrc" ".xinitrc" ".xprofile" ".local")
 
 for mod in "${modifications[@]}"
 do
@@ -10,11 +10,10 @@ do
 	then
 		rm ~/$mod -r
 	fi
-	ln -s $dir/$mod ~/$mod
-	echo "linked ~/$mod -> $dir/$mod"
+	ln -sv $dir/$mod ~/$mod
 done
 
-echo "getting urxvt plugins..."
-./urxvtGetPlugins.sh
+echo "Getting Vundle..."
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "all done!"

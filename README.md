@@ -42,6 +42,7 @@ These are the stuff that I use. I don't say they are configured here, because fo
   - i3-lock
   - i3status (dormant)
   - polybar
+  - Xcompmgr
 - fonts
   - [nerd font](https://github.com/ryanoasis/nerd-fonts)
   - Adobe Source (CN output)

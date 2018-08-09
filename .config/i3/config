@@ -331,6 +331,5 @@ for_window [window_type="menu"] floating enable
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] move scratchpad
 
-exec --no-startup-id compton
 exec --no-startup-id $tabbed -n dropdown st -g 120x20 -w
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png

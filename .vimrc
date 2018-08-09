@@ -166,9 +166,6 @@ imap <C-S> <C-[><C-S>
 " paste
 inoremap <C-v> <ESC>"+pa
 
-" Moves lines up and down
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
 
 " <leader> l will highlight the current line.
@@ -192,10 +189,6 @@ nnoremap <silent><F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
 
 " Enters tabs
 nnoremap <Tab> i<Tab>
-
-" Moves lines up and down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
 """"""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""
 
 " For moving split windows
