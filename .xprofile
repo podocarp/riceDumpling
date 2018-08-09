@@ -1,1 +1,1 @@
-xcompmgr -c &
+xcompmgr -cfD 5 &
