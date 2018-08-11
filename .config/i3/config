@@ -17,7 +17,7 @@ font pango:Ubuntu, Light 12
 floating_modifier $mod
 
 # no no no no no
-focus_follows_mouse no
+focus_follows_mouse yes
 
 set $tabbed tabbed -f 
 # start a terminal
