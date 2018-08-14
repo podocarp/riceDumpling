@@ -116,10 +116,10 @@ bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute 0 false; pactl set-sink-v
 bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 0 false; pactl set-sink-volume 0 -5%"
 bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 
-bindsym mod1+Shift+Ctrl+Left exec "xrandr --output LVDS1 --rotate left"
-bindsym mod1+Shift+Ctrl+Right exec "xrandr --output LVDS1 --rotate right"
-bindsym mod1+Shift+Ctrl+Up exec "xrandr --output LVDS1 --rotate normal"
-bindsym mod1+Shift+Ctrl+Down exec "xrandr --output LVDS1 --rotate inverted"
+bindsym mod1+Shift+Ctrl+Left exec "xrandr -o left"
+bindsym mod1+Shift+Ctrl+Right exec "xrandr -o right"
+bindsym mod1+Shift+Ctrl+Up exec "xrandr -o normal"
+bindsym mod1+Shift+Ctrl+Down exec "xrandr -o inverted"
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 1:一
