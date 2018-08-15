@@ -121,6 +121,9 @@ bindsym mod1+Shift+Ctrl+Right exec "xrandr -o right"
 bindsym mod1+Shift+Ctrl+Up exec "xrandr -o normal"
 bindsym mod1+Shift+Ctrl+Down exec "xrandr -o inverted"
 
+# quick hack for X200T
+bindsym XF86TaskPane exec "sh ~/.config/scripts/xrandrToggleRot", restart
+
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 1:一
 set $ws2 2:二

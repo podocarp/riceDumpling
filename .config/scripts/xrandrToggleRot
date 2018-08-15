@@ -1,0 +1,9 @@
+#!/bin/bash
+#Toggles rotation.
+#Unfortunately will not work with multi screens yet.
+#Used for x200t rotate screen button so I have no needs for multi screens.
+
+if xrandr | grep LVD | grep --quiet "left ("
+then xrandr -o normal
+else xrandr -o left
+fi
