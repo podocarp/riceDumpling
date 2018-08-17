@@ -112,7 +112,7 @@ set cursorline
 set cursorcolumn
 hi CursorColumn ctermbg=Gray
 hi colorcolumn ctermbg=Black
-hi CursorLine cterm=None ctermbg=LightBlue ctermfg=Black
+hi CursorLine cterm=None ctermbg=LightBlue ctermfg=White
 " Change Color when entering Insert Mode
 autocmd InsertEnter * hi CursorLine cterm=Bold ctermbg=LightBlue ctermfg=Black
 " Revert Color to default when leaving Insert Mode

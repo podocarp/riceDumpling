@@ -99,10 +99,10 @@ bindsym $mod+z focus parent
 bindsym $mod+x focus child
 
 # fn power keys
-set $lock sh ~/.config/scripts/lock
+set $lock sh ~/.config/scripts/lock && sleep 1
 bindsym XF86Sleep exec $lock && systemctl suspend, mode "default"
-bindsym XF86ScreenSaver exec $lock
-bindsym XF86Suspend exec $lock && systemctl hibernate, mode "default"
+bindsym XF86ScreenSaver exec $lock && systemctl suspend, mode "default"
+bindsym xf86suspend exec $lock && systemctl hibernate, mode "default"
 
 set $touchpadtoggle sh ~/.config/scripts/touchpad_toggle
 bindsym XF86TouchpadToggle exec $touchpadtoggle
