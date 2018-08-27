@@ -55,6 +55,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Modified"  : "",
 			\ "Staged"    : "",
@@ -77,29 +78,6 @@ let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 
 Plugin 'dylanaraps/wal.vim'
-Plugin 'junegunn/goyo.vim'
-nnoremap <silent> <leader>z :Goyo<cr>
-let g:goyo_height=100
-" Lets Goyo quit together with the buffer on :q
-function! s:goyo_enter()
-	let b:quitting = 0
-	let b:quitting_bang = 0
-	autocmd QuitPre <buffer> let b:quitting = 1
-	cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-function! s:goyo_leave()
-	" Quit Vim if this is the only remaining buffer
-	if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-		if b:quitting_bang
-			qa!
-		else
-			qa
-		endif
-	endif
-endfunction
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
-" On window resize, if Goyo is active, resize the window
 """"""
 
 call vundle#end()            " required
