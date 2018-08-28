@@ -68,7 +68,7 @@ let g:NERDTreeIndicatorMapCustom = {
 			\ 'Ignored'   : '',
 			\ "Unknown"   : "?"
 			\ }
-Plugin 'godlygeek/tabular'
+Plugin 'godlygeek/tabular' 	"required by vim markdown
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
