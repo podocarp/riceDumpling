@@ -87,7 +87,6 @@ ramp-coreload-3 = ▄
 ramp-coreload-4 = ▅
 ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
-ramp-coreload-7 = █
 
 [module/memory]
 type = internal/memory
@@ -105,7 +104,6 @@ ramp-used-3 = ▄
 ramp-used-4 = ▅
 ramp-used-5 = ▆
 ramp-used-6 = ▇
-ramp-used-7 = █
 
 [module/wlan1]
 type = internal/network
@@ -196,9 +194,8 @@ format-volume = <ramp-volume> <label-volume> <bar-volume>
 label-volume = %percentage%
 label-volume-foreground = ${colors.foreground-alt}
 ramp-volume-foreground = ${colors.foreground-alt}
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
 
 format-muted = <label-muted> <bar-volume>
 label-muted = 
