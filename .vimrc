@@ -47,6 +47,14 @@ let g:formatdef_autopep8 = '"autopep8 -aa -"'
 let g:formatters_python = ['autopep8']
 """"""
 
+"""""" Latex
+Plugin 'vim-latex/vim-latex'
+" Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+let g:Tex_ViewRule_dvi = 'okular'
+
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -146,9 +154,6 @@ inoremap <C-v> <ESC>"+pa
 
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
 
-" <leader> l will highlight the current line.
-nnoremap <silent><Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
-
 " Sends things away without overwriting the register
 nnoremap <leader>d "_d
 
@@ -160,10 +165,6 @@ nnoremap <F2> :!ctags -R .
 
 " Remove search highlights
 nnoremap <F3> :noh<CR>
-
-" Generate pandoc preview F5 processes and F4 opens
-nnoremap <silent><F5> :silent !(pandoc -o /tmp/vimtemp.pdf % & wait && pkill -HUP mupdf)&<CR><CR>:redraw!<CR>
-nnoremap <silent><F4> :!mupdf /tmp/vimtemp.pdf &<CR><CR>
 
 " Enters tabs
 nnoremap <Tab> i<Tab>
