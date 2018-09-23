@@ -99,7 +99,7 @@ bindsym $mod+z focus parent
 bindsym $mod+x focus child
 
 # fn power keys
-set $lock sh ~/.config/scripts/lock 
+set $lock sh ~/.config/scripts/lock && sleep .3 
 bindsym XF86Sleep exec $lock && systemctl suspend, mode "default"
 bindsym XF86Suspend exec $lock && systemctl hibernate, mode "default"
 bindsym XF86ScreenSaver exec xset dpms force off
