@@ -97,17 +97,15 @@ colorscheme wal
 set cursorline
 set cursorcolumn
 hi CursorColumn ctermbg=Gray
-hi colorcolumn ctermbg=Black
-hi CursorLine cterm=None ctermbg=LightBlue ctermfg=White
 " Change Color when entering Insert Mode
 autocmd InsertEnter * hi CursorLine cterm=Bold ctermbg=LightBlue ctermfg=Black
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * hi CursorLine cterm=None ctermbg=Gray ctermfg=Black
+autocmd InsertLeave * hi CursorLine cterm=None ctermbg=DarkMagenta ctermfg=Black
 
 augroup BgHighlight
 	autocmd!
 	autocmd WinEnter * set cul
-	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Green ctermfg=Black
+	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Yellow ctermfg=Black
 	autocmd WinLeave * set nocul
 	autocmd WinLeave * hi StatusLine cterm=None ctermbg=Gray ctermfg=Gray
 augroup END
