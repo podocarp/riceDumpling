@@ -54,6 +54,7 @@ Plugin 'vim-latex/vim-latex'
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi = 'okular'
+imap <C-space> <Plug>IMAP_JumpForward
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree'
