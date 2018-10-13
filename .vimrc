@@ -55,6 +55,7 @@ Plugin 'vim-latex/vim-latex'
 let g:tex_flavor='latex'
 let g:Tex_ViewRule_dvi = 'okular'
 imap <C-space> <Plug>IMAP_JumpForward
+map <C-space> <Plug>IMAP_JumpForward
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree'
