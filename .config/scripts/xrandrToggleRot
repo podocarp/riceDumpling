@@ -4,6 +4,12 @@
 #Used for x200t rotate screen button so I have no needs for multi screens.
 
 if xrandr | grep LVD | grep --quiet "right ("
-then xrandr -o normal
-else xrandr -o right
+then 
+		xrandr -o normal
+		xsetwacom set "Wacom Serial Penabled 1FG Touchscreen Pen stylus" rotate none
+		xsetwacom set "Wacom Serial Penabled 1FG Touchscreen Pen eraser" rotate none
+else 
+		xrandr -o right
+		xsetwacom set "Wacom Serial Penabled 1FG Touchscreen Pen stylus" rotate cw
+		xsetwacom set "Wacom Serial Penabled 1FG Touchscreen Pen eraser" rotate cw
 fi
