@@ -21,7 +21,7 @@ focus_follows_mouse yes
 
 set $tabbed tabbed -f 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id $tabbed st -w 
+bindsym $mod+Return exec --no-startup-id st -w 
 
 # kill focused window
 bindsym $mod+q kill
@@ -334,5 +334,5 @@ for_window [window_type="menu"] floating enable
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] move scratchpad
 
-exec --no-startup-id $tabbed -n dropdown st -g 120x20 -w
+# exec --no-startup-id $tabbed -n dropdown st -g 120x20 -w
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
