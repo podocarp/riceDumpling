@@ -111,14 +111,15 @@ bindsym XF86TouchpadToggle exec $touchpadtoggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
-# volume keys
+# Uncomment for pulseaudio
 #bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ +5%"
 #bindsym XF86AudioLowerVolume exec "pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ -5%"
 #bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-bindsym XF86AudioRaiseVolume exec "amixer sset Master 1dB+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer sset Master 1dB- unmute"
-bindsym XF86AudioMute exec "amixer sset Master mute"
+# Volume keys
+bindsym XF86AudioRaiseVolume exec "amixer sset Master 2dB+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer sset Master 2dB- unmute"
+bindsym XF86AudioMute exec "amixer sset Master toggle"
 
 bindsym mod1+Shift+Ctrl+Left exec "xrandr -o left"
 bindsym mod1+Shift+Ctrl+Right exec "xrandr -o right"
