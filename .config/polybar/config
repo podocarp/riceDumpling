@@ -22,7 +22,7 @@ module-margin-right = 1
 font-0 = SauceCodePro Nerd Font:size=10.5;
 font-1 = Source Han Serif SC:size=13;
 modules-left = i3
-modules-right = pulseaudio memory cpu wlan1 wlan2 vpn eth battery0 battery1 temperature date
+modules-right = alsa memory cpu wlan1 wlan2 vpn eth battery0 battery1 temperature date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -187,8 +187,45 @@ format-underline = ${xrdb:color11}
 
 label = %date% %time%
 
-[module/pulseaudio]
-type = internal/pulseaudio
+[module/alsa]
+type = internal/alsa
+
+; Usually in the format hw:# where # is the card number
+; You can find the different card numbers in `/proc/asound/cards`
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+; Name of the master, speaker and headphone mixers
+; Use the following command to list available mixer controls:
+; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
+; If master, speaker or headphone-soundcard isn't the default, 
+; use `amixer -c # scontrols` instead where # is the number 
+; of the master, speaker or headphone soundcard respectively
+;
+; Default: Master
+master-mixer = Master
+
+; Optionally define speaker and headphone mixers
+; Default: none
+speaker-mixer = Speaker
+; Default: none
+headphone-mixer = Headphone
+
+; NOTE: This is required if headphone_mixer is defined
+; Use the following command to list available device controls
+; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
+; You may also need to use `amixer -c # controls` as above for the mixer names
+; Default: none
+headphone-id = 9
+
+; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
+; Default: false
+mapped = true
+
+; Interval for volume increase/decrease (in percent points) (unreleased)
+; Default: 5
+interval = 5
 
 format-volume = <ramp-volume> <label-volume> <bar-volume>
 label-volume = %percentage%
