@@ -2,3 +2,6 @@ remove Lock = Caps_Lock
 keysym Caps_Lock = Escape
 keysym XF86RotateWindows = Down
 keycode 149 = Up
+
+keysym XF86Back = Page_Up
+keysym XF86Forward = Page_Down
