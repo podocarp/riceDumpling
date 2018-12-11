@@ -60,7 +60,7 @@ handle_extension() {
         # PDF
         pdf)
 	pdftoppm -jpeg -jpegopt "quality=30" \
-              -scale-to-x 1366 -scale-to-y -1 \
+              -scale-to-x 720 -scale-to-y -1 \
               -singlefile \
               -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
          && exit 6 || exit 1;;
