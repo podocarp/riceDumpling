@@ -8,23 +8,24 @@ Generally the one on top marked "latest" is always up to date.
 ![](images/new.png)
 
 # Stuff used 
-These are the stuff that I use. They all have configs here apart from the two suckless programs.
+These are the stuff that I use. They all have configs here apart from the suckless stuff.
 
 - rxvt-unicode (I have stopped using it but it's still there)
 - [this st](https://github.com/podocarp/st)
 - [this tabbed](https://github.com/podocarp/tabbed)
+- [this dwm](https://github.com/podocarp/dwm)
 - ranger
   - w3m
   - pywal
   - feh
   - [schemer2](https://github.com/thefryscorer/schemer2)
- - vim (or gvim for convenient source of +clipboard)
+- vim
   - Vundle
-- i3-gaps
+- i3-gaps (dormant)
   - i3-lock
-  - i3status (dormant)
+  - i3status
   - polybar
-  - Xcompmgr
+- Xcompmgr
 - fonts (included)
   - Some from [nerd font](https://github.com/ryanoasis/nerd-fonts)
   - Adobe Source Han
@@ -41,6 +42,7 @@ There might be some changes that you don't like. This section lists a few change
 | Caps is Esc | `.Xmodmap` |
 | Synaptic Trackpad disabled by default | `.xprofile` |
 | Alpha fade in/out delay | `.xprofile` |
+| Fn buttons | `.xbindkeysrc` |
 
 # Keybinds
 Here are some extra stuff I added.
