@@ -14,6 +14,9 @@ set autoindent
 set noswapfile
 set statusline+=%F\ %l\:%c
 set colorcolumn=80
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -21,8 +24,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 """""""Autocomplete stuff
 Plugin 'lifepillar/vim-mucomplete'
-set completeopt-=preview
-set completeopt+=menuone,noselect
+set completeopt+=menuone,preview,noselect
 set shortmess+=c
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
@@ -36,6 +38,8 @@ let g:jedi#auto_vim_configuration = 0
 Plugin 'justmao945/vim-clang'
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+let g:clang_c_completeopt='menuone,preview,noselect'
+let g:clang_cpp_completeopt='menuone,preview,noselect'
 
 """"""Linting stuff
 Plugin 'w0rp/ale'
