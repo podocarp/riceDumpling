@@ -48,4 +48,7 @@
    XF86AudioMute
 
 "sh ~/.config/scripts/touchpad_toggle"
-    XF86TouchpadToggle
+    XF86Display
+
+"sudo s2ram"
+    XF86Sleep
