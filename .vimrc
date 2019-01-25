@@ -1,5 +1,5 @@
 """""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
-set mouse=a
+
 set path+=**
 set number relativenumber
 set ruler
@@ -114,6 +114,12 @@ augroup BgHighlight
 	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Yellow ctermfg=Black
 	autocmd WinLeave * set nocul
 	autocmd WinLeave * hi StatusLine cterm=None ctermbg=Gray ctermfg=Gray
+augroup END
+
+" Associate types for weird extensions
+augroup filetypedetect
+    au BufRead,BufNewFile *.ts setfiletype javascript
+    au BufRead,BufNewFile *.tsx setfiletype javascript
 augroup END
 
 " Tab completion stuff
