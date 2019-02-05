@@ -14,8 +14,6 @@ set autoindent
 set noswapfile
 set statusline+=%F\ %l\:%c
 set colorcolumn=80
-set softtabstop=4
-set shiftwidth=4
 set noexpandtab
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -109,7 +107,6 @@ autocmd InsertEnter * hi CursorLine cterm=Bold ctermbg=LightBlue ctermfg=Black
 autocmd InsertLeave * hi CursorLine cterm=None ctermbg=DarkMagenta ctermfg=Black
 
 augroup BgHighlight
-	autocmd!
 	autocmd WinEnter * set cul
 	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Yellow ctermfg=Black
 	autocmd WinLeave * set nocul
@@ -117,10 +114,8 @@ augroup BgHighlight
 augroup END
 
 " Associate types for weird extensions
-augroup filetypedetect
-    au BufRead,BufNewFile *.ts setfiletype javascript
-    au BufRead,BufNewFile *.tsx setfiletype javascript
-augroup END
+autocmd BufRead,BufNewFile *.ts setfiletype javascript
+autocmd BufRead,BufNewFile *.tsx setfiletype javascript
 
 " Tab completion stuff
 set wildmenu
@@ -153,11 +148,8 @@ map <Up> gk
 map <Down> gj
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""""
 
-" Press i i to exit insert mode.
-imap ij <C-[>
-
 " Save file
-imap <C-S> <C-[><C-S>
+imap <C-S> <C-[>:w<CR>
 
 " paste
 inoremap <C-v> <ESC>"+pa
@@ -167,8 +159,8 @@ inoremap <C-v> <ESC>"+pa
 " Sends things away without overwriting the register
 nnoremap <leader>d "_d
 
-" Save with ctrl s
-nnoremap <C-S> :w<CR>
+" Open shell
+nnoremap <C-S> :sh<CR>
 
 " Ctags
 nnoremap <F2> :!ctags -R .
@@ -178,6 +170,7 @@ nnoremap <F3> :noh<CR>
 
 " Enters tabs
 nnoremap <Tab> i<Tab>
+
 """"""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""
 
 " For moving split windows
