@@ -1,5 +1,4 @@
 """""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
-
 set path+=**
 set number relativenumber
 set ruler
@@ -14,7 +13,9 @@ set autoindent
 set noswapfile
 set statusline+=%F\ %l\:%c
 set colorcolumn=80
-set noexpandtab
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -113,9 +114,11 @@ augroup BgHighlight
 	autocmd WinLeave * hi StatusLine cterm=None ctermbg=Gray ctermfg=Gray
 augroup END
 
-" Associate types for weird extensions
-autocmd BufRead,BufNewFile *.ts setfiletype javascript
-autocmd BufRead,BufNewFile *.tsx setfiletype javascript
+augroup JSProj
+	au!
+	autocmd BufRead,BufNewFile *.js,*.ts set filetype=javascript
+	autocmd BufRead,BufNewFile *.js,*.ts set softtabstop=2 shiftwidth=2
+augroup END
 
 " Tab completion stuff
 set wildmenu
