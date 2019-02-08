@@ -25,7 +25,7 @@ al
 q1
 v2
 ov
-m72
+m82
 l2
 r2
 
@@ -165,6 +165,156 @@ d/home/pengu/Pictures/Wallpapers
 d/home/pengu/Pictures/Wallpapers/landscapes
 	1532334097495.jpg
 7
+d/home/pengu/Pictures/Wallpapers
+	landscapes
+3
+d/home/pengu/Pictures
+	Wallpapers
+1
+d/home/pengu
+	Downloads
+3
+d/home/pengu/Downloads
+	TrueType
+1
+d/home/pengu/Downloads/TrueType
+	TrueType
+1
+d/home/pengu/Downloads/TrueType/TrueType
+	IBM-Plex-Mono
+2
+d/home/pengu/Downloads/TrueType/TrueType/IBM-Plex-Mono
+	IBMPlexMono-MediumItalic.ttf
+9
+d/home/pengu/Downloads/TrueType/TrueType
+	IBM-Plex-Sans-Condensed
+4
+d/home/pengu/Downloads/TrueType
+	TrueType
+1
+d/home/pengu/Downloads/TrueType/TrueType
+	IBM-Plex-Sans
+3
+d/home/pengu/Downloads/TrueType/TrueType/IBM-Plex-Sans
+	IBMPlexSans-Italic.ttf
+5
+d/home/pengu/Downloads/TrueType/TrueType
+	IBM-Plex-Sans
+3
+d/home/pengu/Downloads/TrueType/TrueType/IBM-Plex-Sans
+	IBMPlexSans-Italic.ttf
+5
+d/home/pengu/Downloads/TrueType/TrueType
+	IBM-Plex-Sans
+3
+d/home/pengu/Downloads/TrueType
+	TrueType
+1
+d/home/pengu/Downloads/TrueType/TrueType
+	IBM-Plex-Sans
+3
+d/home/pengu/Downloads/TrueType/TrueType/IBM-Plex-Sans
+	IBMPlexSans-Italic.ttf
+5
+d/home/pengu/Downloads/TrueType/TrueType
+	IBM-Plex-Sans
+3
+d/home/pengu/Downloads/TrueType
+	TrueType
+1
+d/home/pengu/Downloads
+	TrueType
+1
+d/home/pengu
+	Downloads
+3
+d/home/pengu/Downloads
+	TrueType
+1
+d/home/pengu
+	.local
+5
+d/home/pengu/.local
+	share
+3
+d/home/pengu/.local/share
+	fonts
+4
+d/home/pengu/.local/share/fonts
+	Ubuntu Mono Nerd Font Complete Mono.ttf
+6
+d/home/pengu/.local/share
+	fonts
+4
+d/home/pengu/.local
+	share
+3
+d/home/pengu
+	Documents
+15
+d/home/pengu/Documents
+	nus
+3
+d/home/pengu/Documents/nus
+	cp3108
+1
+d/home/pengu/Documents/nus/cp3108
+	cadet-frontend
+1
+d/home/pengu/Documents/nus/cp3108/cadet-frontend
+	public
+4
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/public
+	..
+0
+d/home/pengu/Documents/nus/cp3108/cadet-frontend
+	src
+6
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/src
+	utils
+9
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/src/utils
+	..
+0
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/src
+	utils
+9
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/src/utils
+	..
+0
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/src
+	utils
+9
+d/home/pengu/Documents/nus/cp3108/cadet-frontend
+	src
+6
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/src
+	components
+3
+d/home/pengu/Documents/nus/cp3108/cadet-frontend
+	src
+6
+d/home/pengu/Documents/nus/cp3108/cadet-frontend/src
+	containers
+4
+d/home/pengu/Documents/nus/cp3108/cadet-frontend
+	src
+6
+d/home/pengu/Documents/nus/cp3108
+	cadet-frontend
+1
+d/home/pengu/Documents/nus
+	cp3108
+1
+d/home/pengu/Documents/nus/cp3108
+	js-slang
+3
+d/home/pengu/Documents/nus/cp3108/js-slang
+	src
+5
+d/home/pengu/Documents/nus/cp3108/js-slang/src
+	schedulers.ts
+16
 d
 
 # Right window history (oldest to newest):
@@ -199,39 +349,64 @@ D/home/pengu/Pictures/Wallpapers
 	landscapes
 3
 D/home/pengu/Pictures/Wallpapers/landscapes
-	1532342183064.jpg
-10
+	..
+0
 D
 
 # Command line history (oldest to newest):
-:sh
-:sp
 :preview
 :help
 :vew
-:view
 :classify
 :q
 :!wal
 :!wal -i %c
 :!wal -i %c --backend schemer2 && cp %c ~/.config/wall.png
+:cs desert
+:colorscheme desert
+:colorscheme g80
+:colorscheme zenburn_1
+:colorscheme zenburn
+:colorscheme ph
+:colorscheme darkdesert
+:colorscheme lucius
+:colorscheme molokai
+:colorscheme reicheltd
+:colorscheme reicheltd-light
+:colorscheme semidarkdesert
+:tab sp
+:tab
+:f
+:sp
+:vsp
+:file
+:view
+:tabnew
+:sh
 
 # Search history (oldest to newest):
 
 # Prompt history (oldest to newest):
+pTrueType.zip
 
 # Local filter history (oldest to newest):
 
 # Registers:
+""/home/pengu/.local/share/vifm/Trash/000_SourceHanSerifSC-ExtraLight.otf
+""/home/pengu/.local/share/vifm/Trash/000_SourceHanSerifSC-Light.otf
 
 # Directory stack (oldest to newest):
 
 # Trash content:
+t/home/pengu/.local/share/vifm/Trash/000_SourceHanSerifSC-ExtraLight.otf
+	/home/pengu/.local/share/fonts/SourceHanSerifSC-ExtraLight.otf
+t/home/pengu/.local/share/vifm/Trash/000_SourceHanSerifSC-Light.otf
+	/home/pengu/.local/share/fonts/SourceHanSerifSC-Light.otf
 
 # State:
 f
 i1
-[.1
+[.0
 [F
 F
 I1

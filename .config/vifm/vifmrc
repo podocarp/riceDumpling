@@ -198,7 +198,7 @@ fileviewer *.flac soxi
 
 " Video
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-         \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+         \*.fl[icv],*.m2v,*.mov,*.webm,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]
         \ {View using ffplay}
         \ ffplay -fs %f,
@@ -207,7 +207,7 @@ filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
         \ {View using mplayer}
         \ mplayer %f,
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+          \*.fl[icv],*.m2v,*.mov,*.webm,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]
          \ ffprobe -pretty %c 2>&1
 
@@ -286,7 +286,7 @@ filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
        \ {View contents}
        \ zip -sf %c | less,
        \ {Extract here}
-       \ tar -xf %c,
+       \ unzip -d %c:r %c,
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
 
 " ArchiveMount
@@ -354,7 +354,7 @@ filextype */
 "
 " Or leave it for automatic detection
 "
-" fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
+fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 
 " Displaying pictures in terminal
 "
@@ -443,6 +443,10 @@ nnoremap <f5> :copy<cr>
 nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
+
+" Alternative opening methods
+nnoremap R :file<cr>
+vnoremap R :file<cr>
 
 " Sets wallpapers and stuff
 nnoremap bw :!wal -i %c --backend schemer2 && cp %c ~/.config/wall.png<cr>
