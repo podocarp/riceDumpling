@@ -30,6 +30,9 @@ l2
 r2
 
 # Left window history (oldest to newest):
+d/home/pengu/Documents/nus/cp3108/js-slang/src
+	interpreter.ts
+14
 d/home/pengu/Documents/riceDumpling
 	..
 0
@@ -313,11 +316,20 @@ d/home/pengu/Documents/nus/cp3108/js-slang
 	src
 5
 d/home/pengu/Documents/nus/cp3108/js-slang/src
-	schedulers.ts
-16
+	closure.ts
+8
+d/home/pengu/Documents/nus/cp3108/js-slang
+	src
+5
+d/home/pengu/Documents/nus/cp3108/js-slang/src
+	closure.ts
+8
 d
 
 # Right window history (oldest to newest):
+D/home/pengu/Pictures/Wallpapers/landscapes
+	
+0
 D/home/pengu/Documents/nus/cp3108/js-slang/node_modules
 	..
 0
@@ -383,6 +395,7 @@ D
 :view
 :tabnew
 :sh
+:tabclose
 
 # Search history (oldest to newest):
 

@@ -10,24 +10,24 @@ Generally the one on top marked "latest" is always up to date.
 # Stuff used 
 These are the stuff that I use. They all have configs here apart from the suckless stuff.
 
-- rxvt-unicode (I have stopped using it but it's still there)
-- [this st](https://github.com/podocarp/st)
-- [this tabbed](https://github.com/podocarp/tabbed)
-- [this dwm](https://github.com/podocarp/dwm)
-- ranger
-  - w3m
-  - pywal
+- [patched st](https://github.com/podocarp/st)
+- [patched tabbed](https://github.com/podocarp/tabbed)
+- [patched dwm](https://github.com/podocarp/dwm)
+  - dwmstatus included inside
+- vifm
+  - highlight
+  - libcoco
+  - zathura
+- pywal
   - feh
   - [schemer2](https://github.com/thefryscorer/schemer2)
 - vim
-  - Vundle
-- i3-gaps (dormant)
-  - i3-lock
-  - i3status
-  - polybar
-- Xcompmgr
+  - Vundle and others
+- xcompmgr xbindkeys xmodmap xinput
+- ALSA
 - fonts (included)
-  - Some from [nerd font](https://github.com/ryanoasis/nerd-fonts)
+  - Ubuntu from [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
+  - IBM Plex Mono
   - Adobe Source Han
 
 # Usage
@@ -48,18 +48,20 @@ There might be some changes that you don't like. This section lists a few change
 Here are some extra stuff I added.
 Most of the other keybinds are default unless stated otherwise.
 
-## ranger
+## vifm
 | Key combo | Function |
 | --- | --- |
 | bw | Set background and generate new theme based on the image under your cursor. |
-| bl | Set lock screen wallpaper based on the image under your cursor. Does not generate theme. |
+| N | New tab |
+| gq | Close tab |
+| Ctrl r | Restart and reloads config |
+| R | Alternative opening methods |
 
 ## vim
-There's really quite a few here, please read the config. This is just the more obvious ones:
+The more obvious ones:
 
 | Key combo | Function |
 | --- | --- |
-| ij | Esc. |
 | Ctrl c | Copies to system clipboard. Requires vim compiled with +clipboard. |
 | Ctrl v | In insert mode, pastes from system clipboard. Requires +clipboard. |
 | Ctrl+hjkl | Replaces Ctrl+W+hjkl for split focus. |
