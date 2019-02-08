@@ -3,6 +3,7 @@ __pycache__/
 !.config/i3/
 !.config/polybar/
 !.config/ranger/
+!.config/vifm/
 !.config/scripts/
 !.config/neofetch/
 !.config/compton.conf

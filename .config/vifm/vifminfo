@@ -1,0 +1,240 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/pengu/
+	..
+1549509498
+'b
+	/home/pengu/bin/
+	..
+1549509498
+'h
+	/home/pengu/
+	..
+1549509498
+'z
+	/home/pengu/.config/vifm
+	..
+1549509498
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m72
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/pengu/Documents/riceDumpling
+	..
+0
+d/home/pengu/Documents/nus/cp3108/js-slang
+	node_modules
+3
+d/home/pengu/Documents/nus/cp3108/js-slang/node_modules
+	..
+0
+d/home/pengu/Documents/nus/cp3108/js-slang
+	src
+4
+d/home/pengu/Documents/nus/cp3108
+	js-slang
+3
+d/home/pengu/Documents/nus
+	cp3108
+1
+d/home/pengu/Documents
+	nus
+3
+d/home/pengu/Documents/nus
+	cp3108
+1
+d/home/pengu/Documents/nus/cp3108
+	js-slang
+3
+d/home/pengu/Documents/nus/cp3108/js-slang
+	src
+4
+d/home/pengu/Documents/nus/cp3108
+	js-slang
+3
+d/home/pengu/Documents/nus
+	cp3108
+1
+d/home/pengu/Documents
+	nus
+3
+d/home/pengu/Documents/nus
+	cp3108
+1
+d/home/pengu/Documents/nus/cp3108
+	js-slang
+3
+d/home/pengu/Documents/nus/cp3108/js-slang
+	src
+4
+d/home/pengu/Documents/nus/cp3108
+	js-slang
+3
+d/home/pengu/Documents/nus
+	cp3108
+1
+d/home/pengu/Documents
+	riceDumpling
+4
+d/home/pengu
+	Pictures
+5
+d/home/pengu/Pictures
+	Wallpapers
+1
+d/home/pengu/Pictures/Wallpapers
+	landscapes
+3
+d/home/pengu/Pictures/Wallpapers/landscapes
+	ara
+1
+d/home/pengu/Pictures/Wallpapers
+	landscapes
+3
+d/home/pengu/Pictures/Wallpapers/landscapes
+	ara
+1
+d/home/pengu/Pictures/Wallpapers
+	old_tech
+5
+d/home/pengu/Pictures/Wallpapers/old_tech
+	1533507282865.jpg
+3
+d/home/pengu/Pictures/Wallpapers
+	old_tech
+5
+d/home/pengu/Pictures
+	Wallpapers
+1
+d/home/pengu
+	Downloads
+3
+d/home/pengu/Downloads
+	sit_in_0
+1
+d/home/pengu
+	Pictures
+5
+d/home/pengu/Pictures
+	Wallpapers
+1
+d/home/pengu/Pictures/Wallpapers
+	old_tech
+5
+d/home/pengu/Pictures
+	Wallpapers
+1
+d/home/pengu
+	Pictures
+5
+d/home
+	pengu
+2
+d/home/pengu
+	Pictures
+5
+d/home/pengu/Pictures
+	Wallpapers
+1
+d/home/pengu/Pictures/Wallpapers
+	old_tech
+5
+d/home/pengu/Pictures/Wallpapers/old_tech
+	1533592402690.png
+4
+d/home/pengu/Pictures/Wallpapers
+	landscapes
+3
+d/home/pengu/Pictures/Wallpapers/landscapes
+	1532334888464.jpg
+8
+d/home/pengu/Pictures/Wallpapers
+	landscapes
+3
+d/home/pengu/Pictures/Wallpapers/landscapes
+	1532334097495.jpg
+7
+d
+
+# Right window history (oldest to newest):
+D/home/pengu/Documents/nus/cp3108/js-slang/node_modules
+	..
+0
+D/home/pengu/Documents/riceDumpling
+	..
+0
+D/home/pengu/Downloads
+	..
+0
+D/home/pengu/Documents/nus/cp3108/js-slang
+	..
+0
+D/home/pengu/Documents/nus/cp3108
+	js-slang
+3
+D/home/pengu/Documents/nus
+	cs2040
+3
+D/home/pengu/Documents
+	nus
+3
+D/home/pengu
+	Pictures
+18
+D/home/pengu/Pictures
+	Wallpapers
+1
+D/home/pengu/Pictures/Wallpapers
+	landscapes
+3
+D/home/pengu/Pictures/Wallpapers/landscapes
+	1532342183064.jpg
+10
+D
+
+# Command line history (oldest to newest):
+:sh
+:sp
+:preview
+:help
+:vew
+:view
+:classify
+:q
+:!wal
+:!wal -i %c
+:!wal -i %c --backend schemer2 && cp %c ~/.config/wall.png
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].0
+]F
+s0
