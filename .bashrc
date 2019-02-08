@@ -63,4 +63,4 @@ HISTCONTROL=ignoreboth
 source ~/.cache/wal/colors-tty.sh
 
 # for direnv
-eval "$(direnv hook bash)"
+# eval "$(direnv hook bash)"
