@@ -109,7 +109,7 @@ endif
 
 " Set custom status line look
 
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="%z%= %t%= %A %10u:%-7g %15E %20d  "
 
 " ------------------------------------------------------------------------------
 
@@ -309,6 +309,10 @@ filetype *.iso
        \ {Mount with fuseiso}
        \ FUSE_MOUNT|fuseiso %SOURCE_FILE %DESTINATION_DIR,
 
+fileviewer *.iso
+       \ {ignore}
+       \ nop
+
 " SshMount
 filetype *.ssh
        \ {Mount with sshfs}
@@ -376,7 +380,7 @@ fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py head -n %ph %c | highlight -O xte
 " Like in previous versions of vifm
 " set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
 " Like in vi
-set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+set vifminfo=dhistory,chistory,state,tui,shistory,
     \phistory,fhistory,dirstack,registers,bookmarks,bmarks 
 " ------------------------------------------------------------------------------
 
@@ -405,9 +409,9 @@ nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
 " Open file in existing instance of gvim
-nnoremap o :!gvim --remote-tab-silent %f<cr>
+nnoremap o :!vim --remote-tab-silent %f<cr>
 " Open file in new instance of gvim
-nnoremap O :!gvim %f<cr>
+nnoremap O :!vim %f<cr>
 
 " Open file in the background using its default program
 nnoremap gb :file &<cr>l
@@ -423,27 +427,17 @@ nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
 
-" Open console in current directory
-nnoremap ,t :!xterm &<cr>
-
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
 " Open gvim to edit vifmrc
-nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
+nnoremap ,C :!vim --remote-tab-silent $MYVIFMRC &<cr>
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
 
 " Example of standard two-panel file managers mappings
-nnoremap <f3> :!less %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
-nnoremap <f7> :mkdir<space>
-nnoremap <f8> :delete<cr>
-
-" Restart
-nnoremap <c-r> :restart<cr>
+nnoremap <f1> :mkdir<space>
+nnoremap <f2> :rename<cr>
 
 " New tab
 nnoremap N :tabnew<cr>
@@ -454,6 +448,9 @@ nnoremap gq :tabclose<cr>
 " Alternative opening methods
 nnoremap R :file<cr>
 vnoremap R :file<cr>
+
+" Unselects file under cursor
+nnoremap T vv
 
 " Sets wallpapers and stuff
 nnoremap bw :!wal -i %c --backend schemer2 && cp %c ~/.config/wall.png<cr>

@@ -4,6 +4,7 @@ __pycache__/
 !.config/polybar/
 !.config/ranger/
 !.config/vifm/
+.config/vifm/vifminfo
 !.config/scripts/
 !.config/neofetch/
 !.config/compton.conf
