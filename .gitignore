@@ -8,5 +8,5 @@ __pycache__/
 !.config/scripts/
 !.config/neofetch/
 !.config/compton.conf
-.local
-!.local/share/fonts
+.local/
+!.local/share/fonts/
