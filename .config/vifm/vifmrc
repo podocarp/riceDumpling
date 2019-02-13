@@ -452,6 +452,9 @@ vnoremap R :file<cr>
 " Unselects file under cursor
 nnoremap T vv
 
+" Selects and move to the next file 
+nnoremap t tj
+
 " Sets wallpapers and stuff
 nnoremap bw :!wal -i %c --backend schemer2 && cp %c ~/.config/wall.png<cr>
 
