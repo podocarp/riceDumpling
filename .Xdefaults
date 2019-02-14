@@ -1,8 +1,6 @@
-*foreground: #cccc00
-*foreground_bold: #a8a1af
+st.foreground: #000000
+st.background: #000000
 *cursor: #FFCCFF
-*background: #1b1b1b
-
 !! black
 *color0: #1b1918
 *color8: #766e6b

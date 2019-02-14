@@ -16,6 +16,7 @@ set colorcolumn=80
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+colorscheme elflord
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
