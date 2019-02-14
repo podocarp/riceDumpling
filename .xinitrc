@@ -13,11 +13,10 @@ if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
 
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+if [ -f $userresources ]; then
+    xrdb -merge $userresources
 fi
-
-if [ -f "$usermodmap" ]; then
+if [ -f $usermodmap ]; then
     sleep 5 && xmodmap "$usermodmap" &
 fi
 
