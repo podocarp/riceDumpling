@@ -66,6 +66,8 @@ Plugin 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '↳'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
