@@ -93,13 +93,11 @@ let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 
-Plugin 'dylanaraps/wal.vim'
 """"""
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 """""""""""""""""""""""""""AESTHETICS"""""""""""""""""""""""""""
-colorscheme wal
 
 " Highlights the cursor position VERY OBVIOUSLY
 set cursorline
