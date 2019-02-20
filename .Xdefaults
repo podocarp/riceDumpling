@@ -26,7 +26,7 @@ st.background: #000000
 *color7: #a8a19f
 *color15: #f1efee
 
-*font: IBM Plex Mono:size=11:antialias=true
+*font: IBM Plex Mono:size=10
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
