@@ -9,11 +9,13 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -a -l'
 alias dfh='df -h'
+alias f="grep -RHn"
 alias v='vim'
 alias v.='v .'
-alias music="ncmpcpp"
+
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
+alias sx='startx'
 
 complete -cf sudo
 

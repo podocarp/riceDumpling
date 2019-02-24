@@ -46,7 +46,7 @@ Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 
 Plugin 'Chiel92/vim-autoformat'
-noremap <F1> :Autoformat<CR>
+noremap <F1> :Autoformat<CR>:w<CR>
 let g:formatdef_autopep8 = '"autopep8 -aa -"'
 let g:formatters_python = ['autopep8']
 """"""
