@@ -4,14 +4,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export EDITOR=/usr/bin/nvim
+
 alias ls='ls --color=always'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -a -l'
 alias dfh='df -h'
 alias f="grep -RHn"
-alias v='vim'
-alias v.='v .'
+alias vim="nvim"
+alias v="vim"
+alias v.="v ."
 
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
@@ -41,7 +44,7 @@ function ranger {
 
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
-export PATH=$PATH:~/go/bin:~/Scripts:~/.local/bin
+export PATH=$PATH:~/go/bin:~/.config/scripts/:~/.local/bin
 
 stty -ixon
 set -o vi
