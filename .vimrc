@@ -66,7 +66,7 @@ Plugin 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '↳'
+let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
 Plugin 'ryanoasis/vim-devicons'
@@ -104,15 +104,15 @@ set cursorline
 set cursorcolumn
 hi CursorColumn ctermbg=Gray
 " Change Color when entering Insert Mode
-autocmd InsertEnter * hi CursorLine cterm=Bold ctermbg=Blue ctermfg=Black
+autocmd InsertEnter * hi CursorLine cterm=None ctermbg=White ctermfg=Black
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * hi CursorLine cterm=None ctermbg=DarkMagenta ctermfg=Black
+autocmd InsertLeave * hi CursorLine cterm=Bold ctermbg=LightBlue ctermfg=DarkMagenta
 
 augroup BgHighlight
 	autocmd WinEnter * set cul
-	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Yellow ctermfg=Black
+	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Gray ctermfg=Brown
 	autocmd WinLeave * set nocul
-	autocmd WinLeave * hi StatusLine cterm=None ctermbg=Gray ctermfg=Gray
+	autocmd WinLeave * hi StatusLine cterm=None ctermbg=White ctermfg=Black
 augroup END
 
 augroup JSProj
