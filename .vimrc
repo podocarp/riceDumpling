@@ -3,19 +3,19 @@ set path+=**
 set number relativenumber
 set ruler
 set nobackup
+set noswapfile
 set ignorecase
 set linebreak
-set nocompatible
 set viminfo=
 set showcmd
 set lazyredraw
 set autoindent
-set noswapfile
 set statusline+=%F\ %l\:%c
 set colorcolumn=80
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set autowriteall
 colorscheme elflord
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -97,7 +97,7 @@ let g:vim_markdown_new_list_item_indent = 2
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-"""""""""""""""""""""""""""AESTHETICS"""""""""""""""""""""""""""
+"""""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
 
 " Highlights the cursor position VERY OBVIOUSLY
 set cursorline
@@ -106,7 +106,7 @@ hi CursorColumn ctermbg=Gray
 " Change Color when entering Insert Mode
 autocmd InsertEnter * hi CursorLine cterm=None ctermbg=White ctermfg=Black
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * hi CursorLine cterm=Bold ctermbg=LightBlue ctermfg=DarkMagenta
+autocmd InsertLeave * hi CursorLine cterm=None ctermbg=Black ctermfg=White
 
 augroup BgHighlight
 	autocmd WinEnter * set cul
@@ -117,9 +117,12 @@ augroup END
 
 augroup JSProj
 	au!
-	autocmd BufRead,BufNewFile *.js,*.ts set filetype=javascript
-	autocmd BufRead,BufNewFile *.js,*.ts set softtabstop=2 shiftwidth=2
+	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
+	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
 augroup END
+
+" Autosave on focus lost
+au FocusLost * silent! wa
 
 " Tab completion stuff
 set wildmenu
@@ -146,11 +149,11 @@ let g:netrw_browse_split = 1
 let g:netrw_winsize = 20
 
 
-""""""""""""""""""""""""""GENERAL MAPS""""""""""""""""""""""""
+""""""""""""""""""""""""""GENERAL MAPS"""""""""""""""""""""
 " Scroll in wrapped lines
 map <Up> gk
 map <Down> gj
-""""""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""""
+""""""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""
 
 " Save file
 imap <C-S> <C-[>:w<CR>
@@ -158,13 +161,13 @@ imap <C-S> <C-[>:w<CR>
 " paste
 inoremap <C-v> <ESC>"+pa
 
-""""""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""""
+""""""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""
 
 " Sends things away without overwriting the register
 nnoremap <leader>d "_d
 
 " Open shell
-nnoremap <C-S> :sh<CR>
+nnoremap <C-S> :sp<CR>:term<CR>A
 
 " Ctags
 nnoremap <F2> :!ctags -R .
@@ -175,7 +178,7 @@ nnoremap <F3> :noh<CR>
 " Enters tabs
 nnoremap <Tab> i<Tab>
 
-""""""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""
+""""""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""""
 
 " For moving split windows
 nnoremap <C-W>h <C-W><S-H>
@@ -200,3 +203,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
+
+"""""""""""""""""""""TERMINAL MODE MAPS"""""""""""""""""""
+:tnoremap <Esc> <C-\><C-n>
