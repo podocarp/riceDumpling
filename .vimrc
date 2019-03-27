@@ -124,9 +124,9 @@ autocmd InsertLeave * hi CursorColumn ctermbg=Black
 " Show currently focused buffer
 augroup BgHighlight
 	autocmd WinEnter * set cul
-	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Gray ctermfg=Brown
+	autocmd WinEnter * hi StatusLine cterm=Bold,reverse
 	autocmd WinLeave * set nocul
-	autocmd WinLeave * hi StatusLine cterm=None ctermbg=White ctermfg=Black
+	autocmd WinLeave * hi StatusLine cterm=None
 augroup END
 
 " Diff stuff

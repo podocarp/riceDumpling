@@ -62,7 +62,8 @@ set novimhelp
 set norunexec
 
 " Selected color scheme
-colorscheme lucius
+colorscheme zenburn_1
+hi Selected ctermbg=Black
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -387,7 +388,7 @@ set vifminfo=dhistory,chistory,state,tui,shistory,
 
 " Customize view columns a bit (enable ellipsis for truncated file names)
 "
-" set viewcolumns=-{name}..,6{}.
+set viewcolumns=-{name}..,6{size},11{perms}.
 
 " Filter-out build and temporary files
 "
