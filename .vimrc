@@ -164,11 +164,13 @@ augroup MDProj
 	au!
 	autocmd BufRead,BufNewFile *.md set tw=80
 augroup END
+
 augroup JSProj
 	au!
 	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
 	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
 augroup END
+
 """"""""""""""""""""""""""GENERAL MAPS"""""""""""""""""""""
 " Scroll in wrapped lines
 map <Up> gk
