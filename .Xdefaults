@@ -1,7 +1,7 @@
 st.foreground: #000000
 st.background: #000000
 st.font: IBM Plex Mono Medium:size=12:antialias=true
-*.cursor: #FFCCFF
+st.cursorColor: #00FFFF
 !! black
 *color0: #1b1918
 *color8: #766e6b

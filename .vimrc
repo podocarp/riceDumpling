@@ -1,5 +1,6 @@
 """""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
 set path+=**
+set mouse=a
 set number relativenumber
 set ruler
 set nobackup
@@ -16,7 +17,10 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autowriteall
-colorscheme elflord
+
+" Autosave on focus lost
+au FocusLost * silent! wa
+
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -98,16 +102,24 @@ let g:vim_markdown_new_list_item_indent = 2
 call vundle#end()            " required
 filetype plugin indent on    " required
 """""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
+" Colorscheme
+colorscheme elflord
 
-" Highlights the cursor position VERY OBVIOUSLY
+" Highlights the cursor position
 set cursorline
 set cursorcolumn
-hi CursorColumn ctermbg=Gray
+
+" Disable neovim insert mode bar cursor
+set guicursor=
+
 " Change Color when entering Insert Mode
 autocmd InsertEnter * hi CursorLine cterm=None ctermbg=White ctermfg=Black
+autocmd InsertEnter * hi CursorColumn ctermbg=DarkGray
 " Revert Color to default when leaving Insert Mode
 autocmd InsertLeave * hi CursorLine cterm=None ctermbg=Black ctermfg=White
+autocmd InsertLeave * hi CursorColumn ctermbg=Black ctermfg=White
 
+" Show currently focused buffer
 augroup BgHighlight
 	autocmd WinEnter * set cul
 	autocmd WinEnter * hi StatusLine cterm=Bold ctermbg=Gray ctermfg=Brown
@@ -115,14 +127,11 @@ augroup BgHighlight
 	autocmd WinLeave * hi StatusLine cterm=None ctermbg=White ctermfg=Black
 augroup END
 
-augroup JSProj
-	au!
-	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
-	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
-augroup END
-
-" Autosave on focus lost
-au FocusLost * silent! wa
+" Diff stuff
+hi DiffAdd      term=None ctermfg=Black ctermbg=Cyan
+hi DiffChange   term=None ctermbg=None
+hi DiffDelete   term=None ctermbg=White
+hi DiffText     term=None ctermbg=None
 
 " Tab completion stuff
 set wildmenu
@@ -130,6 +139,8 @@ set wildmode=list:longest,full
 
 " Highlight search
 set hlsearch
+hi Search ctermbg=Red ctermfg=Black
+
 " Scrolling past the line pops you below
 set whichwrap+=<,>,h,l,[,]
 
@@ -148,7 +159,16 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 1
 let g:netrw_winsize = 20
 
-
+"""""""File Extension defaults
+augroup MDProj
+	au!
+	autocmd BufRead,BufNewFile *.md set tw=80
+augroup END
+augroup JSProj
+	au!
+	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
+	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
+augroup END
 """"""""""""""""""""""""""GENERAL MAPS"""""""""""""""""""""
 " Scroll in wrapped lines
 map <Up> gk
