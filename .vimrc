@@ -48,6 +48,8 @@ let g:clang_cpp_completeopt='menuone,preview,noselect'
 """"""Linting stuff
 Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
+nmap <silent> zk <Plug>(ale_previous_wrap)
+nmap <silent> zj <Plug>(ale_next_wrap)
 
 Plugin 'Chiel92/vim-autoformat'
 noremap <F1> :Autoformat<CR>:w<CR>
@@ -116,8 +118,8 @@ set guicursor=
 autocmd InsertEnter * hi CursorLine cterm=None ctermbg=White ctermfg=Black
 autocmd InsertEnter * hi CursorColumn ctermbg=DarkGray
 " Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * hi CursorLine cterm=None ctermbg=Black ctermfg=White
-autocmd InsertLeave * hi CursorColumn ctermbg=Black ctermfg=White
+autocmd InsertLeave * hi CursorLine cterm=None ctermbg=Black ctermfg=None
+autocmd InsertLeave * hi CursorColumn ctermbg=Black
 
 " Show currently focused buffer
 augroup BgHighlight
@@ -152,6 +154,9 @@ set splitbelow
 filetype on
 filetype plugin on
 syntax enable
+
+" No line numbers in terminal (this breaks in vanilla vim)
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 " File picker
 let g:netrw_liststyle = 3
@@ -188,7 +193,7 @@ inoremap <C-v> <ESC>"+pa
 " Sends things away without overwriting the register
 nnoremap <leader>d "_d
 
-" Open shell
+" Open shell (this breaks in vanilla vim)
 nnoremap <C-S> :sp<CR>:term<CR>A
 
 " Ctags
