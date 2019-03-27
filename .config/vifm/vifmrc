@@ -62,12 +62,7 @@ set novimhelp
 set norunexec
 
 " Selected color scheme
-
-<<<<<<< HEAD
 colorscheme lucius
-=======
-colorscheme Default
->>>>>>> da329ae9b45945a468d921fb52c5f852dcac478b
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
