@@ -99,13 +99,15 @@ let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 
+Plugin 'morhetz/gruvbox'
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark = "medium"
 """"""
-
 call vundle#end()            " required
 filetype plugin indent on    " required
 """""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
 " Colorscheme
-colorscheme elflord
+colorscheme gruvbox
 
 " Highlights the cursor position
 set cursorline
@@ -130,10 +132,10 @@ augroup BgHighlight
 augroup END
 
 " Diff stuff
-hi DiffAdd      term=None ctermfg=Black ctermbg=Cyan
-hi DiffChange   term=None ctermbg=None
-hi DiffDelete   term=None ctermbg=White
-hi DiffText     term=None ctermbg=None
+hi DiffAdd      cterm=reverse ctermbg=None
+hi DiffChange   cterm=None ctermbg=DarkGray
+hi DiffDelete   cterm=None ctermbg=None
+hi DiffText     cterm=None ctermbg=Black
 
 " Tab completion stuff
 set wildmenu
