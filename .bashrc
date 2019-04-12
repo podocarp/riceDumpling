@@ -45,6 +45,7 @@ function ranger {
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
 export PATH=$PATH:~/go/bin:~/.config/scripts/:~/.local/bin
+export LD_LIBRARY_PATH=/usr/lib/opengl/nvidia/lib:$LD_LIBRARY_PATH
 
 stty -ixon
 set -o vi

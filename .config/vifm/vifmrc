@@ -232,10 +232,8 @@ fileviewer *.[1-8] man ./%c | col -b
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in sxiv}
         \ sxiv %f,
-        \ {View in gpicview}
-        \ gpicview %c,
-        \ {View in shotwell}
-        \ shotwell,
+        \ {View as gallery}
+        \ sxiv -t -r .
 
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
          \ img2txt -W %pw -H %ph -c 3 %c

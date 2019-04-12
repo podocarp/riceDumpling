@@ -2,4 +2,5 @@ xbindkeys
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 0
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.5
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
+xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 0
 xcompmgr -C -f -D 3 -r 0 &

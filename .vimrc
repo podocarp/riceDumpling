@@ -16,6 +16,7 @@ set colorcolumn=80
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set smartindent
 set autowriteall
 
 " Autosave on focus lost
@@ -58,14 +59,7 @@ let g:formatters_python = ['autopep8']
 """"""
 
 """""" Latex
-Plugin 'vim-latex/vim-latex'
-" Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-let g:Tex_ViewRule_dvi = 'okular'
-imap <C-space> <Plug>IMAP_JumpForward
-map <C-space> <Plug>IMAP_JumpForward
+Plugin 'lervag/vimtex'
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree'
@@ -79,18 +73,18 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIndicatorMapCustom = {
-			\ "Modified"  : "",
-			\ "Staged"    : "",
-			\ "Untracked" : "",
-			\ "Renamed"   : "",
-			\ "Unmerged"  : "═",
-			\ "Deleted"   : "",
-			\ "Dirty"     : "",
-			\ "Clean"     : "",
-			\ 'Ignored'   : '',
-			\ "Unknown"   : "?"
-			\ }
-Plugin 'godlygeek/tabular' 	"required by vim markdown
+            \ "Modified"  : "",
+            \ "Staged"    : "",
+            \ "Untracked" : "",
+            \ "Renamed"   : "",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "",
+            \ "Dirty"     : "",
+            \ "Clean"     : "",
+            \ 'Ignored'   : '',
+            \ "Unknown"   : "?"
+            \ }
+Plugin 'godlygeek/tabular'      "required by vim markdown
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
@@ -125,17 +119,15 @@ autocmd InsertLeave * hi CursorColumn ctermbg=Black
 
 " Show currently focused buffer
 augroup BgHighlight
-	autocmd WinEnter * set cul
-	autocmd WinEnter * hi StatusLine cterm=Bold,reverse
-	autocmd WinLeave * set nocul
-	autocmd WinLeave * hi StatusLine cterm=None
+    autocmd WinEnter * set cul
+    autocmd WinEnter * hi StatusLine cterm=Bold,reverse
+    autocmd WinLeave * set nocul
+    autocmd WinLeave * hi StatusLine cterm=None
 augroup END
 
-" Diff stuff
-hi DiffAdd      cterm=reverse ctermbg=None
-hi DiffChange   cterm=None ctermbg=DarkGray
-hi DiffDelete   cterm=None ctermbg=None
-hi DiffText     cterm=None ctermbg=Black
+augroup OverrideCS
+    autocmd ColorScheme * hi Normal ctermbg=None
+augroup END
 
 " Tab completion stuff
 set wildmenu
@@ -153,8 +145,6 @@ set splitright
 set splitbelow
 
 " Syntax highlighting
-filetype on
-filetype plugin on
 syntax enable
 
 " No line numbers in terminal (this breaks in vanilla vim)
@@ -168,14 +158,14 @@ let g:netrw_winsize = 20
 
 """""""File Extension defaults
 augroup MDProj
-	au!
-	autocmd BufRead,BufNewFile *.md set tw=80
+    au!
+    autocmd BufRead,BufNewFile *.md set tw=80
 augroup END
 
 augroup JSProj
-	au!
-	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
-	autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
+    au!
+    autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
+    autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
 augroup END
 
 """"""""""""""""""""""""""GENERAL MAPS"""""""""""""""""""""
