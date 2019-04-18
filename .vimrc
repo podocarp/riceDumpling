@@ -19,9 +19,6 @@ set expandtab
 set smartindent
 set autowriteall
 
-" Autosave on focus lost
-au FocusLost * silent! wa
-
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -60,6 +57,10 @@ let g:formatters_python = ['autopep8']
 
 """""" Latex
 Plugin 'lervag/vimtex'
+let g:tex_flavor = 'latex'
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_method = 'zathura'
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree'
@@ -125,17 +126,12 @@ augroup BgHighlight
     autocmd WinLeave * hi StatusLine cterm=None
 augroup END
 
-augroup OverrideCS
-    autocmd ColorScheme * hi Normal ctermbg=None
-augroup END
-
 " Tab completion stuff
 set wildmenu
 set wildmode=list:longest,full
 
 " Highlight search
 set hlsearch
-hi Search ctermbg=Red ctermfg=Black
 
 " Scrolling past the line pops you below
 set whichwrap+=<,>,h,l,[,]
@@ -160,6 +156,13 @@ let g:netrw_winsize = 20
 augroup MDProj
     au!
     autocmd BufRead,BufNewFile *.md set tw=80
+    autocmd BufRead,BufNewFile *.md set spell
+augroup END
+
+augroup texProj
+    au!
+    autocmd BufRead,BufNewFile *.tex set tw=80
+    autocmd BufRead,BufNewFile *.tex set spell
 augroup END
 
 augroup JSProj

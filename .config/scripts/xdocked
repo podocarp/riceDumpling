@@ -1,4 +1,2 @@
-#! /bin/sh
-sudo tee /proc/acpi/bbswitch <<< ON
-nvidia-xrun
-sudo tee /proc/acpi/bbswitch <<< OFF
+#! /bin/bash
+docked=true nvidia-xrun

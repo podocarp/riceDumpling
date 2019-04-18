@@ -287,6 +287,11 @@ filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
        \ unzip -d %c:r %c,
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
 
+" Java
+filetype *.jar
+    \ {Execute jar}
+    \ java -jar %c
+
 " ArchiveMount
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
        \ {Mount with archivemount}

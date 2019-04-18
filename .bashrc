@@ -24,28 +24,14 @@ complete -cf sudo
 
 cdl(){ cd "$@" && ls; }
 
-weather(){
-	st -g 130x40 -t float -e sh -c "curl "http://wttr.in/$1?m" -sS | head -n -3 ; read -p 'Press enter to quit';"
-}
-
 AURClone(){
-	git clone https://aur.archlinux.org/$1.git
-}
-
-function ranger {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
+    git clone https://aur.archlinux.org/$1.git
 }
 
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
 export PATH=$PATH:~/go/bin:~/.config/scripts/:~/.local/bin
-export LD_LIBRARY_PATH=/usr/lib/opengl/nvidia/lib:$LD_LIBRARY_PATH
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 stty -ixon
 set -o vi
@@ -53,20 +39,13 @@ set -o vi
 PS1temp=$'┌\[\u@\h \w\]'
 
 divider(){
-	promptlen=$(printf '%s\n' "${PS1temp@P}" | wc -m)
-	eval printf %.0s─ {1..$(($(tput cols) - $promptlen))}\}
+    promptlen=$(printf '%s\n' "${PS1temp@P}" | wc -m)
+    eval printf %.0s─ {1..$(($(tput cols) - $promptlen))}\}
 }
 
 export PS1=$'┌\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 4)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[\e[0m\\]`divider`\n → \$ '
 
 HISTCONTROL=ignoreboth
 
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
 (cat ~/.cache/wal/sequences &)
-# To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
-
-# for direnv
-# eval "$(direnv hook bash)"
