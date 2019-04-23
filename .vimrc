@@ -156,13 +156,13 @@ let g:netrw_winsize = 20
 augroup MDProj
     au!
     autocmd BufRead,BufNewFile *.md set tw=80
-    autocmd BufRead,BufNewFile *.md set spell
+    autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
 
 augroup texProj
     au!
     autocmd BufRead,BufNewFile *.tex set tw=80
-    autocmd BufRead,BufNewFile *.tex set spell
+    autocmd BufRead,BufNewFile *.tex setlocal spell
 augroup END
 
 augroup JSProj

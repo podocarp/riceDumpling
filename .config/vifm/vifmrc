@@ -12,8 +12,6 @@
 " you will need to change this setting.
 
 set vicmd=nvim
-" set vicmd=elvis\ -G\ termcap
-" set vicmd=vile
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -170,29 +168,23 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
+filextype *.pdf zathura %c %i &
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
         \ {View in zathura}
         \ zathura %f,
-        \ {View in gv}
-        \ gv %c %i &,
 
 " Djvu
 filextype *.djvu
         \ {View in zathura}
         \ zathura %f,
-        \ {View in apvlv}
-        \ apvlv %f,
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
        \ {Play using ffplay}
        \ ffplay -nodisp %c,
-       \ {Play using MPlayer}
-       \ mplayer %f,
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 
@@ -200,12 +192,8 @@ fileviewer *.flac soxi
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \*.fl[icv],*.m2v,*.mov,*.webm,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]
-        \ {View using ffplay}
-        \ ffplay -fs %f,
-        \ {View using Dragon}
-        \ dragon %f:p,
-        \ {View using mplayer}
-        \ mplayer %f,
+        \ {View using MPV}
+        \ mpv %f,
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]
@@ -213,13 +201,10 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 " Web
 filextype *.html,*.htm
-        \ {Open with dwb}
-        \ dwb %f %i &,
-        \ {Open with firefox}
-        \ firefox %f &,
-        \ {Open with uzbl}
-        \ uzbl-browser %f %i &,
-filetype *.html,*.htm links, lynx
+        \ {Open in Chromium}
+        \ chromium %f &,
+        \ {Edit}
+        \ vicmd %f %i &,
 
 " Object
 filetype *.o nm %f | less
@@ -230,23 +215,15 @@ fileviewer *.[1-8] man ./%c | col -b
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ {View in sxiv}
-        \ sxiv %f,
-        \ {View as gallery}
-        \ sxiv -t -r .
+        \ {View in feh}
+        \ feh -Sfilename -d -F --start-at %f &,
+        \ {View as thumbnail}
+        \ feh -F -d -t --start-at %f,
 
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ img2txt -W %pw -H %ph -c 3 %c
-
-" OpenRaster
-filextype *.ora
-        \ {Edit in MyPaint}
-        \ mypaint %f,
-
-" Mindmap
-filextype *.vym
-        \ {Open with VYM}
-        \ vym %f &,
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif
+        \ vifmimg draw %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " MD5
 filetype *.md5
@@ -277,6 +254,11 @@ filetype *.asc
 filetype *.torrent ktorrent %f &
 fileviewer *.torrent dumptorrent -v %c
 
+" Java
+filetype *.jar
+    \ {Execute jar}
+    \ java -jar %c &
+
 " FuseZipMount
 filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
        \ {Mount with fuse-zip}
@@ -286,11 +268,6 @@ filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
        \ {Extract here}
        \ unzip -d %c:r %c,
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
-
-" Java
-filetype *.jar
-    \ {Execute jar}
-    \ java -jar %c
 
 " ArchiveMount
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
