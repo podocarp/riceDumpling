@@ -17,15 +17,14 @@ These are the stuff that I use. They all have configs here apart from the suckle
   - dwmstatus included inside
 - vifm
   - highlight
-  - libcoco
+  - [ueberzug](https://github.com/seebye/ueberzug)
   - zathura
-- pywal
+  - pywal
   - feh
   - [schemer2](https://github.com/thefryscorer/schemer2)
 - vim
-  - Vundle and others
+  - Vundle
 - xcompmgr xbindkeys xmodmap xinput
-- ALSA
 - fonts (included)
   - Ubuntu from [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
   - IBM Plex Mono
@@ -33,7 +32,7 @@ These are the stuff that I use. They all have configs here apart from the suckle
 
 # Usage
 `./setup.sh`.
-This script makes all your configs a symlink of whatever files are in here, so it *will wipe your current configs*.
+This script makes all your configs a symlink of whatever files are in here, so it *will wipe your previous configs*.
 
 # Notes
 There might be some changes that you don't like. This section lists a few changes that might annoy you:
@@ -44,6 +43,7 @@ There might be some changes that you don't like. This section lists a few change
 | Synaptic Trackpad disabled by default | `.xprofile` |
 | Alpha fade in/out delay | `.xprofile` |
 | Fn buttons | `.xbindkeysrc` |
+| start vifm with vf | No chice. Make your own alias. |
 
 # Keybinds
 Here are some extra stuff I added.
