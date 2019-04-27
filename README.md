@@ -5,7 +5,6 @@ Generally the one on top marked "latest" is always up to date.
 
 # Screens
 
-![](images/new.png)
 ![](images/vf.png)
 
 # Stuff used 
@@ -43,13 +42,14 @@ There might be some changes that you don't like. This section lists a few change
 | Synaptic Trackpad disabled by default | `.xprofile` |
 | Alpha fade in/out delay | `.xprofile` |
 | Fn buttons | `.xbindkeysrc` |
-| start vifm with vf | No chice. Make your own alias. |
 
 # Keybinds
 Here are some extra stuff I added.
 Most of the other keybinds are default unless stated otherwise.
 
 ## vifm
+If it doesn't start, try checking `~/.config/scripts/vf` and seeing if it is pointing to the right path where you installed vifm.
+
 | Key combo | Function |
 | --- | --- |
 | bw | Set background and generate new theme based on the image under your cursor. |
