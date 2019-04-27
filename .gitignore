@@ -1,7 +1,7 @@
 __pycache__/
 
 !.config/
-.config/**
+.config/*
 !.config/i3/
 !.config/polybar/
 !.config/ranger/
@@ -13,5 +13,7 @@ __pycache__/
 !.config/compton.conf
 
 !.local/
-.local/**
+.local/*
+!.local/share/
+.local/share/*
 !.local/share/fonts/
