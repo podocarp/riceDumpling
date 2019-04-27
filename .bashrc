@@ -6,15 +6,16 @@
 
 export EDITOR=/usr/bin/nvim
 
-alias ls='ls --color=always'
+alias dfh='df -h'
+alias f="grep -RHn"
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -a -l'
-alias dfh='df -h'
-alias f="grep -RHn"
-alias vim="nvim"
+alias ls='ls --color=always'
 alias v="vim"
 alias v.="v ."
+alias vim="nvim"
+alias vifm="vf"
 
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'

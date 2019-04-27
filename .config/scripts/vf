@@ -11,5 +11,5 @@ mkfifo "$FIFO_UEBERZUG"
 trap cleanup EXIT
 tail -F "$FIFO_UEBERZUG" | ueberzug layer --parser bash &
 
-vifm
+/usr/bin/vifm
 cleanup
