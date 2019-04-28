@@ -6,9 +6,11 @@ __pycache__/
 !.config/ranger/
 !.config/vifm/
 .config/vifm/vifminfo
+!.config/nvim/
 !.config/scripts/
 !.config/neofetch/
 !.config/compton.conf
+
 .local/*
 !.local/share
 .local/share/*
