@@ -5,7 +5,7 @@ Generally the one on top marked "latest" is always up to date.
 
 # Screens
 
-![](images/vf.png)
+![](images/single.png)
 
 # Stuff used 
 These are the stuff that I use. They all have configs here apart from the suckless stuff.
