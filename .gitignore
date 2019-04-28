@@ -5,15 +5,16 @@ __pycache__/
 !.config/i3/
 !.config/polybar/
 !.config/ranger/
-!.config/vifm/scripts/
-!.config/vifm/colors/
-!.config/vifm/vifmrc
+!.config/vifm/
+.config/vifm/vifminfo
+!.config/nvim/
+.config/nvim/.netrwhist
 !.config/scripts/
 !.config/neofetch/
 !.config/compton.conf
 
-!.local/
 .local/*
-!.local/share/
+!.local/share
 .local/share/*
 !.local/share/fonts/
+.local/share/fonts/.uuid
