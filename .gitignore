@@ -1,4 +1,5 @@
 __pycache__/
+
 .config/*
 !.config/i3/
 !.config/polybar/
@@ -8,5 +9,7 @@ __pycache__/
 !.config/scripts/
 !.config/neofetch/
 !.config/compton.conf
-.local/
+.local/*
+!.local/share
+.local/share/*
 !.local/share/fonts/
