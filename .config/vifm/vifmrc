@@ -168,7 +168,7 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf zathura %c %i &
+filextype *.pdf zathura %c %i --mode fullscreen &
 fileviewer *.pdf
     \ vifmimg pdfpreview %px %py %pw %ph %c
     \ %pc
