@@ -1,31 +1,27 @@
 # What's this
-My Race Inspired Car Enhancement (RICE).
-The files constantly change, some of the screenshots might be outdated as well.
-Generally the one on top marked "latest" is always up to date.
+My config and dotfiles. Focused on function over form.
 
 # Screens
-
+Hey, nobody actually works like that:
 ![](images/single.png)
 
 # Stuff used 
 These are the stuff that I use. They all have configs here apart from the suckless stuff.
 
 - [patched st](https://github.com/podocarp/st)
-- [patched tabbed](https://github.com/podocarp/tabbed)
 - [patched dwm](https://github.com/podocarp/dwm)
-  - dwmstatus included inside
+  - my dwmstatus included (update git submodules after cloning!)
 - vifm
-  - highlight
-  - [ueberzug](https://github.com/seebye/ueberzug)
-  - zathura
-  - pywal
-  - feh
-  - [schemer2](https://github.com/thefryscorer/schemer2)
-- vim
+- nvim
   - Vundle
+- [ueberzug](https://github.com/seebye/ueberzug)
+- zathura
+- Wallpapers  
+  - pywal
+  - [schemer2](https://github.com/thefryscorer/schemer2)
+  - feh
 - xcompmgr xbindkeys xmodmap xinput
 - fonts (included)
-  - Ubuntu from [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
   - IBM Plex Mono
   - Adobe Source Han
 
