@@ -6,7 +6,7 @@ __pycache__/
 !.config/polybar/
 !.config/ranger/
 !.config/vifm/
-.config/vifm/vifminfo
+.config/vifm/vifminfo*
 !.config/nvim/
 .config/nvim/.netrwhist
 !.config/scripts/

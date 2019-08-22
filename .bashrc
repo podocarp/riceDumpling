@@ -31,7 +31,7 @@ AURClone(){
 
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
-export PATH=~/.config/scripts/:~/.local/bin:$PATH:$GOPATH/bin
+export PATH=$PATH:~/.config/scripts/:~/.local/bin:~/.yarn/bin/:$GOPATH/bin
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 stty -ixon

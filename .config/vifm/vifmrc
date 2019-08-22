@@ -28,6 +28,10 @@ set vicmd=nvim
 
 set trash
 
+" Only ask for confirmation when permdelete
+
+set confirm=permdelete
+
 " This is how many directories to store in the directory history.
 
 set history=100
@@ -192,6 +196,11 @@ filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
         \ mpv %d*,
         \ {Play with MPV}
         \ mpv %c,
+
+filetype *.cue
+        \ {Play with MPV}
+        \ mpv %c
+
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 
@@ -442,9 +451,11 @@ nnoremap T vv
 " Selects and move to the next file 
 nnoremap t tj
 
-" Sets wallpapers and stuff
+" Sets wallpapers and theme
 nnoremap bw :!wal -i %c --backend schemer2 && cp %c ~/.config/wall.png<cr>
 
+" Refresh after deleting, useful to prevent image preview bugging out
+nnoremap dd dd<c-l>
 " ------------------------------------------------------------------------------
 
 " Various customization examples

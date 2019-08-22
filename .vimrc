@@ -1,23 +1,23 @@
-"""""""""""""""""""""""GENERAL STUFF""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""FLAGS""""""""""""""""""""""""""
 set path+=**
 set mouse=a
 set number relativenumber
 set ruler
 set nobackup
-set noswapfile
-set ignorecase
 set linebreak
 set viminfo=
 set showcmd
 set lazyredraw
 set autoindent
-set statusline+=%F\ %l\:%c
+set statusline+=%F\ %l:%c
 set colorcolumn=80
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
 set autowriteall
+set undofile
+set nocursorline
 
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -27,9 +27,14 @@ Plugin 'VundleVim/Vundle.vim'
 """""""Autocomplete stuff
 Plugin 'lifepillar/vim-mucomplete'
 set completeopt+=menuone,preview,noselect
+set complete-=u
+set complete-=t
+set complete-=i
 set shortmess+=c
-set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#completion_delay = 500
+let g:mucomplete#reopen_immediately = 1
+let g:mucomplete#cycle_with_trigger = 1
 
 Plugin 'davidhalter/jedi-vim', {'for': 'python'}
 let g:jedi#popup_on_dot = 1
@@ -37,7 +42,7 @@ let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
 
 
-Plugin 'justmao945/vim-clang'
+Plugin 'justmao945/vim-clang', {'for': 'cpp'}
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 let g:clang_c_completeopt='menuone,preview,noselect'
@@ -46,24 +51,31 @@ let g:clang_cpp_completeopt='menuone,preview,noselect'
 """"""Linting stuff
 Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\   'java': ['prettier'],
+\}
 nmap <silent> zk <Plug>(ale_previous_wrap)
 nmap <silent> zj <Plug>(ale_next_wrap)
-
-Plugin 'Chiel92/vim-autoformat'
-noremap <F1> :Autoformat<CR>:w<CR>
-let g:formatdef_autopep8 = '"autopep8 -aa -"'
-let g:formatters_python = ['autopep8']
+noremap <F1> :ALEFix<CR>
 """"""
 
 """""" Latex
-Plugin 'lervag/vimtex'
+Plugin 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-shell-escape',
+    \   '-pdf',
+    \ ],
+    \}
 
 """"""Misc stuff
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
@@ -96,7 +108,7 @@ let g:vim_markdown_new_list_item_indent = 2
 
 Plugin 'morhetz/gruvbox'
 let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = "medium"
+let g:gruvbox_contrast_dark = "hard"
 """"""
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -104,19 +116,8 @@ filetype plugin indent on    " required
 " Colorscheme
 colorscheme gruvbox
 
-" Highlights the cursor position
-set cursorline
-set cursorcolumn
-
 " Disable neovim insert mode bar cursor
 set guicursor=
-
-" Change Color when entering Insert Mode
-autocmd InsertEnter * hi CursorLine cterm=None ctermbg=White ctermfg=Black
-autocmd InsertEnter * hi CursorColumn ctermbg=DarkGray
-" Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * hi CursorLine cterm=None ctermbg=Black ctermfg=None
-autocmd InsertLeave * hi CursorColumn ctermbg=Black
 
 " Show currently focused buffer
 augroup BgHighlight
@@ -156,13 +157,13 @@ let g:netrw_winsize = 20
 augroup MDProj
     au!
     autocmd BufRead,BufNewFile *.md set tw=80
-    autocmd BufRead,BufNewFile *.md setlocal spell
+    autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 augroup END
 
 augroup texProj
     au!
     autocmd BufRead,BufNewFile *.tex set tw=80
-    autocmd BufRead,BufNewFile *.tex setlocal spell
+    autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
 augroup END
 
 augroup JSProj
@@ -170,7 +171,6 @@ augroup JSProj
     autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
     autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
 augroup END
-
 """"""""""""""""""""""""""GENERAL MAPS"""""""""""""""""""""
 " Scroll in wrapped lines
 map <Up> gk
@@ -198,7 +198,7 @@ nnoremap <F2> :!ctags -R .
 nnoremap <F3> :noh<CR>
 
 " Enters tabs
-nnoremap <Tab> i<Tab>
+nnoremap <Tab> 0i<Tab>
 
 """"""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""""
 
