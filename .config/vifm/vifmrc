@@ -11,7 +11,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=nvim
+set vicmd='st -e nvim &'
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -232,7 +232,7 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in feh}
-        \ feh -Sfilename -d -F --start-at %f &,
+        \ feh -Sfilename -d -F --start-at %d/%f %d &,
         \ {View as thumbnail}
         \ feh -F -d -t --start-at %f,
 

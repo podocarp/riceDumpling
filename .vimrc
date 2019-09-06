@@ -42,17 +42,12 @@ let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
 
 
-Plugin 'justmao945/vim-clang', {'for': 'cpp'}
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-let g:clang_c_completeopt='menuone,preview,noselect'
-let g:clang_cpp_completeopt='menuone,preview,noselect'
-
 """"""Linting stuff
 Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'c': ['clang-format'],
 \   'css': ['prettier'],
 \   'java': ['prettier'],
 \}
@@ -68,7 +63,16 @@ let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
+    \ 'background' : 1,
+    \ 'build_dir' : '',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'hooks' : [],
     \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-interaction=nonstopmode',
     \   '-shell-escape',
     \   '-pdf',
     \ ],
