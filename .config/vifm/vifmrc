@@ -11,7 +11,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd='st -e nvim &'
+set vicmd='nvim'
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -291,7 +291,7 @@ filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
         \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR,
 fileviewer *.tgz,*.tar.gz tar -tzf %c
 fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
-fileviewer *.tar.txz,*.txz xz --list %c
+fileviewer *.tar.txz,*.txz,*.xz xz --list %c
 fileviewer *.tar tar -tf %c
 
 " Rar2FsMount and rar archives
@@ -324,6 +324,10 @@ filetype *.7z
         \ {Mount with fuse-7z}
         \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR,
 fileviewer *.7z 7z l %c
+
+filetype *.xz
+        \ {Extract here}
+        \ xz -d %c -T 4 -v
 
 " Office files
 filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
@@ -363,12 +367,11 @@ fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py head -n %ph %c | highlight -O xte
 " settings).  By default all unknown files are opened with 'vi[x]cmd'
 " uncommenting one of lines below will result in ignoring 'vi[x]cmd' option
 " for unknown file types.
-" For *nix:
-" filetype * xdg-open
-" For OS X:
-" filetype * open
-" For Windows:
-" filetype * start, explorer
+filetype *
+        \ {Open in nvim in new window}
+        \ st -e nvim %c > /dev/null &,
+        \ {xdg-open}
+        \ xdg-open
 
 " ------------------------------------------------------------------------------
 

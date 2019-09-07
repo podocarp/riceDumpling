@@ -41,14 +41,6 @@ let g:jedi#popup_on_dot = 1
 let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
 
-<<<<<<< Updated upstream
-=======
-Plugin 'justmao945/vim-clang', {'for': 'cpp'}
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-let g:clang_c_completeopt='menuone,preview,noselect'
-let g:clang_cpp_completeopt='menuone,preview,noselect'
-
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -59,17 +51,16 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
->>>>>>> Stashed changes
 
 """"""Linting stuff
 Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
-\   'c': ['clang-format'],
 \   'css': ['prettier'],
 \   'java': ['prettier'],
 \   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
 \}
 nmap <silent> zk <Plug>(ale_previous_wrap)
 nmap <silent> zj <Plug>(ale_next_wrap)
@@ -82,8 +73,8 @@ let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
-<<<<<<< Updated upstream
 let g:vimtex_compiler_latexmk = {
+    \ 'backend' : 'nvim',
     \ 'background' : 1,
     \ 'build_dir' : '',
     \ 'callback' : 1,
@@ -93,29 +84,12 @@ let g:vimtex_compiler_latexmk = {
     \ 'options' : [
     \   '-verbose',
     \   '-file-line-error',
+    \   '-synctex=1',
     \   '-interaction=nonstopmode',
     \   '-shell-escape',
     \   '-pdf',
     \ ],
     \}
-=======
-    let g:vimtex_compiler_latexmk = {
-        \ 'backend' : 'nvim',
-        \ 'background' : 1,
-        \ 'build_dir' : '',
-        \ 'callback' : 1,
-        \ 'continuous' : 1,
-        \ 'executable' : 'latexmk',
-        \ 'hooks' : [],
-        \ 'options' : [
-        \   '-verbose',
-        \   '-file-line-error',
-        \   '-synctex=1',
-        \   '-interaction=nonstopmode',
-        \   '-shell-escape',
-        \ ],
-        \}
->>>>>>> Stashed changes
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
