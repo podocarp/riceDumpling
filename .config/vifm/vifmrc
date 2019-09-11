@@ -371,7 +371,7 @@ filetype *
         \ {Open in nvim in new window}
         \ st -e nvim %c > /dev/null &,
         \ {xdg-open}
-        \ xdg-open
+        \ xdg-open &
 
 " ------------------------------------------------------------------------------
 
