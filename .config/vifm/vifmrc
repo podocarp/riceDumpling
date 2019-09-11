@@ -277,16 +277,18 @@ filetype *.jar
 
 " FuseZipMount
 filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
-        \ {Mount with fuse-zip}
-        \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
-        \ {View contents}
-        \ zip -sf %c | less,
         \ {Extract here}
         \ unzip -d %c:r %c,
+        \ {View contents}
+        \ zip -sf %c | less,
+        \ {Mount with fuse-zip}
+        \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
 
 " ArchiveMount
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
+        \ {Extract}
+        \ mkdir %c:r:r && tar xvf %c -C %c:r:r,
         \ {Mount with archivemount}
         \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR,
 fileviewer *.tgz,*.tar.gz tar -tzf %c
@@ -369,7 +371,7 @@ fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py head -n %ph %c | highlight -O xte
 " for unknown file types.
 filetype *
         \ {Open in nvim in new window}
-        \ st -e nvim %c > /dev/null &,
+        \ st -e nvim %c &> /dev/null &,
         \ {xdg-open}
         \ xdg-open &
 
