@@ -45,7 +45,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Trigger configuration.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -57,11 +57,13 @@ Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'scss': ['prettier'],
 \   'css': ['prettier'],
 \   'java': ['prettier'],
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
 \}
+
 nmap <silent> zk <Plug>(ale_previous_wrap)
 nmap <silent> zj <Plug>(ale_next_wrap)
 noremap <F1> :ALEFix<CR>
@@ -93,9 +95,15 @@ let g:vimtex_compiler_latexmk = {
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+autocmd StdinReadPre * let s:std_in=1
+" Open NERDTree if no file specified
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open NERDTree if opening a directory
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" Close vim if the only window left is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
@@ -198,9 +206,6 @@ augroup END
 map <Up> gk
 map <Down> gj
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""
-
-" Save file
-imap <C-S> <C-[>:w<CR>
 
 " paste
 inoremap <C-v> <ESC>"+pa
