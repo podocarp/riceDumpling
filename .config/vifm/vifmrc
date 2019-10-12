@@ -457,7 +457,7 @@ nnoremap T vv
 nnoremap t tj
 
 " Sets wallpapers and theme
-nnoremap bw :!wal -i %c --backend schemer2 && cp %c ~/.config/wall.png<cr>
+nnoremap bw :!wal -i %c --backend schemer2<CR>
 
 " Refresh after deleting, useful to prevent image preview bugging out
 nnoremap dd dd<c-l>

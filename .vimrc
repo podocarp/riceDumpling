@@ -164,7 +164,6 @@ set whichwrap+=<,>,h,l,[,]
 
 " Change default split behavior
 set splitright
-set splitbelow
 
 " Syntax highlighting
 syntax enable
@@ -252,6 +251,3 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
-
-"""""""""""""""""""""TERMINAL MODE MAPS"""""""""""""""""""
-:tnoremap <Esc> <C-\><C-n>
