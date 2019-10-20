@@ -56,7 +56,7 @@ set undolevels=100
 " If you installed the vim.txt help file set vimhelp.
 " If would rather use a plain text help file set novimhelp.
 
-set novimhelp
+set vimhelp
 
 " If you would like to run an executable file when you
 " press return on the file name set this.
@@ -111,7 +111,7 @@ endif
 
 " Set custom status line look
 
-set statusline="%z%= %t%= %A %10u:%-7g %15E %20d  "
+set statusline="%t%= %A %10u:%-7g %15E %20d"
 
 " ------------------------------------------------------------------------------
 
@@ -232,7 +232,7 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in feh}
-        \ feh -Sfilename -d -F --start-at %d/%f %d &,
+        \ feh -Sfilename -d -. --start-at %d/%f %d &,
         \ {View as thumbnail}
         \ feh -F -d -t --start-at %f,
 
