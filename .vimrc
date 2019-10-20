@@ -1,23 +1,27 @@
 """""""""""""""""""""""""""""FLAGS""""""""""""""""""""""""""
-set path+=**
-set mouse=a
-set number relativenumber
-set ruler
-set nobackup
-set linebreak
-set viminfo=
-set showcmd
-set lazyredraw
 set autoindent
-set statusline+=%F\ %l:%c
-set colorcolumn=80
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
 set autowriteall
-set undofile
+set colorcolumn=80
+set expandtab
+set ignorecase
+set incsearch
+set lazyredraw
+set linebreak
+set mouse=a
+set nobackup
 set nocursorline
+set nowrapscan
+set number relativenumber
+set path+=**
+set ruler
+set shiftwidth=4
+set showcmd
+set smartcase
+set smartindent
+set smarttab
+set statusline+=%F\ %l:%c
+set undofile
+set viminfo=
 
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,16 +29,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 """""""Autocomplete stuff
-Plugin 'lifepillar/vim-mucomplete'
-set completeopt+=menuone,preview,noselect
-set complete-=u
-set complete-=t
-set complete-=i
-set shortmess+=c
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#completion_delay = 500
-let g:mucomplete#reopen_immediately = 1
-let g:mucomplete#cycle_with_trigger = 1
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 Plugin 'davidhalter/jedi-vim', {'for': 'python'}
 let g:jedi#popup_on_dot = 1
@@ -55,14 +52,21 @@ let g:UltiSnipsEditSplit="vertical"
 """"""Linting stuff
 Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = {
+\   'c': ['clang'],
+\   'cpp': ['clang'],
+\   'javascript': ['eslint']
+\}
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'scss': ['prettier'],
-\   'css': ['prettier'],
-\   'java': ['prettier'],
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
+\   'css': ['prettier'],
+\   'javascript': ['prettier'],
+\   'java': ['prettier'],
+\   'scss': ['prettier'],
 \}
+let g:ale_c_clang_options='-std=c11 -Wall -pthread'
+let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
 
 nmap <silent> zk <Plug>(ale_previous_wrap)
 nmap <silent> zj <Plug>(ale_next_wrap)
@@ -217,14 +221,8 @@ nnoremap <leader>d "_d
 " Open shell (this breaks in vanilla vim)
 nnoremap <C-S> :sp<CR>:term<CR>A
 
-" Ctags
-nnoremap <F2> :!ctags -R .
-
 " Remove search highlights
 nnoremap <F3> :noh<CR>
-
-" Enters tabs
-nnoremap <Tab> 0i<Tab>
 
 """"""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""""
 
@@ -238,8 +236,6 @@ nnoremap <C-h> <C-W><C-h>
 nnoremap <C-j> <C-W><C-j>
 nnoremap <C-k> <C-W><C-k>
 nnoremap <C-l> <C-W><C-l>
-" Alows you to do those commands in insert mode
-imap <C-w> <C-o><C-w>
 
 """""""""""""""""""""VISUAL MODE MAPS""""""""""""""""""""""
 " Sends things away without overwriting the register
