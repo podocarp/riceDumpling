@@ -7,6 +7,7 @@ set ignorecase
 set incsearch
 set lazyredraw
 set linebreak
+set list
 set mouse=a
 set nobackup
 set nocursorline
