@@ -15,6 +15,7 @@ set nowrapscan
 set number relativenumber
 set path+=**
 set ruler
+set scrolloff=4
 set shiftwidth=4
 set showcmd
 set smartcase
@@ -34,18 +35,13 @@ Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-Plugin 'davidhalter/jedi-vim', {'for': 'python'}
-let g:jedi#popup_on_dot = 1
-let g:jedi#auto_initialization = 1
-let g:jedi#auto_vim_configuration = 0
-
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Trigger configuration.
 let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -69,8 +65,8 @@ let g:ale_fixers = {
 let g:ale_c_clang_options='-std=c11 -Wall -pthread'
 let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
 
-nmap <silent> zk <Plug>(ale_previous_wrap)
-nmap <silent> zj <Plug>(ale_next_wrap)
+nmap <silent> zk <Plug>(ale_previous_wrap)zz
+nmap <silent> zj <Plug>(ale_next_wrap)zz
 noremap <F1> :ALEFix<CR>
 """"""
 
@@ -97,6 +93,8 @@ let g:vimtex_compiler_latexmk = {
     \   '-pdf',
     \ ],
     \}
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -111,6 +109,8 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
+
+Plugin 'wincent/Command-T'
 
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -127,6 +127,7 @@ let g:NERDTreeIndicatorMapCustom = {
             \ 'Ignored'   : '',
             \ "Unknown"   : "?"
             \ }
+
 Plugin 'godlygeek/tabular'      "required by vim markdown
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
@@ -166,9 +167,6 @@ set hlsearch
 
 " Scrolling past the line pops you below
 set whichwrap+=<,>,h,l,[,]
-
-" Change default split behavior
-set splitright
 
 " Syntax highlighting
 syntax enable
@@ -248,3 +246,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
+
+""""""""""""""""""""""""""""MISC""""""""""""""""""""""""""
+let g:ruby_host_prog = '~/.gem/ruby/2.4.0/gems/neovim-0.8.1/exe/neovim-ruby-host'
