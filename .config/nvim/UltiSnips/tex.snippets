@@ -1,0 +1,104 @@
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
+'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS',
+'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+
+texIgnoreMathZones = ['texMathText']
+
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+
+ignore = texIgnoreMathZoneIds[0]
+
+def math():
+	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+	try:
+		first = next(
+            i for i in reversed(synstackids)
+            if i in texIgnoreMathZoneIds or i in texMathZoneIds
+        )
+		return first != ignore
+	except StopIteration:
+		return False
+endglobal
+
+snippet $ "Math Mode" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet "([\\A-Za-z]*_|\^)([,\w]{2,})" "Auto Sub/Super" wrA
+`!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`$1}$2
+endsnippet
+
+snippet item "Itemize" b
+\begin{itemize}[${1:<+->}]
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet "emph" "Emph" ri
+\emph{$1}$2
+endsnippet
+
+snippet "bar" "Bar" ri
+\bar{$1}$2
+endsnippet
+
+snippet "hat" "Hat" ri
+\hat{$1}$2
+endsnippet
+
+context "math()"
+snippet "((?<![\\])\S)bar" "Bar" rwA
+\bar{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "((?<![\\])\S)hat" "Hat" riA
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "\<(.*?)\|" "Bra" riA
+\bra{`!p snip.rv = match.group(1)`}
+endsnippet
+
+snippet "\|(.*?)\>" "Ket" riA
+\ket{`!p snip.rv = match.group(1)`}
+endsnippet
+
+snippet "(.*)\\bra{(.*?)}([^\|]*?)\>" "Braket" riA
+`!p snip.rv = match.group(1)`\braket{`!p snip.rv = match.group(2)`}{`!p snip.rv = match.group(3)`}
+endsnippet
+
+priority 10
+snippet "mint(\S+)?" "Minted code typeset" br
+\begin{minted}[]{${1:`!p
+snip.rv = match.group(1) if match.group(1) is not None else "lang"`}}
+${2:remember to fragile}
+\end{minted}
+endsnippet
+
+priority 100
+snippet "mintin" "Minted code inline" br
+\mintinline{${1:lang}}|$2|$3
+endsnippet
+
+priority 1000
+snippet math "Maxima block" w
+math $1 math$0
+endsnippet
+
+priority 10000
+snippet "math(.*)math" "Evaluate Maxima" wr
+`!p
+import subprocess
+code = match.group(1) + " tex(%, false);";
+snip.rv = subprocess.check_output(['maxima', '--very-quiet', '--batch-string', code], universal_newlines=True).split('\n')[-2];
+`
+endsnippet

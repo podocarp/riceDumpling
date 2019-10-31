@@ -183,12 +183,12 @@ fileviewer *.pdf
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura %f &,
 
 " Djvu
 filextype *.djvu
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura %f &,
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
@@ -231,10 +231,12 @@ fileviewer *.[1-8] man ./%c | col -b
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ {View in feh}
+        \ {Open in feh}
+        \ feh %f &,
+        \ {Feh thumbnail gallery}
+        \ feh -F -d -t --start-at %f &,
+        \ {View folder in feh}
         \ feh -Sfilename -d -F --start-at %d/%f %d &,
-        \ {View as thumbnail}
-        \ feh -F -d -t --start-at %f,
 
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif
         \ vifmimg imgpreview %px %py %pw %ph %c
@@ -439,9 +441,10 @@ nnoremap ,w :set wrap!<cr>
 " Example of standard two-panel file managers mappings
 nnoremap <f1> :mkdir<space>
 nnoremap <f2> :rename<cr>
+vnoremap <f2> :rename<cr>
 
 " New tab
-nnoremap N :tabnew<cr>
+nnoremap <C-n> :tabnew<cr>
 
 " Close current tab
 nnoremap gq :tabclose<cr>
