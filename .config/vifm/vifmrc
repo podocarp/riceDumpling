@@ -217,8 +217,6 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 " Web
 filextype *.html,*.htm
-        \ {Open in Chromium}
-        \ chromium %f &,
         \ {Edit}
         \ vicmd %f %i &,
 
@@ -460,10 +458,10 @@ nnoremap T vv
 nnoremap t tj
 
 " Sets wallpapers and theme
-nnoremap bw :!wal -i %c --backend schemer2<CR>
+nnoremap bw :!wal -i %c<CR>
 
-" Refresh after deleting, useful to prevent image preview bugging out
-nnoremap dd dd<c-l>
+" Clears the image preview when it bugs out
+nnoremap <c-l> :!vifmimg clear<cr>
 " ------------------------------------------------------------------------------
 
 " Various customization examples

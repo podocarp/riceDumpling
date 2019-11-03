@@ -21,7 +21,7 @@ set showcmd
 set smartcase
 set smartindent
 set smarttab
-set statusline+=%F\ %l:%c
+set termguicolors
 set undofile
 set viminfo=
 
@@ -93,6 +93,11 @@ let g:vimtex_compiler_latexmk = {
     \   '-pdf',
     \ ],
     \}
+nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
@@ -111,6 +116,8 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
 Plugin 'wincent/Command-T'
+let g:CommandTCursorColor = 'Search'
+let g:CommandTHighlightColor = 'Search'
 
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -137,9 +144,18 @@ let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 
+" set statusline+=%F\ %l:%c
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'laederon'
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#wordcount#filetypes = ['all']
+
 Plugin 'morhetz/gruvbox'
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "soft"
+let g:gruvbox_invert_indent_guides = 1
 """"""
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -149,14 +165,6 @@ colorscheme gruvbox
 
 " Disable neovim insert mode bar cursor
 set guicursor=
-
-" Show currently focused buffer
-augroup BgHighlight
-    autocmd WinEnter * set cul
-    autocmd WinEnter * hi StatusLine cterm=Bold,reverse
-    autocmd WinLeave * set nocul
-    autocmd WinLeave * hi StatusLine cterm=None
-augroup END
 
 " Tab completion stuff
 set wildmenu
