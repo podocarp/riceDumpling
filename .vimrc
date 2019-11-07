@@ -8,6 +8,7 @@ set incsearch
 set lazyredraw
 set linebreak
 set list
+set listchars=trail:-,tab:<->
 set mouse=a
 set nobackup
 set nocursorline
@@ -73,13 +74,12 @@ noremap <F1> :ALEFix<CR>
 """""" Latex
 Plugin 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
-let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
-    \ 'build_dir' : '',
+    \ 'build_dir' : 'latexmk/',
     \ 'callback' : 1,
     \ 'continuous' : 1,
     \ 'executable' : 'latexmk',
@@ -147,9 +147,8 @@ let g:vim_markdown_new_list_item_indent = 2
 " set statusline+=%F\ %l:%c
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'laederon'
+let g:airline_theme = 'alduin'
 let g:airline#extensions#branch#enabled = 0
-let g:airline#extensions#wordcount#filetypes = ['all']
 
 Plugin 'morhetz/gruvbox'
 let g:gruvbox_italic = 1
@@ -215,10 +214,14 @@ augroup END
 " Scroll in wrapped lines
 map <Up> gk
 map <Down> gj
+map <Esc><Esc> :w<CR>
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""
 
 " paste
 inoremap <C-v> <ESC>"+pa
+
+" save
+inoremap <leader>w <Esc>:w<CR>a
 
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""
 
