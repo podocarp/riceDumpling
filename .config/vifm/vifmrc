@@ -229,7 +229,7 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {Open in feh}
-        \ feh %f &,
+        \ feh %f -F &,
         \ {Feh thumbnail gallery}
         \ feh -F -d -t --start-at %f &,
         \ {View folder in feh}
@@ -381,7 +381,7 @@ filetype *
 " set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
 " Like in vi
 set vifminfo=dhistory,chistory,state,tui,shistory,
-    \phistory,fhistory,dirstack,registers,bookmarks,bmarks 
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 " ------------------------------------------------------------------------------
 
 " Examples of configuring both panels
@@ -453,7 +453,7 @@ vnoremap R :file<cr>
 " Unselects file under cursor
 nnoremap T vv
 
-" Selects and move to the next file 
+" Selects and move to the next file
 nnoremap t tj
 
 " Sets wallpapers and theme

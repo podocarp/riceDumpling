@@ -3,8 +3,8 @@
 readonly ID_PREVIEW="preview"
 
 if [ "$1" = "imgpreview" ]; then
-	declare -p -A cmd=([action]=add [identifier]="$ID_PREVIEW" [x]=$2 \
-            [y]=$3 [width]=$4 [height]=$5 [path]="$PWD/$6") > "$FIFO_UEBERZUG"
+        declare -p -A cmd=([action]=add [identifier]="$ID_PREVIEW" [x]=$2 \
+            [y]=$3 [width]=$4 [height]=$5 [path]="$PWD/$6" [scaler]="contain" [synchronously_draw]=false) > "$FIFO_UEBERZUG"
 elif [[ "$1" == "pdfpreview" ]]; then
         tempdir="/tmp/pdfpreview"
         [[ ! -d $tempdir ]] && mkdir -p $tempdir
@@ -14,5 +14,5 @@ elif [[ "$1" == "pdfpreview" ]]; then
         [height]="$5" [path]="$tempdir/$6.jpg") \
             > "$FIFO_UEBERZUG"
 else
-	declare -p -A cmd=([action]=remove [identifier]="$ID_PREVIEW") > "$FIFO_UEBERZUG"
+        declare -p -A cmd=([action]=remove [identifier]="$ID_PREVIEW") > "$FIFO_UEBERZUG"
 fi
