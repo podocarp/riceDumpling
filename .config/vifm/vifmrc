@@ -64,8 +64,7 @@ set vimhelp
 set norunexec
 
 " Selected color scheme
-colorscheme zenburn_1
-hi Selected ctermbg=Black
+colorscheme reicheltd-light
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
