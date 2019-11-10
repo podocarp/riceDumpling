@@ -53,16 +53,6 @@ snippet "hat" "Hat" ri
 \hat{$1}$2
 endsnippet
 
-context "math()"
-snippet "((?<![\\])\S)bar" "Bar" rwA
-\bar{`!p snip.rv=match.group(1)`}
-endsnippet
-
-context "math()"
-snippet "((?<![\\])\S)hat" "Hat" riA
-\hat{`!p snip.rv=match.group(1)`}
-endsnippet
-
 snippet "\<(.*?)\|" "Bra" riA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
