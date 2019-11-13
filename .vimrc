@@ -8,7 +8,6 @@ set incsearch
 set lazyredraw
 set linebreak
 set list
-set listchars=trail:-,tab:<->
 set mouse=a
 set nobackup
 set nocursorline
