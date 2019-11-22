@@ -31,14 +31,38 @@ else:
 endsnippet
 
 context "math()"
-snippet "([\\A-Za-z]*_|\^)([,\w]{2,})" "Auto Sub/Super" wrA
+snippet "([\\A-Za-z]*_|\^)([,\-\w]{2,})" "Auto Sub/Super" wrA
 `!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`$1}$2
+endsnippet
+
+snippet beg "Begin" b
+\begin{$1}
+	$2
+\end{$1}
+endsnippet
+
+snippet pf "Proof" b
+\begin{proof}
+	$1
+\end{proof}
 endsnippet
 
 snippet item "Itemize" b
 \begin{itemize}[${1:<+->}]
 	\item $0
 \end{itemize}
+endsnippet
+
+snippet enum "Enumerate" b
+\begin{enumerate}[${1:i.}]
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet thm "Theorem" b
+\begin{thm}[${1:Title}]
+	$2
+\end{thm}
 endsnippet
 
 snippet "emph" "Emph" ri
@@ -85,9 +109,77 @@ endsnippet
 
 priority 10000
 snippet "math(.*)math" "Evaluate Maxima" wr
-`!p
-import subprocess
-code = match.group(1) + " tex(%, false);";
-snip.rv = subprocess.check_output(['maxima', '--very-quiet', '--batch-string', code], universal_newlines=True).split('\n')[-2];
+`!p import subprocess
+cmd = match.group(1) + " tex(%, false);";
+snip.rv = subprocess.check_output(['maxima', '--very-quiet', '--batch-string',
+cmd], universal_newlines=True).split('\n')[-2]
 `
+endsnippet
+
+priority 1000
+snippet fig "Figure block preparation" w
+fig $1 fig$0
+endsnippet
+
+priority 10000
+snippet "fig (.*) fig" "Insert figure" wr
+\begin{figure}[ht]
+\centering
+\def\svgwidth{${3:\linewidth}}
+\import{./figures/}{${1:`!p
+if snip.c != "":
+    pass
+else:
+    import os
+    import re
+
+    figureDir = os.path.join(os.getcwd(), "figures/")
+    # regex to make into kebab case
+    figureName = "-".join([x.lower() for x in re.findall(r'\w+', match.group(1))])
+    figurePath = figureDir + figureName + '.svg'
+
+    if os.path.isfile(figurePath):
+        snip.rv = "File already exists!"
+    else:
+        import subprocess
+        templatePath = os.path.expanduser("~/.config/inkscape/templates/default1024.svg")
+        subprocess.call(['mkdir', '-p', figureDir])
+        subprocess.check_output(['cp', templatePath, figurePath])
+        subprocess.call(['inkscape', '--export-pdf', figureDir+figureName+'.pdf', '--export-latex', figurePath])
+        snip.rv = figureName
+`}.pdf_tex}
+\caption{${2:caption}}
+\label{fig:$1}
+%edit $1 edit%$4
+\end{figure}
+$0
+endsnippet
+
+snippet "%edit (.*) edit%" "Edit svg" wr
+%edit `!p
+if snip.c != "":
+    pass
+else:
+    import subprocess
+    figureStem = os.path.join(os.getcwd(), "figures/", match.group(1))
+    figurePath = figureStem + '.svg'
+    proc = subprocess.Popen(['inkscape', figurePath]) # open in bg
+
+    from inotify_simple import INotify, flags
+    inotify = INotify()
+    inotify.add_watch(figurePath, flags.MODIFY)
+
+    update = lambda : subprocess.call(['inkscape', '--export-pdf', figureStem+'.pdf', '--export-latex', figurePath])
+    while True:
+        if proc.poll() is not None:
+            update()
+            break	# inkscape closed
+        else:
+            l = inotify.read(timeout=1000)	# block and wait for inotify
+            if (len(l) > 0):
+                update()
+
+    inotify.close()
+    snip.rv = match.group(1)
+` edit%$0
 endsnippet

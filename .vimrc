@@ -97,7 +97,9 @@ if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
-set conceallevel=1
+
+Plugin 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+set conceallevel=2
 let g:tex_conceal='abdmg'
 
 """"""Misc stuff
@@ -218,9 +220,6 @@ map <Esc><Esc> :w<CR>
 
 " paste
 inoremap <C-v> <ESC>"+pa
-
-" save
-inoremap <leader>w <Esc>:w<CR>a
 
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""
 
