@@ -2,7 +2,6 @@
 My config and dotfiles. Focused on function over form.
 
 # Screens
-Hey, nobody actually works like that:
 ![](images/single.png)
 
 # Stuff used
