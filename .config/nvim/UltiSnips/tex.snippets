@@ -21,18 +21,13 @@ def math():
 		return False
 endglobal
 
-snippet $ "Math Mode" wA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
-else:
-    snip.rv = ''
-`$2
+context "math()"
+snippet "([\\\w]+_|\^)([\w]{2,}|[,\w]{3,})" "Auto Sub/Super" wrA
+`!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`$1}$2
 endsnippet
 
-context "math()"
-snippet "([\\A-Za-z]*_|\^)([,\-\w]{2,})" "Auto Sub/Super" wrA
-`!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`$1}$2
+snippet frac "Fraction" w
+\frac{${1:n}}{${2:d}}$3
 endsnippet
 
 snippet beg "Begin" b
@@ -65,23 +60,31 @@ snippet thm "Theorem" b
 \end{thm}
 endsnippet
 
-snippet "emph" "Emph" ri
+snippet em "Emph" w
 \emph{$1}$2
 endsnippet
 
-snippet "bar" "Bar" ri
+snippet abs "Absolute" w
+\abs{$1}$2
+endsnippet
+
+snippet bar "Bar" w
 \bar{$1}$2
 endsnippet
 
-snippet "hat" "Hat" ri
+snippet hat "Hat" w
 \hat{$1}$2
 endsnippet
 
-snippet "\<(.*?)\|" "Bra" riA
+snippet "\|([^\w]*\w[\s\S]*?)\|" "Absolute" rA
+\abs{`!p snip.rv = match.group(1)`$1}
+endsnippet
+
+snippet "\<(\s*.{0,9})\|" "Bra" riA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
 
-snippet "\|(.*?)\>" "Ket" riA
+snippet "\|(\s*.{0,9})\>" "Ket" riA
 \ket{`!p snip.rv = match.group(1)`}
 endsnippet
 
@@ -98,7 +101,7 @@ ${2:remember to fragile}
 endsnippet
 
 priority 100
-snippet "mintin" "Minted code inline" br
+snippet "mintin" "Minted code inline" b
 \mintinline{${1:lang}}|$2|$3
 endsnippet
 

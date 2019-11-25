@@ -34,6 +34,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -55,6 +57,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint']
 \}
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
 \   'css': ['prettier'],
@@ -78,7 +81,7 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
-    \ 'build_dir' : 'latexmk/',
+    \ 'build_dir' : expand('%:r') . "_latexmk",
     \ 'callback' : 1,
     \ 'continuous' : 1,
     \ 'executable' : 'latexmk',
@@ -98,10 +101,6 @@ if !exists('g:ycm_semantic_triggers')
 endif
 au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
-Plugin 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-set conceallevel=2
-let g:tex_conceal='abdmg'
-
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 autocmd StdinReadPre * let s:std_in=1
@@ -119,6 +118,10 @@ let g:NERDTreeDirArrowCollapsible = '-'
 Plugin 'wincent/Command-T'
 let g:CommandTCursorColor = 'Search'
 let g:CommandTHighlightColor = 'Search'
+
+Plugin 'jiangmiao/auto-pairs'
+au Filetype tex let b:AutoPairs = {'(':')', '[':']', '{':'}', "$":"$"}
+Plugin 'tpope/vim-surround'
 
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'

@@ -2,17 +2,19 @@ __pycache__/
 
 !.config/
 .config/*
-!.config/i3/
-!.config/polybar/
-!.config/ranger/
-!.config/vifm/
-.config/vifm/vifminfo*
-!.config/nvim/
-.config/nvim/.netrwhist
-!.config/scripts/
-!.config/neofetch/
 !.config/compton.conf
 !.config/dunst/
+!.config/i3/
+!.config/inkscape/templates/
+!.config/inkscape/shapes
+!.config/neofetch/
+!.config/nvim/
+.config/nvim/.netrwhist
+!.config/polybar/
+!.config/ranger/
+!.config/scripts/
+!.config/vifm/
+.config/vifm/vifminfo*
 
 .local/*
 !.local/share
