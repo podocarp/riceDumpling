@@ -1,23 +1,4 @@
 __pycache__/
 
-!.config/
 .config/*
-!.config/compton.conf
-!.config/dunst/
-!.config/i3/
-!.config/inkscape/templates/
-!.config/inkscape/shapes
-!.config/neofetch/
-!.config/nvim/
-.config/nvim/.netrwhist
-!.config/polybar/
-!.config/ranger/
-!.config/scripts/
-!.config/vifm/
-.config/vifm/vifminfo*
-
 .local/*
-!.local/share
-.local/share/*
-!.local/share/fonts/
-.local/share/fonts/.uuid
