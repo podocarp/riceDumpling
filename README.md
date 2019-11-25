@@ -5,18 +5,16 @@ My config and dotfiles. Focused on function over form.
 Hey, nobody actually works like that:
 ![](images/single.png)
 
-# Stuff used 
-These are the stuff that I use. They all have configs here apart from the suckless stuff.
+# Stuff used
+These are the stuff that I use. They all have configs here apart from the suckless stuff. If something is listed here means there is most likely a config for it.
 
 - [patched st](https://github.com/podocarp/st)
 - [patched dwm](https://github.com/podocarp/dwm)
-  - my dwmstatus included (update git submodules after cloning!)
 - vifm
+  - [ueberzug](https://github.com/seebye/ueberzug)
 - nvim
-  - Vundle
-- [ueberzug](https://github.com/seebye/ueberzug)
 - zathura
-- Wallpapers  
+- Wallpapers
   - pywal
   - [schemer2](https://github.com/thefryscorer/schemer2)
   - feh
@@ -24,19 +22,20 @@ These are the stuff that I use. They all have configs here apart from the suckle
 - fonts (included)
   - IBM Plex Mono
   - Adobe Source Han
+- latexmk
 
 # Usage
 `./setup.sh`.
 This script makes all your configs a symlink of whatever files are in here, so it *will wipe your previous configs*.
+This is just a lazy solution for when I switch to a new machine. To be safe, just download what you want and move it by yourself.
 
 # Notes
-There might be some changes that you don't like. This section lists a few changes that might annoy you:
+This section lists a few changes in case you want to change them:
 
 | Change | Location of config |
 | --- | --- |
 | Caps is Esc | `.Xmodmap` |
 | Synaptic Trackpad disabled by default | `.xprofile` |
-| Alpha fade in/out delay | `.xprofile` |
 | Fn buttons | `.xbindkeysrc` |
 
 # Keybinds
@@ -55,7 +54,7 @@ If it doesn't start, try checking `~/.config/scripts/vf` and seeing if it is poi
 | R | Alternative opening methods |
 
 ## vim
-The more obvious ones:
+`<leader>` is bound to backslash. The more obvious ones:
 
 | Key combo | Function |
 | --- | --- |
