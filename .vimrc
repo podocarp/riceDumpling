@@ -260,4 +260,3 @@ vnoremap <C-c> "+y
 vnoremap <C-x> "+d
 
 """"""""""""""""""""""""""""MISC""""""""""""""""""""""""""
-let g:ruby_host_prog = '~/.gem/ruby/2.4.0/gems/neovim-0.8.1/exe/neovim-ruby-host'
