@@ -1,14 +1,18 @@
 \ProvidesPackage{mystyle}
 
-\usepackage[a4paper,top=1in, bottom=1in]{geometry}
-\usepackage[shortlabels]{enumitem}
+% Math stuff
 \usepackage{amssymb, amsmath, amsthm, mathtools}
-\usepackage{lmodern}
+\usepackage{bbm}
+\usepackage{calrsfs}
 \usepackage{physics}
 
+% Misc
+\usepackage[shortlabels]{enumitem}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=teal}
 
+% Graphics
+\usepackage{float}
 \usepackage{graphicx, import}
 \usepackage{pdfpages}
 \usepackage{tikz}
@@ -27,7 +31,6 @@
 \newtheorem{thm}{Theorem}[section]
 \newtheorem*{cor}{Corollary}
 \newtheorem*{prop}{Proposition}
-\newtheorem*{remark}{Remark}
 \newtheorem*{claim}{Claim}
 
 \newtheorem*{defaultsln}{Solution}
@@ -38,29 +41,41 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
 
 \newcommand{\sectionbreak}{\begin{center}***\end{center}}
 
 % Blackboard bold for certain sets
-\newcommand{\R}{{\mathbb{R}}}
-\newcommand{\N}{{\mathbb{N}}}
-\newcommand{\Q}{{\mathbb{Q}}}
-\newcommand{\Z}{{\mathbb{Z}}}
-\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbbm{R}}}
+\newcommand{\N}{{\mathbbm{N}}}
+\newcommand{\Q}{{\mathbbm{Q}}}
+\newcommand{\Z}{{\mathbbm{Z}}}
+\newcommand{\C}{{\mathbbm{C}}}
 
 \newcommand{\dist}{\mathrm{dist}}
 
+\DeclareMathAlphabet{\mathscr}{OMS}{zplm}{m}{n}
+
 % Fourier transform and Laplace transform and their inverses
-\newcommand{\Ft}[1]{{\mathcal{F}\qty{#1}}}
-\newcommand{\Fti}[1]{{\mathcal{F}^{-1}\qty{#1}}}
-\newcommand{\Lt}[1]{{\mathcal{L}\qty{#1}}}
-\newcommand{\Lti}[1]{{\mathcal{L}^{-1}\qty{#1}}}
+\newcommand{\FT}[1]{{\mathccal{F}\qty{#1}}}
+\newcommand{\FTi}[1]{{\mathccal{F}^{-1}\qty{#1}}}
+\newcommand{\LT}[1]{{\mathccal{L}\qty{#1}}}
+\newcommand{\LTi}[1]{{\mathccal{L}^{-1}\qty{#1}}}
 % Operator L on its own may be useful in ODEs
-\newcommand{\Lh}{{\mathcal{L}}}
+\newcommand{\Lh}{{\mathccal{L}}}
 
 % Nice convenient improper integrals
 \newcommand{\intinfinf}{{\int_{-\infty}^\infty}}
 \newcommand{\intzeroinf}{{\int_0^\infty}}
+
+% Upper and lower Darboux integrals
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
 
 % Nice convenient infinite sums
 \newcommand{\sumzeroinf}[1]{{\sum_{{#1}=0}^\infty}}
