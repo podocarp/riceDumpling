@@ -11,6 +11,7 @@ set list
 set mouse=a
 set nobackup
 set nocursorline
+set noshowcmd
 set nowrapscan
 set number relativenumber
 set path+=**
@@ -21,7 +22,9 @@ set showcmd
 set smartcase
 set smartindent
 set smarttab
+set splitright
 set termguicolors
+set tw=0
 set undofile
 set viminfo=
 
@@ -31,19 +34,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 """""""Autocomplete stuff
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion = ['<C-p>']
+" Plugin 'Valloric/YouCompleteMe'
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_key_list_select_completion = ['<C-n>']
+" let g:ycm_key_list_previous_completion = ['<C-p>']
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
-" Trigger configuration.
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -95,11 +93,12 @@ let g:vimtex_compiler_latexmk = {
     \   '-pdf',
     \ ],
     \}
+
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+" au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -139,20 +138,7 @@ let g:NERDTreeIndicatorMapCustom = {
             \ "Unknown"   : "?"
             \ }
 
-Plugin 'godlygeek/tabular'      "required by vim markdown
-Plugin 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_new_list_item_indent = 2
-
-" set statusline+=%F\ %l:%c
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'alduin'
-let g:airline#extensions#branch#enabled = 0
+set statusline+=%F\ %l:%c
 
 Plugin 'morhetz/gruvbox'
 let g:gruvbox_italic = 1
