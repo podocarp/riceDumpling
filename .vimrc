@@ -125,18 +125,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDTreeIndicatorMapCustom = {
-            \ "Modified"  : "",
-            \ "Staged"    : "",
-            \ "Untracked" : "",
-            \ "Renamed"   : "",
-            \ "Unmerged"  : "═",
-            \ "Deleted"   : "",
-            \ "Dirty"     : "",
-            \ "Clean"     : "",
-            \ 'Ignored'   : '',
-            \ "Unknown"   : "?"
-            \ }
 
 set statusline+=%F\ %l:%c
 
