@@ -215,9 +215,9 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
         \ ffprobe -pretty %c 2>&1
 
 " Web
-filextype *.html,*.htm
-        \ {Edit}
-        \ vicmd %f %i &,
+filextype *.xhtml,*.html,*.htm
+        \ {View}
+        \ firefox %f
 
 " Object
 filetype *.o nm %f | less
