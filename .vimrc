@@ -34,11 +34,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 """""""Autocomplete stuff
-" Plugin 'Valloric/YouCompleteMe'
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_key_list_select_completion = ['<C-n>']
-" let g:ycm_key_list_previous_completion = ['<C-p>']
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -94,11 +94,15 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
+Plugin 'KeitaNakamura/tex-conceal.vim'
+let g:tex_conceal="abdgm"
+set conceallevel=2
+
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-" au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 """"""Misc stuff
 Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -133,6 +137,9 @@ let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "soft"
 let g:gruvbox_invert_indent_guides = 1
+
+Plugin 'junegunn/goyo.vim'
+let g:goyo_width = 90
 """"""
 call vundle#end()            " required
 filetype plugin indent on    " required
