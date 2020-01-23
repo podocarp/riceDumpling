@@ -1,4 +1,3 @@
-#
 # ~/.bashrc
 #
 # If not running interactively, don't do anything
@@ -24,10 +23,6 @@ complete -cf sudo
 
 cdl(){ cd "$@" && ls; }
 
-AURClone(){
-    git clone https://aur.archlinux.org/$1.git
-}
-
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
 export PATH=$PATH:~/.config/scripts/:~/.local/bin:~/.yarn/bin/:$GOPATH/bin:~/.gem/ruby/2.4.0/bin
@@ -46,6 +41,3 @@ divider(){
 export PS1=$'┌\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 4)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[\e[0m\\]`divider`\n → \$ '
 
 HISTCONTROL=ignoreboth
-
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh

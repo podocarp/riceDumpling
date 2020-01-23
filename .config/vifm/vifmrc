@@ -64,7 +64,7 @@ set vimhelp
 set norunexec
 
 " Selected color scheme
-colorscheme snowwhite
+colorscheme ph
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -192,16 +192,16 @@ filextype *.djvu
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
         \ {Play directory with MPV}
-        \ mpv %d*,
+        \ mpv --player-operation-mode=pseudo-gui %d* &,
         \ {Play with MPV}
-        \ mpv %c,
+        \ mpv --player-operation-mode=pseudo-gui %c &,
 
 filetype *.cue
         \ {Play with MPV}
-        \ mpv %c
+        \ mpv --player-operation-mode=pseudo-gui %c &
 
-fileviewer *.mp3 mp3info
-fileviewer *.flac soxi
+fileviewer *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
+        \ echo No preview available %i
 
 " Video
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,

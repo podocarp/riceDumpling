@@ -29,25 +29,19 @@ set undofile
 set viminfo=
 
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin(stdpath('data') . '/bundle')
 
 """""""Autocomplete stuff
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion = ['<C-p>']
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
 """"""Linting stuff
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
 \   'c': ['clang'],
@@ -72,7 +66,7 @@ noremap <F1> :ALEFix<CR>
 """"""
 
 """""" Latex
-Plugin 'lervag/vimtex', {'for': 'tex'}
+Plug 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
@@ -94,18 +88,14 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
-Plugin 'KeitaNakamura/tex-conceal.vim'
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 let g:tex_conceal="abdgm"
 set conceallevel=2
 
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 """"""Misc stuff
-Plugin 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 autocmd StdinReadPre * let s:std_in=1
 " Open NERDTree if no file specified
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -118,31 +108,27 @@ let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
-Plugin 'wincent/Command-T'
+Plug 'wincent/Command-T'
 let g:CommandTCursorColor = 'Search'
 let g:CommandTHighlightColor = 'Search'
 
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 au Filetype tex let b:AutoPairs = {'(':')', '[':']', '{':'}', "$":"$"}
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
 
 set statusline+=%F\ %l:%c
 
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "soft"
 let g:gruvbox_invert_indent_guides = 1
-
-Plugin 'junegunn/goyo.vim'
-let g:goyo_width = 90
 """"""
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 """""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
 " Colorscheme
 colorscheme gruvbox

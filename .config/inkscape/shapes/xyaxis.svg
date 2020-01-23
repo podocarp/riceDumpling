@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -9,51 +7,96 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1024"
-   height="768"
-   viewBox="0 0 270.93334 203.2"
-   version="1.1"
+   sodipodi:docname="xyaxis.svg"
+   inkscape:version="1.0beta2 (1c06f35b6, 2019-12-07)"
    id="svg8"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="xyaxis.svg">
+   version="1.1"
+   viewBox="0 0 270.93334 203.2"
+   height="768"
+   width="1024">
   <defs
-     id="defs2" />
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker1251"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1249"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker1223"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1221"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:collect="always"
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path948" />
+    </marker>
+  </defs>
   <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="1029.1928"
-     inkscape:cy="344.2471"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1-56"
-     showgrid="true"
-     units="px"
-     width="512px"
-     inkscape:window-width="1904"
-     inkscape:window-height="1047"
-     inkscape:window-x="1925"
-     inkscape:window-y="22"
-     inkscape:window-maximized="0"
-     inkscape:snap-object-midpoints="true"
-     inkscape:snap-center="false"
-     inkscape:object-paths="true"
-     inkscape:snap-intersection-paths="true"
-     inkscape:snap-smooth-nodes="true"
-     inkscape:snap-bbox="true"
-     inkscape:snap-text-baseline="true"
-     inkscape:snap-midpoints="true"
-     inkscape:snap-bbox-midpoints="true"
-     inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:bbox-nodes="true"
+     inkscape:document-rotation="0"
+     inkscape:snap-global="false"
      inkscape:bbox-paths="true"
-     inkscape:snap-global="false">
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-paths="true"
+     inkscape:snap-center="false"
+     inkscape:snap-object-midpoints="true"
+     inkscape:window-maximized="0"
+     inkscape:window-y="22"
+     inkscape:window-x="1925"
+     inkscape:window-height="1047"
+     inkscape:window-width="1904"
+     width="512px"
+     units="px"
+     showgrid="true"
+     inkscape:current-layer="g862"
+     inkscape:document-units="mm"
+     inkscape:cy="324.35826"
+     inkscape:cx="494.42319"
+     inkscape:zoom="0.98994949"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base">
     <inkscape:grid
-       type="xygrid"
-       id="grid4479" />
+       id="grid4479"
+       type="xygrid" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -68,72 +111,57 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
+     transform="translate(0,-93.799987)"
      id="layer1"
-     transform="translate(0,-93.799987)">
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
     <g
-       transform="translate(3.3333333e-6,2.6458287)"
+       inkscape:label="Layer 1"
        id="layer1-5"
-       inkscape:label="Layer 1">
+       transform="translate(3.3333333e-6,2.6458287)">
       <g
-         transform="translate(0.49542708,3.9800542)"
+         inkscape:label="Layer 1"
          id="layer1-56"
-         inkscape:label="Layer 1">
-        <path
-           inkscape:connector-curvature="0"
-           id="path4506"
-           d="m 137.58333,111.79165 -1.32292,1.32292"
-           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <path
-           inkscape:connector-curvature="0"
-           id="path4508"
-           d="m 137.58333,111.79165 1.32292,1.32292"
-           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         transform="translate(0.49542708,3.9800542)">
         <g
            id="g833">
           <path
-             style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             d="M 137.58333,281.12499 V 111.79166"
+             inkscape:connector-curvature="0"
              id="path4502"
-             inkscape:connector-curvature="0" />
+             d="M 137.58333,281.12499 V 111.79166"
+             style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker1223)" />
           <text
-             xml:space="preserve"
-             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-             x="136.51425"
+             id="text4512"
              y="107.65012"
-             id="text4512"><tspan
-               sodipodi:role="line"
-               id="tspan4510"
-               x="136.51425"
+             x="136.51425"
+             style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+             xml:space="preserve"><tspan
+               style="font-size:4.23333px;line-height:2;stroke-width:0.264583"
                y="107.65012"
-               style="font-size:4.23333311px;line-height:2;stroke-width:0.26458332">$y$</tspan></text>
+               x="136.51425"
+               id="tspan4510"
+               sodipodi:role="line">$y$</tspan></text>
         </g>
         <g
-           style="stroke-width:1.07762587"
+           id="g862"
            transform="matrix(0.92796582,0,0,0.92796582,7.6068368,11.499849)"
-           id="g862">
+           style="stroke-width:1.07762587">
           <path
-             style="fill:none;stroke:#000000;stroke-width:0.27583197px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             d="M 42.333333,196.45832 H 235.47917"
+             inkscape:connector-curvature="0"
              id="path4500"
-             inkscape:connector-curvature="0" />
-          <path
-             style="fill:none;stroke:#000000;stroke-width:0.28512183px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             d="m 234.15625,195.1354 1.32291,1.32292 -1.32291,1.32292"
-             id="path4504"
-             inkscape:connector-curvature="0" />
+             d="M 42.333333,196.45832 H 235.47917"
+             style="fill:none;stroke:#000000;stroke-width:0.27587223;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#Arrow1Lend)" />
           <text
-             xml:space="preserve"
-             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28512183"
-             x="237.59045"
+             id="text4516"
              y="197.79466"
-             id="text4516"><tspan
-               sodipodi:role="line"
-               id="tspan4514"
-               x="237.59045"
+             x="237.59045"
+             style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.285122"
+             xml:space="preserve"><tspan
+               style="font-size:4.23333px;stroke-width:0.285122"
                y="197.79466"
-               style="font-size:4.23333311px;stroke-width:0.28512183">$x$</tspan></text>
+               x="237.59045"
+               id="tspan4514"
+               sodipodi:role="line">$x$</tspan></text>
         </g>
       </g>
     </g>
