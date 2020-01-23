@@ -56,5 +56,8 @@
 "sh ~/.config/scripts/touchpad_toggle"
     XF86Display
 
+"sh ~/.config/scripts/xrandrToggleRot"
+    XF86TaskPane
+
 "sudo s2ram"
     XF86Sleep
