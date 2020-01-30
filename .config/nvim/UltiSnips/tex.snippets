@@ -82,18 +82,22 @@ snippet hat "Hat" w
 \hat{$1}$2
 endsnippet
 
+context "math()"
 snippet "\|([^\w]*\w[\s\S]*?)\|" "Absolute" rA
 \abs{`!p snip.rv = match.group(1)`}
 endsnippet
 
+context "math()"
 snippet "\<(\s*.{0,9})\|" "Bra" riA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
 
+context "math()"
 snippet "\|(\s*.{0,9})\>" "Ket" riA
 \ket{`!p snip.rv = match.group(1)`}
 endsnippet
 
+context "math()"
 snippet "(.*)\\bra{(.*?)}([^\|]*?)\>" "Braket" riA
 `!p snip.rv = match.group(1)`\braket{`!p snip.rv = match.group(2)`}{`!p snip.rv = match.group(3)`}
 endsnippet
@@ -126,7 +130,7 @@ cmd], universal_newlines=True).split('\n')[-2]
 endsnippet
 
 priority 1000
-snippet fig "Figure block preparation" w
+snippet ink "Inkscape preparation" w
 fig $1 fig$0
 endsnippet
 

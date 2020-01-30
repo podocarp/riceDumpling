@@ -41,3 +41,5 @@ divider(){
 export PS1=$'┌\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 4)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]] \[\e[0m\\]`divider`\n → \$ '
 
 HISTCONTROL=ignoreboth
+
+(cat ~/.cache/wal/sequences &)

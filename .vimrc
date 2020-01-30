@@ -2,6 +2,7 @@
 set autoindent
 set autowriteall
 set colorcolumn=80
+set cursorline
 set expandtab
 set ignorecase
 set incsearch
@@ -23,7 +24,6 @@ set smartcase
 set smartindent
 set smarttab
 set splitright
-set termguicolors
 set tw=0
 set undofile
 set viminfo=
@@ -68,7 +68,7 @@ noremap <F1> :ALEFix<CR>
 """""" Latex
 Plug 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
-let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_compiler_progname = '/usr/bin/nvr'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
@@ -95,7 +95,7 @@ set conceallevel=2
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 
 """"""Misc stuff
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree'
 autocmd StdinReadPre * let s:std_in=1
 " Open NERDTree if no file specified
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
