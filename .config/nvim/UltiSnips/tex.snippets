@@ -22,7 +22,7 @@ def math():
 endglobal
 
 context "math()"
-snippet "([\\\w]+_|\^)([\w]{2,}|[,\w]{3,})" "Auto Sub/Super" wrA
+snippet "([\S]+_|\^)([\-\w]{2,}|[,\w]{3,})" "Auto Sub/Super" wrA
 `!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`$1}$2
 endsnippet
 
@@ -32,37 +32,37 @@ endsnippet
 
 snippet beg "Begin" b
 \begin{$1}
-	$2
+    $2
 \end{$1}
 endsnippet
 
 snippet def "Definition" b
 \begin{definition}
-	$1
+    $1
 \end{definition}
 endsnippet
 
 snippet thm "Theorem" b
 \begin{thm}[${1:Title}]
-	$2
+    $2
 \end{thm}
 endsnippet
 
 snippet pf "Proof" b
 \begin{proof}
-	$1
+    $1
 \end{proof}
 endsnippet
 
 snippet item "Itemize" b
 \begin{itemize}[${1:<+->}]
-	\item $0
+    \item $0
 \end{itemize}
 endsnippet
 
 snippet enum "Enumerate" b
 \begin{enumerate}[${1:i.}]
-	\item $0
+    \item $0
 \end{enumerate}
 endsnippet
 
@@ -88,12 +88,12 @@ snippet "\|([^\w]*\w[\s\S]*?)\|" "Absolute" rA
 endsnippet
 
 context "math()"
-snippet "\<(\s*.{0,9})\|" "Bra" riA
+snippet "\<(.*)\|" "Bra" riA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\|(\s*.{0,9})\>" "Ket" riA
+snippet "\|(.*)\>" "Ket" riA
 \ket{`!p snip.rv = match.group(1)`}
 endsnippet
 
@@ -127,6 +127,28 @@ cmd = match.group(1) + " tex(%, false);";
 snip.rv = subprocess.check_output(['maxima', '--very-quiet', '--batch-string',
 cmd], universal_newlines=True).split('\n')[-2]
 `
+endsnippet
+
+snippet subfigure "Fig with subfigs" w
+\begin{figure}[H] 
+    \begin{subfigure}[${1:t}]{${2:0.49}\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{${3:}}
+    \caption{${4:}}
+    \label{fig:${5:}}
+    \end{subfigure}
+    \caption{${6:}}
+    \label{fig:${7:}}
+\end{figure}
+endsnippet
+
+snippet subfig "Subfigure" w
+\begin{subfigure}[${1:t}]{${2:0.49}\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{${3:}}
+    \caption{${4:}}
+    \label{fig:${5:}}
+\end{subfigure}
 endsnippet
 
 priority 1000
@@ -186,9 +208,9 @@ else:
     while True:
         if proc.poll() is not None:
             update()
-            break	# inkscape closed
+            break # inkscape closed
         else:
-            l = inotify.read(timeout=1000)	# block and wait for inotify
+            l = inotify.read(timeout=1000) # block and wait for inotify
             if (len(l) > 0):
                 update()
 

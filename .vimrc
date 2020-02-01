@@ -31,7 +31,7 @@ set viminfo=
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 call plug#begin(stdpath('data') . '/bundle')
 
-"""""""Autocomplete stuff
+""""""" Autocomplete and syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'SirVer/ultisnips'
@@ -41,34 +41,34 @@ Plug 'honza/vim-snippets'
 let g:UltiSnipsEditSplit="vertical"
 
 """"""Linting stuff
-Plug 'w0rp/ale'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {
-\   'c': ['clang'],
-\   'cpp': ['clang'],
-\   'javascript': ['eslint']
-\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'c': ['clang-format'],
-\   'cpp': ['clang-format'],
-\   'css': ['prettier'],
-\   'javascript': ['prettier'],
-\   'java': ['prettier'],
-\   'scss': ['prettier'],
-\}
-let g:ale_c_clang_options='-std=c11 -Wall -pthread'
-let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
-
-nmap <silent> zk <Plug>(ale_previous_wrap)zz
-nmap <silent> zj <Plug>(ale_next_wrap)zz
-noremap <F1> :ALEFix<CR>
+" Plug 'w0rp/ale'
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_linters = {
+" \   'c': ['clang'],
+" \   'cpp': ['clang'],
+" \   'javascript': ['eslint']
+" \}
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'c': ['clang-format'],
+" \   'cpp': ['clang-format'],
+" \   'css': ['prettier'],
+" \   'javascript': ['prettier'],
+" \   'java': ['prettier'],
+" \   'scss': ['prettier'],
+" \}
+" let g:ale_c_clang_options='-std=c11 -Wall -pthread'
+" let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
+" 
+" nmap <silent> zk <Plug>(ale_previous_wrap)zz
+" nmap <silent> zj <Plug>(ale_next_wrap)zz
+" noremap <F1> :ALEFix<CR>
 """"""
 
 """""" Latex
 Plug 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
-let g:vimtex_compiler_progname = '/usr/bin/nvr'
+let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
@@ -112,8 +112,6 @@ Plug 'wincent/Command-T'
 let g:CommandTCursorColor = 'Search'
 let g:CommandTHighlightColor = 'Search'
 
-Plug 'jiangmiao/auto-pairs'
-au Filetype tex let b:AutoPairs = {'(':')', '[':']', '{':'}', "$":"$"}
 Plug 'tpope/vim-surround'
 
 Plug 'ryanoasis/vim-devicons'

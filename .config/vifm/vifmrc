@@ -172,7 +172,7 @@ command! reload :write | restart
 
 " Pdf
 filextype *.pdf
-        \ {View in zathura}
+        \ {View in mupdf}
         \ zathura %c %i &
 fileviewer *.pdf
         \ vifmimg pdfpreview %px %py %pw %ph %c
