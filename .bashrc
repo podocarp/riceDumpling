@@ -23,6 +23,13 @@ complete -cf sudo
 
 cdl(){ cd "$@" && ls; }
 
+vf(){
+    command vifmi "$@"
+    if [ -f /tmp/lastdir ]; then
+        cd `cat /tmp/lastdir`
+    fi
+}
+
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
 export PATH=$PATH:~/.config/scripts/:~/.local/bin:~/.yarn/bin/:$GOPATH/bin:~/.gem/ruby/2.4.0/bin

@@ -88,18 +88,28 @@ snippet "\|([^\w]*\w[\s\S]*?)\|" "Absolute" rA
 endsnippet
 
 context "math()"
-snippet "\<(.*)\|" "Bra" riA
+snippet "\<(\S*)\|" "Bra" riA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\|(.*)\>" "Ket" riA
+snippet "\|(\S*)\>" "Ket" riA
 \ket{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
 snippet "(.*)\\bra{(.*?)}([^\|]*?)\>" "Braket" riA
 `!p snip.rv = match.group(1)`\braket{`!p snip.rv = match.group(2)`}{`!p snip.rv = match.group(3)`}
+endsnippet
+
+snippet algo "Algorithm block" b
+\begin{algorithm}
+\begin{algorithmic}[1]
+${3:\Function}
+\end{algorithmic}
+\caption{${1:caption}}
+\label{alg:${2:label}}
+\end{algorithm}
 endsnippet
 
 priority 10
@@ -131,19 +141,20 @@ endsnippet
 
 snippet subfigure "Fig with subfigs" w
 \begin{figure}[H] 
-    \begin{subfigure}[${1:t}]{${2:0.49}\textwidth}
+    \begin{subfigure}[${1:t}]{${2:0.45}\textwidth}
     \centering
     \includegraphics[width=\linewidth]{${3:}}
     \caption{${4:}}
     \label{fig:${5:}}
     \end{subfigure}
+    \hspace{1em}
     \caption{${6:}}
     \label{fig:${7:}}
 \end{figure}
 endsnippet
 
 snippet subfig "Subfigure" w
-\begin{subfigure}[${1:t}]{${2:0.49}\textwidth}
+\begin{subfigure}[${1:t}]{${2:0.45}\textwidth}
     \centering
     \includegraphics[width=\linewidth]{${3:}}
     \caption{${4:}}

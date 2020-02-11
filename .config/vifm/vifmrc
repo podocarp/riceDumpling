@@ -172,7 +172,7 @@ command! reload :write | restart
 
 " Pdf
 filextype *.pdf
-        \ {View in mupdf}
+        \ {View in zathura}
         \ zathura %c %i &
 fileviewer *.pdf
         \ vifmimg pdfpreview %px %py %pw %ph %c
@@ -225,6 +225,10 @@ filetype *.o nm %f | less
 " Man page
 filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
+
+filetype *.svg
+        \ {Open in Inkscape}
+        \ inkscape %f &
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
@@ -461,6 +465,8 @@ nnoremap bw :!wal -i %c<CR>
 
 " Clears the image preview when it bugs out
 nnoremap <c-l> :!vifmimg clear<cr>
+
+command! q :execute '!echo %d > /tmp/lastdir' | quit
 " ------------------------------------------------------------------------------
 
 " Various customization examples
