@@ -145,7 +145,7 @@ set hlsearch
 set whichwrap+=<,>,h,l,[,]
 
 " Syntax highlighting
-syntax enable
+syntax off
 
 " No line numbers in terminal (this breaks in vanilla vim)
 autocmd TermOpen * setlocal nonumber norelativenumber

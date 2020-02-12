@@ -18,7 +18,6 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=teal}
-\usepackage[a4paper, margin=2cm]{geometry}
 
 % Graphics
 \usepackage{float}
@@ -37,9 +36,9 @@
 \frenchspacing
 
 \theoremstyle{plain}
-\newtheorem{lemma}{Lemma}[section]
 \newtheorem{thm}{Theorem}[section]
-\newtheorem*{cor}{Corollary}
+\newtheorem{cor}{Corollary}[thm]
+\newtheorem{lemma}[thm]{lemma}
 \newtheorem*{prop}{Proposition}
 \newtheorem*{claim}{Claim}
 \newtheorem*{exercise}{Exercise}

@@ -230,6 +230,9 @@ filetype *.svg
         \ {Open in Inkscape}
         \ inkscape %f &
 
+fileviewer *.svg
+        \ echo "no preview for svg"
+
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {Open in feh}
