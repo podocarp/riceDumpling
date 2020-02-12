@@ -107,6 +107,7 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 Plug 'wincent/Command-T'
 let g:CommandTCursorColor = 'Search'
@@ -143,9 +144,6 @@ set hlsearch
 
 " Scrolling past the line pops you below
 set whichwrap+=<,>,h,l,[,]
-
-" Syntax highlighting
-syntax off
 
 " No line numbers in terminal (this breaks in vanilla vim)
 autocmd TermOpen * setlocal nonumber norelativenumber

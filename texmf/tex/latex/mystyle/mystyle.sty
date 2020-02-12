@@ -38,7 +38,7 @@
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}{Corollary}[thm]
-\newtheorem{lemma}[thm]{lemma}
+\newtheorem{lemma}[thm]{Lemma}
 \newtheorem*{prop}{Proposition}
 \newtheorem*{claim}{Claim}
 \newtheorem*{exercise}{Exercise}
@@ -50,7 +50,7 @@
 \pushQED{\qed} \begin{defaultsln}}{\ \\\popQED \end{defaultsln}}
 
 \newtheorem{definition}{Definition}
-\newtheorem*{example}{Example}
+\newtheorem{example}{Example}[section]
 \newtheorem*{remark}{Remark}
 
 \newcommand{\sectionbreak}{\begin{center}***\end{center}}
@@ -63,10 +63,16 @@
 \newcommand{\C}{{\mathbbm{C}}}
 \newcommand{\F}{{\mathbbm{F}}}
 
+\newcommand{\Rscr}{{\mathscr{R}}}
+
 \DeclareMathOperator{\adj}{adj}
 \DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Span}{Span}
 \DeclareMathOperator{\dist}{dist}
+\let\rank\undefined\DeclareMathOperator{\rank}{Rank}
+\DeclareMathOperator{\nullity}{Nullity}
+\DeclareMathOperator{\rowspace}{Rowspace}
+\DeclareMathOperator{\colspace}{Colspace}
 
 \DeclareMathAlphabet{\mathscr}{OMS}{zplm}{m}{n}
 
