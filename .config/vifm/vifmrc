@@ -235,12 +235,10 @@ fileviewer *.svg
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ {Open in feh}
-        \ feh %f &,
-        \ {Feh thumbnail gallery}
-        \ feh -d -t --start-at %f &,
-        \ {View folder in feh}
-        \ feh -Sfilename -d --start-at %d/%f %d &,
+        \ {Open in sxiv}
+        \ sxiv %f &,
+        \ {sxiv thumbnail gallery}
+        \ sxiv -t %d &,
 
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif
         \ vifmimg imgpreview %px %py %pw %ph %c

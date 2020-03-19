@@ -38,10 +38,10 @@
 #keystate_scrolllock= enable
 
 # Increase volume
-"amixer set Master 2dB+"
+"[[ $(amixer set Master 2dB+) ]] || amixer set PCM 2dB+"
    XF86AudioRaiseVolume
 # Decrease volume
-"amixer set Master 2dB-"
+"[[ $(amixer set Master 2dB-) ]] || amixer set PCM 2dB-"
    XF86AudioLowerVolume
 # Mute volume
 "amixer set Master toggle"
