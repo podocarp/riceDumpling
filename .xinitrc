@@ -32,6 +32,8 @@ fi
 
 eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
+xset dpms 0 0 0
+
 wal -R
 ~/.fehbg
 dwmstatus &

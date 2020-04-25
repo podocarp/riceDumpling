@@ -10,6 +10,7 @@
 
 % Misc
 \usepackage{hyperref}
+\usepackage[makeroom, Smaller]{cancel}
 \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=teal}
 
 % Physics stuff
@@ -21,6 +22,7 @@
 \setcounter{MaxMatrixCols}{24}
 \usepackage{bbm}
 \usepackage{calrsfs}
+\usepackage{esint}
 
 % Custom operators. This overwrites some symbols in other packages.
 \usepackage{myoperators}
@@ -28,6 +30,8 @@
 % CS stuff
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
 \SetKwProg{Fn}{function}{:}{}
+\usepackage{stmaryrd}
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
 
 % Graphics
 \usepackage{float}
@@ -47,6 +51,9 @@
 \frenchspacing
 
 \newcommand{\sectionbreak}{\begin{center}***\end{center}}
+
+\let\temp\textvisiblespace
+\renewcommand{\textvisiblespace}{\text{\temp}}
 
 \ProcessKeyvalOptions*
 

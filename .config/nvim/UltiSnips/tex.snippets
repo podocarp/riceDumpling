@@ -1,7 +1,10 @@
 global !p
-texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+texMathZones = ['texMathZone' + x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS',
+'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS',
+'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z', 'AmsA', 'AmsB', 'AmsC',
+'AmsD', 'AmsE', 'AmsF', 'AmsG', 'AmsAS', 'AmsBS', 'AmsCS', 'AmsDS', 'AmsES',
+'AmsFS', 'AmsGS' ]]
 texIgnoreMathZones = ['texMathText']
-
 texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
 texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
 
@@ -11,7 +14,6 @@ def math():
         return False
     return not set(texMathZoneIds).isdisjoint(synstackids)
     # isdisjoint() can short-circuit as soon as a match is found
-
 endglobal
 
 context "math()"
@@ -23,7 +25,7 @@ snippet frac "Fraction" w
 \frac{${1:n}}{${2:d}}$3
 endsnippet
 
-snippet beg "Begin" b
+snippet beg "Begin" w
 \begin{$1}
     $2
 \end{$1}
@@ -45,6 +47,12 @@ snippet thm* "Theorem unnumbered" b
 \begin{thm*}[${1:Title}]
     $2
 \end{thm*}
+endsnippet
+
+snippet lem "Lemma" b
+\begin{lemma}[${1:Title}]
+    $2
+\end{lemma}
 endsnippet
 
 snippet pf "Proof" b
@@ -69,38 +77,56 @@ snippet em "Emph" w
 \emph{$1}$2
 endsnippet
 
-snippet abs "Absolute" w
-\abs{$1}$2
-endsnippet
-
-snippet bar "Bar" w
-\bar{$1}$2
-endsnippet
-
-snippet hat "Hat" w
-\hat{$1}$2
+context "math()"
+snippet "<-" "gets" A
+\gets
 endsnippet
 
 context "math()"
-snippet "\<(\S*)\|" "Bra" riA
+snippet "<=" "leq" A
+\leq
+endsnippet
+
+context "math()"
+snippet ">=" "geq" A
+\geq
+endsnippet
+
+context "math()"
+snippet "<(.+?)>" "Angle" rA
+\langle `!p snip.rv = match.group(1)` \rangle
+endsnippet
+
+context "math()"
+snippet "\\abs{(.+?)}\|" "Norm" rA
+\norm{`!p snip.rv = match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "\|(.+?)\|" "Abs" rA
+\abs{`!p snip.rv = match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "\<(.+?)\|" "Bra" rA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\|(\S*)\>" "Ket" riA
+snippet "\|(.+?)\>" "Ket" rA
 \ket{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "(.*)\\bra{(.*?)}([^\|]*?)\>" "Braket" riA
+snippet "(.*)\\bra{(.+?)}([^\|]+?)\>" "Braket" riA
 `!p snip.rv = match.group(1)`\braket{`!p snip.rv = match.group(2)`}{`!p snip.rv = match.group(3)`}
 endsnippet
 
 snippet algo "Algorithm block" b
 \begin{algorithm}
-\begin{algorithmic}[1]
-${3:\Function}
-\end{algorithmic}
+\SetKwFunction{${3:func}}{$3}
+\Fn{\\$3{$x$}}{
+}
 \caption{${1:caption}}
 \label{alg:${2:label}}
 \end{algorithm}
@@ -108,9 +134,9 @@ endsnippet
 
 priority 10
 snippet "mint(\S+)?" "Minted code typeset" br
-\begin{minted}[]{${1:`!p
+\begin{minted}[fontsize=${2:\tiny}]{${1:`!p
 snip.rv = match.group(1) if match.group(1) is not None else "lang"`}}
-${2:remember to fragile}
+${3:remember to fragile}
 \end{minted}
 endsnippet
 
