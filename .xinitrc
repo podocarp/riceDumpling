@@ -32,9 +32,10 @@ fi
 
 eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
-xset dpms 0 0 0
+xset s off -dpms
 
 wal -R
 ~/.fehbg
 dwmstatus &
-exec dwm
+dwm
+# exec ck-launch-session dbus-launch --sh-syntax --exit-with-session startplasma-x11

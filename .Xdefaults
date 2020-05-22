@@ -32,14 +32,15 @@ URxvt*cursorColor: #225555
 *color15: #FFFFFF
 
 URxvt.preeditType: OverTheSpot
-URxvt*font: xft:Dina:size=10, xft:TerminessTTF Nerd Font Mono:size=12, xft:Source Han Serif SC,size=12
+!URxvt.font: xft:TerminessTTF Nerd Font Mono:size=10, xft:Source Han Serif SC,size=12
+URxvt.font: xft:Dina:size=10:antialias=false, xft:TerminessTTF Nerd Font Mono:size=10:antialias=false
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.urgentOnBell: true
 URxvt.scrollBar: false
-URxvt*scrollTtyOutput: false
-URxvt*scrollWithBuffer: true
-URxvt*scrollTtyKeypress: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
 
 ! Extensions
 URxvt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select

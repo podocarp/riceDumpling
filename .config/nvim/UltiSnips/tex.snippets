@@ -93,7 +93,7 @@ snippet ">=" "geq" A
 endsnippet
 
 context "math()"
-snippet "<(.+?)>" "Angle" rA
+snippet "<([^\$]*?)>" "Angle" rA
 \langle `!p snip.rv = match.group(1)` \rangle
 endsnippet
 
@@ -103,17 +103,17 @@ snippet "\\abs{(.+?)}\|" "Norm" rA
 endsnippet
 
 context "math()"
-snippet "\|(.+?)\|" "Abs" rA
+snippet "\|([^\$]*?)\|" "Abs" rA
 \abs{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\<(.+?)\|" "Bra" rA
+snippet "\<([^\$]*?)\|" "Bra" rA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\|(.+?)\>" "Ket" rA
+snippet "\|([^\$]*?)\>" "Ket" rA
 \ket{`!p snip.rv = match.group(1)`}
 endsnippet
 
@@ -203,6 +203,7 @@ else:
     # regex to make into kebab case
     figureName = "-".join([x.lower() for x in re.findall(r'\w+', match.group(1))])
     figurePath = figureDir + figureName + '.svg'
+    pdfPath = figureDir + figureName + '.pdf'
 
     if os.path.isfile(figurePath):
         snip.rv = "File already exists!"
@@ -211,7 +212,7 @@ else:
         templatePath = os.path.expanduser("~/.config/inkscape/templates/default1024.svg")
         subprocess.call(['mkdir', '-p', figureDir])
         subprocess.check_output(['cp', templatePath, figurePath])
-        subprocess.call(['inkscape', '--export-type', 'pdf', '--export-latex', figurePath])
+        subprocess.call(['inkscape', '--export-latex', '--export-pdf', pdfPath, figurePath])
         snip.rv = figureName
 `}.pdf_tex}
 \caption{${2:caption}}
@@ -227,15 +228,17 @@ if snip.c != "":
     pass
 else:
     import subprocess
-    figureStem = os.path.join(os.getcwd(), "figures/", match.group(1))
+    figureName = match.group(1)
+    figureStem = os.path.join(os.getcwd(), "figures/", figureName)
     figurePath = figureStem + '.svg'
+    pdfPath = figureStem + '.pdf'
     proc = subprocess.Popen(['inkscape', figurePath]) # open in bg
 
     from inotify_simple import INotify, flags
     inotify = INotify()
     inotify.add_watch(figurePath, flags.MODIFY)
 
-    update = lambda : subprocess.call(['inkscape', '--export-type', 'pdf', '--export-latex', figurePath])
+    update = lambda : subprocess.call(['inkscape', '--export-latex', '--export-pdf', pdfPath, figurePath])
     while True:
         if proc.poll() is not None:
             update()

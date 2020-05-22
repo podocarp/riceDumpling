@@ -15,9 +15,12 @@ alias v.="v ."
 alias vim="nvim"
 alias vifm="vf"
 
+alias u="urxvt &"
+
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias sx='startx'
+alias nsx='nvidia-xrun'
 
 complete -cf sudo
 

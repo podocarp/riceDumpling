@@ -116,11 +116,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 #bindsym XF86AudioLowerVolume exec "pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ -5%"
 #bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-# Volume keys
-bindsym XF86AudioRaiseVolume exec "amixer sset Master 2dB+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer sset Master 2dB- unmute"
-bindsym XF86AudioMute exec "amixer sset Master toggle"
-
 bindsym mod1+Shift+Ctrl+Left exec "xrandr -o left"
 bindsym mod1+Shift+Ctrl+Right exec "xrandr -o right"
 bindsym mod1+Shift+Ctrl+Up exec "xrandr -o normal"
