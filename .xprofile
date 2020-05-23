@@ -3,4 +3,5 @@ xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.5
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 0
+xsetwacom set "Serial Wacom Tablet WACf004 stylus" Area 282 24 26306 16516
 export LD_LIBRARY_PATH=/usr/lib64/opengl/nvidia/lib
