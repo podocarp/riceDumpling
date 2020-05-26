@@ -5,7 +5,6 @@ st.font: Dina:size=10
 ! Colors
 *background: #000000
 *foreground: #B2B2B2
-URxvt.cursorColor: #ff30e0
 ! black
 *color0:  #000000
 *color8:  #686868
@@ -31,7 +30,7 @@ URxvt.cursorColor: #ff30e0
 *color7:  #B2B2B2
 *color15: #FFFFFF
 
-URxvt.cursorColor: #225555
+URxvt.cursorColor: #ff30e0
 URxvt.preeditType: OverTheSpot
 URxvt.font: xft:Dina:size=10:antialias=false, xft:TerminessTTF Nerd Font Mono:size=10:antialias=false
 URxvt.letterSpace: 0

@@ -95,10 +95,6 @@ if !exists('g:ycm_semantic_triggers')
 endif
 au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-let g:tex_conceal="abdgm"
-set conceallevel=2
-
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 
 """"""Misc stuff
