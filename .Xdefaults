@@ -5,7 +5,7 @@ st.font: Dina:size=10
 ! Colors
 *background: #000000
 *foreground: #B2B2B2
-URxvt*cursorColor: #225555
+URxvt.cursorColor: #ff30e0
 ! black
 *color0:  #000000
 *color8:  #686868

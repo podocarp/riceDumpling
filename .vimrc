@@ -3,6 +3,7 @@ set autoindent
 set autowriteall
 set colorcolumn=80
 set cursorline
+set dictionary+=/usr/share/dict/words
 set expandtab
 set ignorecase
 set incsearch
@@ -32,38 +33,37 @@ set viminfo=
 call plug#begin(stdpath('data') . '/bundle')
 
 """"""" Autocomplete and syntax
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+Plug 'ycm-core/YouCompleteMe', {'do': 'git submodule update --init --recursive'}
+let g:ycm_clangd_binary_path = "/usr/lib/llvm/9/bin/clangd"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-""""""Linting stuff
-" Plug 'w0rp/ale'
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_linters = {
-" \   'c': ['clang'],
-" \   'cpp': ['clang'],
-" \   'javascript': ['eslint']
-" \}
-" let g:ale_fixers = {
-" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-" \   'c': ['clang-format'],
-" \   'cpp': ['clang-format'],
-" \   'css': ['prettier'],
-" \   'javascript': ['prettier'],
-" \   'java': ['prettier'],
-" \   'scss': ['prettier'],
-" \}
-" let g:ale_c_clang_options='-std=c11 -Wall -pthread'
-" let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
-" 
-" nmap <silent> zk <Plug>(ale_previous_wrap)zz
-" nmap <silent> zj <Plug>(ale_next_wrap)zz
-" noremap <F1> :ALEFix<CR>
-""""""
+ Plug 'w0rp/ale'
+ let g:ale_lint_on_text_changed = 'never'
+ let g:ale_linters = {
+ \   'c': ['clang'],
+ \   'cpp': ['clang'],
+ \   'python': ['pylint']
+ \}
+ let g:ale_fixers = {
+ \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+ \   'c': ['clang-format'],
+ \   'cpp': ['clang-format'],
+ \   'java': ['prettier'],
+ \   'python': ['black']
+ \}
+ let g:ale_c_clang_options='-std=c11 -Wall -pthread'
+ let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
+
+ nmap <silent> zk <Plug>(ale_previous_wrap)zz
+ nmap <silent> zj <Plug>(ale_next_wrap)zz
+ noremap <F1> :ALEFix<CR>
 
 """""" Latex
 Plug 'lervag/vimtex', {'for': 'tex'}
@@ -89,6 +89,11 @@ let g:vimtex_compiler_latexmk = {
     \   '-pdf',
     \ ],
     \}
+
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 let g:tex_conceal="abdgm"
