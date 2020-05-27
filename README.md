@@ -12,7 +12,7 @@ These are the stuff that I use. They all have configs here apart from the suckle
 - vifm
   - [ueberzug](https://github.com/seebye/ueberzug)
 - nvim
-- zathura
+- Okular (keybinds in `.config/okular`)
 - Wallpapers
   - pywal
   - [schemer2](https://github.com/thefryscorer/schemer2)
