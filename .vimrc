@@ -25,7 +25,6 @@ set smartcase
 set smartindent
 set smarttab
 set splitright
-set tw=0
 set undofile
 set viminfo=
 
@@ -164,7 +163,7 @@ augroup MDProj
     autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 augroup END
 
-augroup texProj
+augroup TexProj
     au!
     autocmd BufRead,BufNewFile *.tex set tw=80
     autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
@@ -179,6 +178,11 @@ augroup JSProj
     au!
     autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set filetype=javascript
     autocmd BufRead,BufNewFile *.js,*.jsx,*.ts,*.tsx set softtabstop=2 shiftwidth=2
+augroup END
+
+augroup PyProj
+    au!
+    autocmd BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4
 augroup END
 """"""""""""""""""""""""""GENERAL MAPS"""""""""""""""""""""
 " Scroll in wrapped lines

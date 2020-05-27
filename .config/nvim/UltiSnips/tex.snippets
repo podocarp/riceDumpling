@@ -55,6 +55,12 @@ snippet lem "Lemma" b
 \end{lemma}
 endsnippet
 
+snippet cor "Corollary" b
+\begin{cor}[${1:Title}]
+    $2
+\end{cor}
+endsnippet
+
 snippet pf "Proof" b
 \begin{proof}
     $1
@@ -124,7 +130,7 @@ endsnippet
 
 snippet algo "Algorithm block" b
 \begin{algorithm}
-\SetKwFunction{${3:func}}{$3}
+\SetKwFunction{${3:func}}{$4}
 \Fn{\\$3{$x$}}{
 }
 \caption{${1:caption}}

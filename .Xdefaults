@@ -30,7 +30,7 @@ st.font: Dina:size=10
 *color7:  #B2B2B2
 *color15: #FFFFFF
 
-URxvt.cursorColor: #ff30e0
+URxvt.cursorColor: #ff00e0
 URxvt.preeditType: OverTheSpot
 URxvt.font: xft:Dina:size=10:antialias=false, xft:TerminessTTF Nerd Font Mono:size=10:antialias=false
 URxvt.letterSpace: 0
