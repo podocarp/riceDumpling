@@ -4,9 +4,7 @@
 dir="$(dirname "$(realpath "$0")")"
 modifications=(
 ".Xdefaults" ".Xmodmap" ".bashrc" ".config" ".inputrc" ".latexmkrc" ".local" \
-".pam_environment" ".pythonrc" ".vimrc" ".xbindkeysrc" ".xinitrc" ".xprofile" \
-"texmf"
-)
+".pam_environment" ".pythonrc" ".vimrc" ".xbindkeysrc" ".xinitrc" "texmf")
 
 askYn() {
     local prompt=$1
