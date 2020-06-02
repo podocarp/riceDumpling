@@ -1,17 +1,26 @@
-# What's this
+## What's this
 My config and dotfiles. Focused on function over form.
 
-# Screens
+## Screens
 ![](images/single.png)
 
-# Stuff used
-These are the stuff that I use. They all have configs here apart from the suckless stuff. If something is listed here means there is most likely a config for it.
+## Feaatures
+- Convenient LaTeX macros and styles. (`texmf/.../mystyle.sty`)
+- Okular vim-like bindings. (`.config/okular/keybinds.shortcuts`)
+- Rebind caps to esc
+- nvim pretty good
+- Vifm image preview with ueberzug
 
-- [patched st](https://github.com/podocarp/st)
+## Stuff used
+These are the stuff that you might want to install, and are configured in here.
+
+- rxvt-unicode
 - [patched dwm](https://github.com/podocarp/dwm)
 - vifm
   - [ueberzug](https://github.com/seebye/ueberzug)
 - nvim
+  - Plug
+  - pylint, clang, etc. for linting, etc.
 - Okular (keybinds in `.config/okular`)
 - Wallpapers
   - pywal
@@ -24,40 +33,8 @@ These are the stuff that I use. They all have configs here apart from the suckle
 - latexmk
 
 # Usage
-`./setup.sh`.
-This script makes all your configs a symlink of whatever files are in here, so it *will wipe your previous configs*.
-This is just a lazy solution for when I switch to a new machine. To be safe, just download what you want and move it by yourself.
-
-# Notes
-This section lists a few changes in case you want to change them:
-
-| Change | Location of config |
-| --- | --- |
-| Caps is Esc | `.Xmodmap` |
-| Synaptic Trackpad disabled by default | `.xprofile` |
-| Fn buttons | `.xbindkeysrc` |
+Run `./setup.sh`. This script helps you make symbolic links to the files in the repo. Probably useful only for a clean config. Otherwise, copy and paste is the only other way.
 
 # Keybinds
 Here are some extra stuff I added.
 Most of the other keybinds are default unless stated otherwise.
-
-## vifm
-If it doesn't start, try checking `~/.config/scripts/vf` and seeing if it is pointing to the right path where you installed vifm.
-
-| Key combo | Function |
-| --- | --- |
-| bw | Set background and generate new theme based on the image under your cursor. |
-| N | New tab |
-| gq | Close tab |
-| Ctrl r | Restart and reloads config |
-| R | Alternative opening methods |
-
-## vim
-`<leader>` is bound to backslash. The more obvious ones:
-
-| Key combo | Function |
-| --- | --- |
-| Ctrl c | Copies to system clipboard. Requires vim compiled with +clipboard. |
-| Ctrl v | In insert mode, pastes from system clipboard. Requires +clipboard. |
-| Ctrl+hjkl | Replaces Ctrl+W+hjkl for split focus. |
-| Ctrl+w+hjkl | Replaces Ctrl+w+HJKL for split motion. |
