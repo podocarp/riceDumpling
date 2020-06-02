@@ -2,20 +2,56 @@
 # This sets everything up on a fresh install
 # Destroys everything you once had.
 dir="$(dirname "$(realpath "$0")")"
-modifications=(".Xmodmap" ".Xdefaults" ".pythonrc" ".bashrc" ".config" ".vimrc"\
-    ".inputrc" ".xbindkeysrc" ".xinitrc" ".xprofile" ".local"\
-    ".pam_environment" ".latexmkrc" "texmf")
+modifications=(
+".Xdefaults" ".Xmodmap" ".bashrc" ".config" ".inputrc" ".latexmkrc" ".local" \
+".pam_environment" ".pythonrc" ".vimrc" ".xbindkeysrc" ".xinitrc" ".xprofile" \
+"texmf"
+)
+
+askYn() {
+    local prompt=$1
+    local ycmd=$2
+    local ncmd=$3
+    echo $prompt "[y/n]"
+    while true; do
+        read yn
+        case $yn in
+            [Yy]* ) eval $ycmd; return;;
+            [Nn]* ) eval $ncmd; return;;
+            * ) echo "Unrecognized response.";;
+        esac
+    done
+}
+
+echo "This script will link make links in your HOME dir to the files in this \
+repo, amongst other things."
+
+askYn "Perform a one-shot installation of all files (no prompts)?" \
+    "oneshot=1" "oneshot=0"
 
 for mod in "${modifications[@]}"
 do
-	if [ -e ~/$mod ] || [ -L ~/$mod ] || [ -d ~/$mod ]
-	then
-		rm ~/$mod -r
-	fi
-	ln -sv $dir/$mod ~/$mod
+    if [ $oneshot == 0 ]; then
+        echo "===== Processing file:" $mod "====="
+    fi
+    if [ -e ~/$mod ] || [ -L ~/$mod ] || [ -d ~/$mod ]; then
+        if [ $oneshot == 0 ]; then
+            askYn "File exists. Proceed anyway?" "res=1" "res=0"
+            if [ $res == 0 ]; then
+                continue;
+            fi
+        fi
+        rm ~/$mod -rv
+        ln -sv $dir/$mod ~/$mod
+    fi
 done
 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ $oneshot == 0 ]; then
+    askYn "Install the Plug plugin for nvim?" "res=1" "res=0"
+    if [ $res == 1 ]; then
+        curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+fi
 
 echo "all done!"

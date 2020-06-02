@@ -25,6 +25,7 @@ set smartcase
 set smartindent
 set smarttab
 set splitright
+set statusline+=%F\ %l:%c
 set undofile
 set viminfo=
 
@@ -96,7 +97,10 @@ au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 
-""""""Misc stuff
+""""""CSV
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
+
+""""""Misc
 Plug 'scrooloose/nerdtree'
 autocmd StdinReadPre * let s:std_in=1
 " Open NERDTree if no file specified
@@ -120,8 +124,6 @@ Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
-
-set statusline+=%F\ %l:%c
 
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic = 1
