@@ -32,9 +32,5 @@ These are the stuff that you might want to install, and are configured in here.
   - Adobe Source Han
 - latexmk
 
-# Usage
+## Installation
 Run `./setup.sh`. This script helps you make symbolic links to the files in the repo. Probably useful only for a clean config. Otherwise, copy and paste is the only other way.
-
-# Keybinds
-Here are some extra stuff I added.
-Most of the other keybinds are default unless stated otherwise.
