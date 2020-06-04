@@ -40,6 +40,7 @@ Plug 'ycm-core/YouCompleteMe', {'do': 'git submodule update --init --recursive'}
 let g:ycm_clangd_binary_path = "/usr/lib/llvm/9/bin/clangd"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -64,6 +65,7 @@ let g:UltiSnipsEditSplit="vertical"
  nmap <silent> zk <Plug>(ale_previous_wrap)zz
  nmap <silent> zj <Plug>(ale_next_wrap)zz
  noremap <F1> :ALEFix<CR>
+ noremap <F2> :ALEToggle<CR>
 
 """""" Latex
 Plug 'lervag/vimtex', {'for': 'tex'}
