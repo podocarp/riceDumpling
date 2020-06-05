@@ -45,27 +45,26 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
- Plug 'w0rp/ale'
- let g:ale_lint_on_text_changed = 'never'
- let g:ale_linters = {
- \   'c': ['clang'],
- \   'cpp': ['clang'],
- \   'python': ['pylint']
- \}
- let g:ale_fixers = {
- \   '*': ['remove_trailing_lines', 'trim_whitespace'],
- \   'c': ['clang-format'],
- \   'cpp': ['clang-format'],
- \   'java': ['prettier'],
- \   'python': ['black']
- \}
- let g:ale_c_clang_options='-std=c11 -Wall -pthread'
- let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
+Plug 'w0rp/ale'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = {
+            \   'c': ['clang'],
+            \   'cpp': ['clang'],
+            \   'python': ['pylint']
+            \}
+let g:ale_fixers = {
+            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \   'c': ['clang-format'],
+            \   'cpp': ['clang-format'],
+            \   'java': ['prettier'],
+            \   'python': ['black']
+            \}
+let g:ale_c_clang_options='-std=c11 -Wall -pthread'
+let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
 
- nmap <silent> zk <Plug>(ale_previous_wrap)zz
- nmap <silent> zj <Plug>(ale_next_wrap)zz
- noremap <F1> :ALEFix<CR>
- noremap <F2> :ALEToggle<CR>
+nmap <silent> zk <Plug>(ale_previous_wrap)zz
+nmap <silent> zj <Plug>(ale_next_wrap)zz
+noremap <F1> :ALEFix<CR>
 
 """""" Latex
 Plug 'lervag/vimtex', {'for': 'tex'}
@@ -75,22 +74,22 @@ let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_latexmk = {
-    \ 'backend' : 'nvim',
-    \ 'background' : 1,
-    \ 'build_dir' : expand('%:r') . "_latexmk",
-    \ 'callback' : 1,
-    \ 'continuous' : 1,
-    \ 'executable' : 'latexmk',
-    \ 'hooks' : [],
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \   '-shell-escape',
-    \   '-pdf',
-    \ ],
-    \}
+            \ 'backend' : 'nvim',
+            \ 'background' : 1,
+            \ 'build_dir' : expand('%:r') . "_latexmk",
+            \ 'callback' : 1,
+            \ 'continuous' : 1,
+            \ 'executable' : 'latexmk',
+            \ 'hooks' : [],
+            \ 'options' : [
+            \   '-verbose',
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \   '-shell-escape',
+            \   '-pdf',
+            \ ],
+            \}
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
