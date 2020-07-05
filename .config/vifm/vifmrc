@@ -174,6 +174,7 @@ command! reload :write | restart
 filextype *.pdf,*.ps
         \ {View in okular}
         \ okular %c %i &
+
 fileviewer *.pdf
         \ vifmimg pdfpreview %px %py %pw %ph %c
         \ %pc
@@ -229,9 +230,6 @@ fileviewer *.[1-8] man ./%c | col -b
 filetype *.svg
         \ {Open in Inkscape}
         \ inkscape %f &
-
-fileviewer *.svg
-        \ echo "no preview for svg"
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
@@ -338,13 +336,7 @@ filetype *.xz
 " Office files
 filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
 fileviewer *.doc catdoc %c
-fileviewer *.docx, docx2txt.pl %f -
-
-" TuDu files
-filetype *.tudu tudu -f %c
-
-" Qt projects
-filextype *.pro qtcreator %f &
+fileviewer *.docx, docx2txt.pl %f
 
 " Directories
 filextype */
@@ -352,13 +344,7 @@ filextype */
         \ Thunar %f &,
 
 " Syntax highlighting in preview
-"
-" Explicitly set highlight type for some extensions
-"
-" 256-color terminal
-" fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
-" fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
-fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py head -n %ph %c | highlight -O xterm256 -s dante --syntax %c:e
+fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py,*.tex head -n %ph %c | highlight -O xterm256 -s dante --syntax %c:e
 "
 " Or leave it for automatic detection
 " May cause slowdowns but generally looks better

@@ -12,10 +12,9 @@ set linebreak
 set list
 set mouse=a
 set nobackup
-set nocursorline
 set noshowcmd
 set nowrapscan
-set number relativenumber
+set number
 set path+=**
 set ruler
 set scrolloff=4
@@ -33,6 +32,7 @@ set viminfo=
 call plug#begin(stdpath('data') . '/bundle')
 
 """"""" Autocomplete and syntax
+syntax sync minlines=265 maxlines=256
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -100,6 +100,7 @@ nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 
 """"""CSV
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+let b:csv_arrange_align = 'l*'
 
 """"""Misc
 Plug 'scrooloose/nerdtree'
@@ -116,7 +117,7 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
-Plug 'wincent/Command-T'
+Plug 'wincent/command-t', {'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
 let g:CommandTCursorColor = 'Search'
 let g:CommandTHighlightColor = 'Search'
 
@@ -233,3 +234,4 @@ vnoremap <C-c> "+y
 vnoremap <C-x> "+d
 
 """"""""""""""""""""""""""""MISC""""""""""""""""""""""""""
+let g:python3_host_prog='/usr/bin/python'

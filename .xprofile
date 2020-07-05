@@ -1,0 +1,7 @@
+xinput set-prop 'Logitech Gaming Mouse G402' 'libinput Accel Speed' -0.8
+
+nmons=$(xrandr | grep " connected" | wc -l)
+
+if [[ $nmons -eq 4 ]]; then
+    . ~/.screenlayout/docked.sh
+fi
