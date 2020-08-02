@@ -76,7 +76,7 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_latexmk = {
             \ 'backend' : 'nvim',
             \ 'background' : 1,
-            \ 'build_dir' : expand('%:r') . "_latexmk",
+            \ 'build_dir' : "_latexmk",
             \ 'callback' : 1,
             \ 'continuous' : 1,
             \ 'executable' : 'latexmk',
@@ -141,10 +141,6 @@ colorscheme gruvbox
 " Disable neovim insert mode bar cursor
 set guicursor=
 
-" Tab completion stuff
-set wildmenu
-set wildmode=list:longest,full
-
 " Highlight search
 set hlsearch
 
@@ -197,6 +193,8 @@ map <Esc><Esc> :w<CR>
 
 " paste
 inoremap <C-v> <ESC>"+pa
+" dictionary completion
+inoremap <C-k> <C-x><C-x><C-k>
 
 """"""""""""""""""""""""NORMAL MODE MAPS"""""""""""""""""""
 

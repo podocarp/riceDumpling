@@ -7,6 +7,7 @@
 }
 
 \DeclareBoolOption[false]{beamermode}
+\DeclareBoolOption[false]{notes}
 
 % Misc
 \usepackage{hyperref}
@@ -17,11 +18,13 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{graphicx, import}
-\usepackage{pdfpages}
+\usepackage{wrapfig}
 \usepackage{tikz}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows, positioning}
 \usepackage[all]{xy}
 \usepackage{multirow}
+
+\tikzstyle{rect} = [rectangle, draw, text centered, minimum width=50]
 
 % Physics stuff
 \usepackage{physics}
@@ -61,7 +64,31 @@
 % Beamer overwrites some stuff in enum, as well as defines its own theorem
 % blocks so we cannot use our own.
     \usepackage{enumerate}
+    \usepackage{pgfpages}
+    \usefonttheme{professionalfonts}
     \usefonttheme[onlymath]{serif}
+
+    \setbeamerfont{note page}{family*=pplx,size=\small}
+    \setbeamerfont{itemize/enumerate subbody}{size=\small}
+    \setbeamerfont{itemize/enumerate subitem}{size=\small}
+    \setbeamerfont{footnote}{size=\tiny}
+
+    \setbeamertemplate{itemize item}[circle]
+    \setbeamertemplate{enumerate items}[circle]
+    \setbeamertemplate{itemize subitem}{--}
+
+    \iffam@notes
+        \setbeameroption{show notes on second screen}
+
+        \setbeamertemplate{note page}{%
+            \vskip\parskip
+            \setlength{\parskip}{1em plus 0.5em minus 0.5em}
+            \renewcommand{\baselinestretch}{1}
+            \nointerlineskip
+            \insertnote\par
+        }
+    \fi
+
 \else
     \usepackage[shortlabels]{enumitem}
     \usepackage{mytheorems}

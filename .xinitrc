@@ -39,10 +39,8 @@ xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.3
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 0
 
-export LD_LIBRARY_PATH=/usr/lib64/opengl/nvidia/lib
-
 wal -R
 ~/.fehbg
 dwmstatus &
-dwm
+exec dwm
 # exec ck-launch-session dbus-launch --sh-syntax --exit-with-session startplasma-x11

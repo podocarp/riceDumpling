@@ -67,6 +67,12 @@ snippet pf "Proof" b
 \end{proof}
 endsnippet
 
+snippet no "Note" b
+\note{
+    $1
+}
+endsnippet
+
 snippet item "Itemize" b
 \begin{itemize}[${1:<+->}]
     \item $0
@@ -218,7 +224,7 @@ else:
         templatePath = os.path.expanduser("~/.config/inkscape/templates/default1024.svg")
         subprocess.call(['mkdir', '-p', figureDir])
         subprocess.check_output(['cp', templatePath, figurePath])
-        subprocess.call(['inkscape', '--export-latex', '--export-pdf', pdfPath, figurePath])
+        subprocess.call(['inkscape', '--export-latex', '-o', pdfPath, figurePath])
         snip.rv = figureName
 `}.pdf_tex}
 \caption{${2:caption}}
@@ -244,7 +250,8 @@ else:
     inotify = INotify()
     inotify.add_watch(figurePath, flags.MODIFY)
 
-    update = lambda : subprocess.call(['inkscape', '--export-latex', '--export-pdf', pdfPath, figurePath])
+    update = lambda : subprocess.call(['inkscape', '--export-latex',
+    '-o', pdfPath, figurePath])
     while True:
         if proc.poll() is not None:
             update()
