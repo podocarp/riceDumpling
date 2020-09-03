@@ -37,6 +37,12 @@ snippet def "Definition" b
 \end{definition}
 endsnippet
 
+snippet ex "Example" b
+\begin{example}
+    $1
+\end{example}
+endsnippet
+
 snippet thm "Theorem" b
 \begin{thm}[${1:Title}]
     $2
@@ -90,17 +96,27 @@ snippet em "Emph" w
 endsnippet
 
 context "math()"
-snippet "<-" "gets" A
+snippet "<-" "gets" rA
 \gets
 endsnippet
 
 context "math()"
-snippet "<=" "leq" A
+snippet "->" "rightarrow" rA
+\rightarrow
+endsnippet
+
+context "math()"
+snippet "=>" "implies" rA
+\implies
+endsnippet
+
+context "math()"
+snippet "<=" "leq" rA
 \leq
 endsnippet
 
 context "math()"
-snippet ">=" "geq" A
+snippet ">=" "geq" rA
 \geq
 endsnippet
 
@@ -134,6 +150,12 @@ snippet "(.*)\\bra{(.+?)}([^\|]+?)\>" "Braket" riA
 `!p snip.rv = match.group(1)`\braket{`!p snip.rv = match.group(2)`}{`!p snip.rv = match.group(3)`}
 endsnippet
 
+snippet arr "Array" b
+\begin{array}{${1:ccc}}
+    ${2}
+\end{array}
+endsnippet
+
 snippet algo "Algorithm block" b
 \begin{algorithm}
 \SetKwFunction{${3:func}}{$4}
@@ -146,7 +168,7 @@ endsnippet
 
 priority 10
 snippet "mint(\S+)?" "Minted code typeset" br
-\begin{minted}[fontsize=${2:\tiny}]{${1:`!p
+\begin{minted}[fontsize=${2:\footnotesize}]{${1:`!p
 snip.rv = match.group(1) if match.group(1) is not None else "lang"`}}
 ${3:remember to fragile}
 \end{minted}
@@ -194,6 +216,13 @@ snippet subfig "Subfigure" w
 \end{subfigure}
 endsnippet
 
+snippet mini "Minipage" w
+\begin{minipage}[${1:t}]{${2:0.45}\linewidth}
+    \setlength{\parskip}{1em}
+    ${3}
+\end{minipage}
+endsnippet
+
 priority 1000
 snippet ink "Inkscape preparation" w
 fig $1 fig$0
@@ -203,7 +232,7 @@ priority 10000
 snippet "fig (.*) fig" "Insert figure" wr
 \begin{figure}[ht]
 \centering
-\def\svgwidth{${3:}\linewidth}
+\def\svgwidth{${3:.8}\linewidth}
 \import{./figures/}{${1:`!p
 if snip.c != "":
     pass

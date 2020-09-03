@@ -1,19 +1,6 @@
 \ProvidesPackage{myoperators}
 \DeclareMathAlphabet{\mathscr}{OMS}{zplm}{m}{n}
 
-% Blackboard bold for certain sets
-\newcommand{\R}{{\mathbbm{R}}}
-\newcommand{\N}{{\mathbbm{N}}}
-\newcommand{\Q}{{\mathbbm{Q}}}
-\newcommand{\Z}{{\mathbbm{Z}}}
-\newcommand{\C}{{\mathbbm{C}}}
-\newcommand{\F}{{\mathbbm{F}}}
-
-\newcommand{\Bscr}{{\mathscr{B}}}
-\newcommand{\Mscr}{{\mathscr{M}}}
-\newcommand{\Oscr}{{\mathscr{O}}}
-\newcommand{\Rscr}{{\mathscr{R}}}
-
 \let\vu\vunit % original was for unit vectors
 \let\vu\relax
 \newcommand{\ve}{{\vb e}}
@@ -32,19 +19,50 @@
 \DeclareMathOperator{\rowspace}{rowspace}
 \DeclareMathOperator{\colspace}{colspace}
 \DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\seq}{seq}
+\DeclareMathOperator{\Gal}{{\bf Gal}}
+\DeclareMathOperator{\GL}{{\bf GL}}
+\DeclareMathOperator{\SL}{{\bf SL}}
+
+
+%%%%% Script and calligraphy letters
+
+% Blackboard bold for certain sets
+\newcommand{\One}{{\mathbbm{1}}}
+\newcommand{\R}{{\mathbbm{R}}}
+\newcommand{\N}{{\mathbbm{N}}}
+\newcommand{\Q}{{\mathbbm{Q}}}
+\newcommand{\Z}{{\mathbbm{Z}}}
+\newcommand{\C}{{\mathbbm{C}}}
+\newcommand{\F}{{\mathbbm{F}}}
+
+% Script for certain operators
+\newcommand{\Bscr}{{\mathscr{B}}}
+\newcommand{\Lscr}{{\mathscr{L}}}
+\newcommand{\Mscr}{{\mathscr{M}}}
+\newcommand{\Oscr}{{\mathscr{O}}}
+\newcommand{\Pscr}{{\mathscr{P}}}
+\newcommand{\Rscr}{{\mathscr{R}}}
+
+% Identity
+\newcommand{\I}{{\mathbf{I}}}
 
 % Fourier transform and Laplace transform and their inverses
 \newcommand{\FT}[1]{{\mathcal{F}\qty{#1}}}
 \newcommand{\FTi}[1]{{\mathcal{F}^{-1}\qty{#1}}}
 \newcommand{\LT}[1]{{\mathcal{L}\qty{#1}}}
 \newcommand{\LTi}[1]{{\mathcal{L}^{-1}\qty{#1}}}
-% Operator L on its own may be useful sometimes
-\newcommand{\Lh}{{\mathscr{L}}}
 
-% Nice convenient improper integrals
+%%%%%
+
+% Nice convenient integrals
 \newcommand{\intinfinf}{{\int_{-\infty}^\infty}}
+\newcommand{\intinfzero}{{\int_{-\infty}^0}}
 \newcommand{\intzeroinf}{{\int_0^\infty}}
+\newcommand{\intzeroone}{{\int_0^1}}
+\newcommand{\intpipi}{{\int_{-\pi}^{\pi}}}
 
 % Upper and lower Darboux integrals
 \def\upint{\mathchoice%
