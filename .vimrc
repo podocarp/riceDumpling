@@ -32,7 +32,6 @@ set viminfo=
 call plug#begin(stdpath('data') . '/bundle')
 
 """"""" Autocomplete and syntax
-syntax sync minlines=265 maxlines=256
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -71,8 +70,8 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_view_general_options = 'file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = ''
 let g:vimtex_compiler_latexmk = {
             \ 'backend' : 'nvim',
             \ 'background' : 1,
@@ -94,7 +93,7 @@ let g:vimtex_compiler_latexmk = {
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+au VimEnter *.tex let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 
@@ -124,8 +123,6 @@ let g:CommandTHighlightColor = 'Search'
 Plug 'tpope/vim-surround'
 
 Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeShowIgnoredStatus = 1
 
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic = 1

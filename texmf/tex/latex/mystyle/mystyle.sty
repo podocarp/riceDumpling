@@ -14,13 +14,13 @@
 \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=teal}
 \usepackage[makeroom, Smaller]{cancel}
 \usepackage{relsize}
-\usepackage[svgnames]{xcolor}
 
 % Graphics
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{graphicx, import}
 \usepackage{wrapfig}
+\PassOptionsToPackage{dvipsnames}{xcolor}
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usetikzlibrary{arrows, positioning}
@@ -48,6 +48,8 @@
 \SetKwProg{Fn}{function}{:}{}
 \usepackage{stmaryrd}
 \SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+\usepackage[outputdir=_latexmk, cachedir=minted]{minted}
+\usemintedstyle{igor}
 
 % Sizes
 \let\labelitemi\undefined
@@ -64,8 +66,8 @@
 \ProcessKeyvalOptions*
 
 \iffam@beamermode
-% Beamer overwrites some stuff in enum, as well as defines its own theorem
-% blocks so we cannot use our own.
+% Beamer loads some packages and defines some stuff so we cannot use our own.
+% Furthermore, beamer only configs reside here.
     \usepackage{enumerate}
     \usepackage{pgfpages}
     \beamertemplatenavigationsymbolsempty
@@ -94,6 +96,7 @@
     \fi
 
 \else
+% Non beamer defaults.
     \usepackage[shortlabels]{enumitem}
     \setlist[itemize]{topsep=0em}
     \setlist[enumerate]{topsep=0em}
