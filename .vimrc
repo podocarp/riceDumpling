@@ -12,44 +12,52 @@ set linebreak
 set list
 set mouse=a
 set nobackup
+set nojoinspaces
 set noshowcmd
 set nowrapscan
 set number
 set path+=**
+set relativenumber
 set ruler
 set scrolloff=4
 set shiftwidth=4
 set showcmd
+set shortmess+=ac
+set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
 set splitright
 set statusline+=%F\ %l:%c
+set termguicolors
 set undofile
 set viminfo=
+set wildmenu
+set wildmode=longest,list,full
 
 """""""""""""""""""""""""""PLUGINS"""""""""""""""""""""""""""""
 call plug#begin(stdpath('data') . '/bundle')
 
 """"""" Autocomplete and syntax
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-Plug 'ycm-core/YouCompleteMe', {'do': 'git submodule update --init --recursive'}
-let g:ycm_clangd_binary_path = "/usr/lib/llvm/9/bin/clangd"
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-let g:ycm_autoclose_preview_window_after_completion = 1
-
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+Plug 'honza/vim-snippets'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
+nmap <silent> co <Plug>(coc-codelens-action)
+
+let g:ale_disable_lsp = 1
 Plug 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 let g:ale_linters = {
             \   'c': ['clang'],
             \   'cpp': ['clang'],
-            \   'python': ['pylint']
+            \   'python': ['pylint'],
+            \   'tex': ['chktex'],
             \}
 let g:ale_fixers = {
             \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -60,9 +68,17 @@ let g:ale_fixers = {
             \}
 let g:ale_c_clang_options='-std=c11 -Wall -pthread'
 let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
+let g:ale_echo_msg_error_str='E'
+let g:ale_echo_msg_warning_str='W'
+let g:ale_echo_msg_info_str='I'
+let g:ale_echo_msg_format='[%linter%][%severity%] %s'
+let g:ale_max_signs=20
 
 nmap <silent> zk <Plug>(ale_previous_wrap)zz
 nmap <silent> zj <Plug>(ale_next_wrap)zz
+nmap <silent> <leader>* <Plug>(ale_find_references)
+nmap <silent> <leader>? <Plug>(ale_go_to_definition)
+nmap <silent> <leader>/ <Plug>(ale_detail)
 noremap <F1> :ALEFix<CR>
 
 """""" Latex
@@ -90,16 +106,14 @@ let g:vimtex_compiler_latexmk = {
             \ ],
             \}
 
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-au VimEnter *.tex let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
-
 nnoremap <leader>c :VimtexTocToggle<CR><c-w><c-h>
 
 """"""CSV
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 let b:csv_arrange_align = 'l*'
+
+""""""Haskell
+Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
 
 """"""Misc
 Plug 'scrooloose/nerdtree'
@@ -125,15 +139,21 @@ Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'morhetz/gruvbox'
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = "hard"
-let g:gruvbox_contrast_light = "soft"
-let g:gruvbox_invert_indent_guides = 1
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_comments=0
+let g:gruvbox_italicize_strings=1
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='soft'
+let g:gruvbox_invert_indent_guides=1
+let g:gruvbox_sign_column='bg0'
 """"""
 call plug#end()
 """""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
 " Colorscheme
 colorscheme gruvbox
+hi CocCodeLens guibg=#333333 guifg=#999090
+hi Normal guibg=black
+hi Comment guifg=#999090
 
 " Disable neovim insert mode bar cursor
 set guicursor=

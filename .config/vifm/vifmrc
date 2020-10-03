@@ -183,12 +183,12 @@ fileviewer *.pdf
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
         \ {View in okular}
-        \ okular %f &,
+        \ okular %f &> /dev/null &,
 
 " Djvu
 filextype *.djvu
         \ {View in okular}
-        \ okular %f &,
+        \ okular %f &> /dev/null &,
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
@@ -229,7 +229,7 @@ fileviewer *.[1-8] man ./%c | col -b
 
 filetype *.svg
         \ {Open in Inkscape}
-        \ inkscape %f &
+        \ inkscape %f &> /dev/null &
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
@@ -361,7 +361,7 @@ fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py,*.tex head -n %ph %c | highlight 
 " for unknown file types.
 filetype *
         \ {Open in nvim in new window}
-        \ urxvt -e nvim %c &> /dev/null &,
+        \ st -e nvim %c &> /dev/null &,
         \ {xdg-open}
         \ xdg-open &
 
