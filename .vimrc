@@ -1,4 +1,5 @@
 """""""""""""""""""""""""""""FLAGS""""""""""""""""""""""""""
+" set statusline+=%F\ %l:%c
 set autoindent
 set autowriteall
 set colorcolumn=80
@@ -13,25 +14,24 @@ set list
 set mouse=a
 set nobackup
 set nojoinspaces
-set noshowcmd
+set noshowmode
 set nowrapscan
 set number
 set path+=**
 set relativenumber
 set ruler
 set scrolloff=4
+set shada=:10,'10,%,n~/.local/share/nvim/shada/main.shada
 set shiftwidth=4
-set showcmd
 set shortmess+=ac
+set showcmd
 set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
 set splitright
-set statusline+=%F\ %l:%c
 set termguicolors
 set undofile
-set viminfo=
 set wildmenu
 set wildmode=longest,list,full
 
@@ -54,17 +54,19 @@ Plug 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_linters = {
-            \   'c': ['clang'],
-            \   'cpp': ['clang'],
-            \   'python': ['pylint'],
-            \   'tex': ['chktex'],
+    \'c': ['clang'],
+    \'cpp': ['clang'],
+    \'python': ['pylint'],
+    \'tex': ['chktex'],
+    \'haskell': ['hlint']
             \}
 let g:ale_fixers = {
-            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \   'c': ['clang-format'],
-            \   'cpp': ['clang-format'],
-            \   'java': ['prettier'],
-            \   'python': ['black']
+    \'*': ['remove_trailing_lines', 'trim_whitespace'],
+    \'c': ['clang-format', 'trim_whitespace'],
+    \'cpp': ['clang-format', 'trim_whitespace'],
+    \'java': ['prettier', 'trim_whitespace'],
+    \'python': ['black', 'trim_whitespace'],
+    \'haskell': ['hlint', 'trim_whitespace']
             \}
 let g:ale_c_clang_options='-std=c11 -Wall -pthread'
 let g:ale_c_gcc_options='-std=c11 -Wall -lpthread'
@@ -134,9 +136,15 @@ Plug 'wincent/command-t', {'do': 'cd ruby/command-t/ext/command-t && ruby extcon
 let g:CommandTCursorColor = 'Search'
 let g:CommandTHighlightColor = 'Search'
 
+Plug 'vim-airline/vim-airline'
+let g:airline_symbols_ascii=1
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_section_z='%l:%c %p%%'
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#whitespace#enabled = 0
 Plug 'tpope/vim-surround'
-
-Plug 'ryanoasis/vim-devicons'
 
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic=1
@@ -151,8 +159,8 @@ call plug#end()
 """""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
 " Colorscheme
 colorscheme gruvbox
-hi CocCodeLens guibg=#333333 guifg=#999090
-hi Normal guibg=black
+hi CocCodeLens guibg=#222222 guifg=#999090
+hi Normal guibg=#000000
 hi Comment guifg=#999090
 
 " Disable neovim insert mode bar cursor

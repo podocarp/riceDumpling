@@ -35,7 +35,7 @@ vf(){
 
 export PYTHONSTARTUP=~/.pythonrc
 export GOPATH=$HOME/go
-export PATH=$PATH:~/.config/scripts/:~/.local/bin:$GOPATH/bin:~/.gem/ruby/2.4.0/bin
+export PATH=$PATH:~/.config/scripts/:~/.local/bin:$GOPATH/bin:~/.gem/ruby/2.4.0/bin:~/.cabal/bin/
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 stty -ixon

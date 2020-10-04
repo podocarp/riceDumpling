@@ -1,4 +1,4 @@
-st.font: Dina:size=9:antialias=false:autohint:false
+st.font: Misc Tamsyn:size=11:antialias=false:autohint:false
 st.termname: st-256color
 
 st.foreground:   #ff00e0
