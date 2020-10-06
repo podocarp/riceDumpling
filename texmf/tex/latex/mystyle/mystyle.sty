@@ -9,12 +9,6 @@
 \DeclareBoolOption[false]{beamermode}
 \DeclareBoolOption[false]{notes}
 
-% Misc
-\usepackage{hyperref}
-\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=teal}
-\usepackage[makeroom, Smaller]{cancel}
-\usepackage{relsize}
-
 % Graphics
 \usepackage{float}
 \usepackage{subcaption}
@@ -51,8 +45,15 @@
 \usepackage[outputdir=_latexmk, cachedir=minted]{minted}
 \usemintedstyle{igor}
 
+% Misc
+\usepackage{hyperref}
+\usepackage{cleveref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=teal}
+\usepackage[makeroom, Smaller]{cancel}
+\usepackage{relsize}
+
 % Sizes
-\let\labelitemi\undefined
+\let\labelitemi\undefined{}
 \newcommand\labelitemi{\raisebox{0.25ex}{\tiny$\bullet$}}
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{1em plus 0.25em minus 0.25em}
@@ -60,7 +61,7 @@
 
 \newcommand{\sectionbreak}{\begin{center}***\end{center}}
 
-\let\temp\textvisiblespace
+\let\temp\textvisiblespace{}
 \renewcommand{\textvisiblespace}{\text{\temp}}
 
 \ProcessKeyvalOptions*
@@ -70,7 +71,7 @@
 % Furthermore, beamer only configs reside here.
     \usepackage{enumerate}
     \usepackage{pgfpages}
-    \beamertemplatenavigationsymbolsempty
+    \beamertemplatenavigationsymbolsempty{}
     \usefonttheme{professionalfonts}
     \usefonttheme[onlymath]{serif}
 
@@ -87,10 +88,10 @@
         \setbeameroption{show notes on second screen}
 
         \setbeamertemplate{note page}{%
-            \vskip\parskip
+            \vskip\parskip{}
             \setlength{\parskip}{1em plus 0.5em minus 0.5em}
             \renewcommand{\baselinestretch}{1}
-            \nointerlineskip
+            \nointerlineskip{}
             \insertnote\par
         }
     \fi
