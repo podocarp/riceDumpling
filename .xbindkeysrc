@@ -38,13 +38,13 @@
 #keystate_scrolllock= enable
 
 # Increase volume
-"[[ $(amixer set Master 2dB+) ]] || amixer set PCM 2dB+"
+"echo -e 'set Master 2dB+\nset Headphone 2dB+' | amixer -s"
    XF86AudioRaiseVolume
 # Decrease volume
-"[[ $(amixer set Master 2dB-) ]] || amixer set PCM 2dB-"
+"echo -e 'set Master 2dB-\nset Headphone 2dB-' | amixer -s"
    XF86AudioLowerVolume
 # Mute volume
-"amixer set Master toggle"
+"echo -e 'set Master toggle\nset Headphone toggle' | amixer -s"
    XF86AudioMute
 
 "xbacklight -inc 10"
