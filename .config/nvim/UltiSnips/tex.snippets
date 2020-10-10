@@ -56,9 +56,9 @@ snippet thm* "Theorem unnumbered" b
 endsnippet
 
 snippet lem "Lemma" b
-\begin{lemma}[${1:Title}]
+\begin{lem}[${1:Title}]
     $2
-\end{lemma}
+\end{lem}
 endsnippet
 
 snippet cor "Corollary" b
@@ -232,7 +232,7 @@ priority 10000
 snippet "fig (.*) fig" "Insert figure" wr
 \begin{figure}[ht]
 \centering
-\def\svgwidth{${3:.8}\linewidth}
+\def\svgwidth{${3:.6}\linewidth}
 \import{./figures/}{${1:`!p
 if snip.c != "":
     pass

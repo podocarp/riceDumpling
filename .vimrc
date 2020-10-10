@@ -19,6 +19,7 @@ set nowrapscan
 set number
 set path+=**
 set relativenumber
+set regexpengine=1
 set ruler
 set scrolloff=4
 set shada=:10,'10,%,n~/.local/share/nvim/shada/main.shada
@@ -159,9 +160,13 @@ call plug#end()
 """""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
 " Colorscheme
 colorscheme gruvbox
+hi Comment guifg=#999090
 hi CocCodeLens guibg=#222222 guifg=#999090
 hi Normal guibg=#000000
-hi Comment guifg=#999090
+hi LineNr guibg=#202020
+hi SignColumn guibg=#202020
+hi ALEErrorSign guibg=#202020
+hi ALEWarningSign guibg=#202020
 
 " Disable neovim insert mode bar cursor
 set guicursor=
@@ -185,13 +190,14 @@ let g:netrw_winsize = 20
 augroup MDProj
     au!
     autocmd BufRead,BufNewFile *.md set tw=80
-    autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
+    autocmd BufRead,BufNewFile *.md set spell spelllang=en_gb
+    autocmd BufRead,BufNewFile *.md syntax off
 augroup END
 
 augroup TexProj
     au!
     autocmd BufRead,BufNewFile *.tex set tw=80
-    autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
+    autocmd BufRead,BufNewFile *.tex set spell spelllang=en_gb
 augroup END
 
 augroup CProj
@@ -209,6 +215,7 @@ augroup PyProj
     au!
     autocmd BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4
 augroup END
+
 """"""""""""""""""""""""""GENERAL MAPS"""""""""""""""""""""
 " Scroll in wrapped lines
 map <Up> gk
