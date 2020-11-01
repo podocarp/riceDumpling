@@ -1,14 +1,19 @@
 \ProvidesPackage{myoperators}
 \DeclareMathAlphabet{\mathscr}{OMS}{zplm}{m}{n}
 
-\let\vu\vunit % original was for unit vectors
+\let\vu\vunit{} % original was for unit vectors
 \let\vu\relax
-\newcommand{\ve}{{\vb e}}
-\newcommand{\vu}{{\vb u}}
-\newcommand{\vv}{{\vb v}}
-\newcommand{\vw}{{\vb w}}
-\newcommand{\vI}{{\vb I}}
+\newcommand{\ve}{{\vb{e}}}
+\newcommand{\vu}{{\vb{u}}}
+\newcommand{\vv}{{\vb{v}}}
+\newcommand{\vw}{{\vb{w}}}
+\newcommand{\vI}{{\vb{I}}}
 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\seq}{seq}
+
+% Linear algebra things
 \DeclareMathOperator{\adj}{adj}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\Span}{span}
@@ -18,15 +23,21 @@
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\rowspace}{rowspace}
 \DeclareMathOperator{\colspace}{colspace}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\proj}{proj}
-\DeclareMathOperator{\seq}{seq}
 
 % Algebra things
 \DeclareMathOperator{\Gal}{{\bf Gal}}
 \DeclareMathOperator{\GL}{{\bf GL}}
 \DeclareMathOperator{\SL}{{\bf SL}}
+\let\hom\relax
+\DeclareMathOperator{\hom}{Hom}
+\DeclareMathOperator{\mor}{Mor}
+
+\newcommand{\set}{{\mathbf{Set}}}
+
+% Misc things
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\val}{val}
 
 %%%%% Script and calligraphy letters
 
@@ -40,12 +51,32 @@
 \newcommand{\F}{{\mathbbm{F}}}
 
 % Script for certain operators
+\newcommand{\Ascr}{{\mathscr{A}}}
 \newcommand{\Bscr}{{\mathscr{B}}}
+\newcommand{\Cscr}{{\mathscr{C}}}
+\newcommand{\Dscr}{{\mathscr{D}}}
+\newcommand{\Escr}{{\mathscr{E}}}
+\newcommand{\Fscr}{{\mathscr{F}}}
+\newcommand{\Gscr}{{\mathscr{G}}}
+\newcommand{\Hscr}{{\mathscr{H}}}
+\newcommand{\Iscr}{{\mathscr{I}}}
+\newcommand{\Jscr}{{\mathscr{J}}}
+\newcommand{\Kscr}{{\mathscr{K}}}
 \newcommand{\Lscr}{{\mathscr{L}}}
 \newcommand{\Mscr}{{\mathscr{M}}}
+\newcommand{\Nscr}{{\mathscr{N}}}
 \newcommand{\Oscr}{{\mathscr{O}}}
 \newcommand{\Pscr}{{\mathscr{P}}}
+\newcommand{\Qscr}{{\mathscr{Q}}}
 \newcommand{\Rscr}{{\mathscr{R}}}
+\newcommand{\Sscr}{{\mathscr{S}}}
+\newcommand{\Tscr}{{\mathscr{T}}}
+\newcommand{\Uscr}{{\mathscr{U}}}
+\newcommand{\Vscr}{{\mathscr{V}}}
+\newcommand{\Wscr}{{\mathscr{W}}}
+\newcommand{\Xscr}{{\mathscr{X}}}
+\newcommand{\Yscr}{{\mathscr{Y}}}
+\newcommand{\Zscr}{{\mathscr{Z}}}
 
 % Cardinals
 \newcommand{\alephn}{{\aleph_0}}
@@ -59,6 +90,61 @@
 \newcommand{\FTi}[1]{{\mathcal{F}^{-1}\qty{#1}}}
 \newcommand{\LT}[1]{{\mathcal{L}\qty{#1}}}
 \newcommand{\LTi}[1]{{\mathcal{L}^{-1}\qty{#1}}}
+
+%%%%% Greek letters
+
+\let\ggt\gg{}
+\let\gg\relax
+\let\ge\relax
+\newcommand{\ga}{{\alpha}}
+\newcommand{\gb}{{\beta}}
+\newcommand{\gg}{{\gamma}}
+\newcommand{\gd}{{\delta}}
+\newcommand{\ge}{{\epsilon}}
+\newcommand{\gz}{{\zeta}}
+% \newcommand{\get}{{\eta}}
+\newcommand{\gt}{{\theta}}
+\newcommand{\gi}{{\iota}}
+\newcommand{\gk}{{\kappa}}
+\newcommand{\gl}{{\lambda}}
+% \newcommand{\gm}{{\mu}}
+% \newcommand{\gn}{{\nu}}
+% \newcommand{\gx}{{\xi}}
+\newcommand{\gom}{{\omicron}}
+% \newcommand{\gpi}{{\pi}}
+% \newcommand{\gr}{{\rho}}
+\newcommand{\gs}{{\sigma}}
+% \newcommand{\gt}{{\tau}}
+\newcommand{\gy}{{\upsilon}}
+% \newcommand{\gp}{{\phi}}
+% \newcommand{\gc}{{\chi}}
+% \newcommand{\gps}{{\psi}}
+\newcommand{\go}{{\omega}}
+
+\newcommand{\Ga}{{\Alpha}}
+\newcommand{\Gb}{{\Beta}}
+\newcommand{\Gg}{{\Gamma}}
+\newcommand{\Gd}{{\Delta}}
+\newcommand{\Ge}{{\Epsilon}}
+\newcommand{\Gz}{{\Zeta}}
+% \newcommand{\Get}{{\Eta}}
+\newcommand{\Gt}{{\Theta}}
+\newcommand{\Gi}{{\Iota}}
+\newcommand{\Gk}{{\Kappa}}
+\newcommand{\Gl}{{\Lambda}}
+% \newcommand{\Gm}{{\Mu}}
+% \newcommand{\Gn}{{\Nu}}
+% \newcommand{\Gx}{{\Xi}}
+\newcommand{\Gom}{{\Omicron}}
+% \newcommand{\Gpi}{{\Pi}}
+% \newcommand{\Gr}{{\Rho}}
+\newcommand{\Gs}{{\Sigma}}
+% \newcommand{\Gt}{{\Tau}}
+\newcommand{\Gy}{{\Upsilon}}
+% \newcommand{\Gp}{{\Phi}}
+% \newcommand{\Gc}{{\Chi}}
+% \newcommand{\Gps}{{\Psi}}
+\newcommand{\Go}{{\Omega}}
 
 %%%%%
 

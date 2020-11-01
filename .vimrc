@@ -87,10 +87,11 @@ noremap <F1> :ALEFix<CR>
 """""" Latex
 Plug 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
-let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = ''
+let g:vimtex_compiler_progname='nvr'
+let g:vimtex_view_general_viewer='okular'
+let g:vimtex_view_general_options='--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk=''
+let g:vimtex_syntax_alpha=1
 let g:vimtex_compiler_latexmk = {
             \ 'backend' : 'nvim',
             \ 'background' : 1,
@@ -160,8 +161,8 @@ call plug#end()
 """""""""""""""""""""""""""AESTHETICS""""""""""""""""""""""
 " Colorscheme
 colorscheme gruvbox
-hi Comment guifg=#999090
-hi CocCodeLens guibg=#222222 guifg=#999090
+" hi Comment guifg=#999090
+hi CocCodeLens guibg=#333333 guifg=#999090
 hi Normal guibg=#000000
 hi LineNr guibg=#202020
 hi SignColumn guibg=#202020
@@ -191,7 +192,7 @@ augroup MDProj
     au!
     autocmd BufRead,BufNewFile *.md set tw=80
     autocmd BufRead,BufNewFile *.md set spell spelllang=en_gb
-    autocmd BufRead,BufNewFile *.md syntax off
+    autocmd BufRead,BufNewFile *.md setlocal syntax=off
 augroup END
 
 augroup TexProj

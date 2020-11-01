@@ -61,3 +61,20 @@
 
 "sudo s2ram"
     XF86Sleep
+
+# mousekeys
+#
+"xdotool click 1"
+    KP_5
+
+"xdotool mousemove_relative -p 0 50"
+    KP_8
+
+"xdotool mousemove_relative -p 180 50"
+    KP_2
+
+"xdotool mousemove_relative -p 90 50"
+    KP_6
+
+"xdotool mousemove_relative -p 270 50"
+    KP_4

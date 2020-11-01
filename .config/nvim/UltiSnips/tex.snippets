@@ -32,8 +32,8 @@ snippet beg "Begin" w
 endsnippet
 
 snippet def "Definition" b
-\begin{definition}
-    $1
+\begin{definition}[${1:Title}]
+    $2
 \end{definition}
 endsnippet
 
@@ -121,12 +121,17 @@ snippet ">=" "geq" rA
 endsnippet
 
 context "math()"
+snippet "!=" "neq" rA
+\neq
+endsnippet
+
+context "math()"
 snippet "<([^\$]*?)>" "Angle" rA
 \langle `!p snip.rv = match.group(1)` \rangle
 endsnippet
 
 context "math()"
-snippet "\\abs{(.+?)}\|" "Norm" rA
+snippet "\\abs{(.+?)}\|\|" "Norm" rA
 \norm{`!p snip.rv = match.group(1)`}
 endsnippet
 
@@ -136,17 +141,17 @@ snippet "\|([^\$]*?)\|" "Abs" rA
 endsnippet
 
 context "math()"
-snippet "\<([^\$]*?)\|" "Bra" rA
+snippet "\<([^\$\ ]+?)\|" "Bra" rA
 \bra{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\|([^\$]*?)\>" "Ket" rA
+snippet "\|([^\$\ ]+?)\>" "Ket" rA
 \ket{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "(.*)\\bra{(.+?)}([^\|]+?)\>" "Braket" riA
+snippet "\\bra{(.+?)}([^\|]+?)\>" "Braket" riA
 `!p snip.rv = match.group(1)`\braket{`!p snip.rv = match.group(2)`}{`!p snip.rv = match.group(3)`}
 endsnippet
 
@@ -168,7 +173,7 @@ endsnippet
 
 priority 10
 snippet "mint(\S+)?" "Minted code typeset" br
-\begin{minted}[fontsize=${2:\footnotesize}]{${1:`!p
+\begin{minted}[fontsize=\\${2:footnotesize}]{${1:`!p
 snip.rv = match.group(1) if match.group(1) is not None else "lang"`}}
 ${3:remember to fragile}
 \end{minted}
@@ -223,13 +228,20 @@ snippet mini "Minipage" w
 \end{minipage}
 endsnippet
 
+snippet cas "Case" w
+\begin{cases}
+    ${1:case1} ,&\text{ if }${2} \\\\
+    ${3} ,&\text{ otherwise }${4}
+\end{cases}
+endsnippet
+
 priority 1000
 snippet ink "Inkscape preparation" w
 fig $1 fig$0
 endsnippet
 
 priority 10000
-snippet "fig (.*) fig" "Insert figure" wr
+snippet "fig (.*) fig" "Insert inkscape figure" wr
 \begin{figure}[ht]
 \centering
 \def\svgwidth{${3:.6}\linewidth}
@@ -259,8 +271,7 @@ else:
 \caption{${2:caption}}
 \label{fig:$1}
 %edit $1 edit%$4
-\end{figure}
-$0
+\end{figure}$0
 endsnippet
 
 snippet "%edit (.*) edit%" "Edit svg" wr
