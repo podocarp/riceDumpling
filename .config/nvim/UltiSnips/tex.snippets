@@ -1,23 +1,18 @@
 global !p
-texMathZones = ['texMathZone' + x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS',
-'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS',
-'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z', 'AmsA', 'AmsB', 'AmsC',
-'AmsD', 'AmsE', 'AmsF', 'AmsG', 'AmsAS', 'AmsBS', 'AmsCS', 'AmsDS', 'AmsES',
-'AmsFS', 'AmsGS' ]]
-texIgnoreMathZones = ['texMathText']
-texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
-texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+texMathZones = ['texMathRegion' + x for x in ['', 'X', 'XX', 'Env', 'EnvStarred', 'Ensured']]
+texIgnoreMathZones = ['texMathTextArg']
+texMathZoneIds = set(vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')"))
+texIgnoreMathZoneIds = set(vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')"))
 
 def math():
     synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
-    if not set(texIgnoreMathZoneIds).isdisjoint(synstackids):
+    if not texIgnoreMathZoneIds.isdisjoint(synstackids):
         return False
-    return not set(texMathZoneIds).isdisjoint(synstackids)
-    # isdisjoint() can short-circuit as soon as a match is found
+    return not texMathZoneIds.isdisjoint(synstackids)
 endglobal
 
 context "math()"
-snippet "([\S]+_|\^)([\-a-zA-Z0-9]{2,}|[\+\-,a-zA-Z0-9]{3,})" "Auto Sub/Super" wrA
+snippet "([\S]+_|\^)([^\ {]{2,})" "Auto Sub/Super" wrA
 `!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`$1}$2
 endsnippet
 
@@ -126,7 +121,7 @@ snippet "!=" "neq" rA
 endsnippet
 
 context "math()"
-snippet "<([^\$]*?)>" "Angle" rA
+snippet "<([^\$<]*?)>>" "Angle" rA
 \langle `!p snip.rv = match.group(1)` \rangle
 endsnippet
 
@@ -136,7 +131,7 @@ snippet "\\abs{(.+?)}\|\|" "Norm" rA
 endsnippet
 
 context "math()"
-snippet "\|([^\$]*?)\|" "Abs" rA
+snippet "\|([^\$\|]*?)\|" "Abs" rA
 \abs{`!p snip.rv = match.group(1)`}
 endsnippet
 
@@ -166,8 +161,7 @@ snippet algo "Algorithm block" b
 \SetKwFunction{${3:func}}{$4}
 \Fn{\\$3{$x$}}{
 }
-\caption{${1:caption}}
-\label{alg:${2:label}}
+\caption{${1:caption}}\label{alg:${2:label}}
 \end{algorithm}
 endsnippet
 
@@ -203,12 +197,10 @@ snippet subfigure "Fig with subfigs" w
     \begin{subfigure}[${1:t}]{${2:0.45}\textwidth}
     \centering
     \includegraphics[width=\linewidth]{${3:}}
-    \caption{${4:}}
-    \label{fig:${5:}}
+    \caption{${4:}}\label{fig:${5:}}
     \end{subfigure}
     \hspace{1em}
-    \caption{${6:}}
-    \label{fig:${7:}}
+    \caption{${6:}}\label{fig:${7:}}
 \end{figure}
 endsnippet
 
@@ -297,7 +289,7 @@ else:
             update()
             break # inkscape closed
         else:
-            l = inotify.read(timeout=1000) # block and wait for inotify
+            l = inotify.read(timeout=500) # block and wait for inotify
             if (len(l) > 0):
                 update()
 

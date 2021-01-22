@@ -1,5 +1,6 @@
 """""""""""""""""""""""""""""FLAGS""""""""""""""""""""""""""
 " set statusline+=%F\ %l:%c
+set autochdir
 set autoindent
 set autowriteall
 set colorcolumn=80
@@ -15,6 +16,7 @@ set mouse=a
 set nobackup
 set nojoinspaces
 set noshowmode
+set nospell
 set nowrapscan
 set number
 set path+=**
@@ -32,6 +34,7 @@ set smartindent
 set smarttab
 set splitright
 set termguicolors
+set title
 set undofile
 set wildmenu
 set wildmode=longest,list,full
@@ -89,8 +92,10 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_progname='nvr'
 let g:vimtex_view_general_viewer='okular'
-let g:vimtex_view_general_options='--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk=''
+let g:vimtex_view_general_options='file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk='--unique'
+"let g:latex_view_general_viewer = 'zathura'
+"let g:vimtex_view_method = "zathura"
 let g:vimtex_syntax_alpha=1
 let g:vimtex_compiler_latexmk = {
             \ 'backend' : 'nvim',

@@ -10,10 +10,8 @@ alias f="grep -RHn"
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -a -l'
-alias v="vim"
+alias v="nvim"
 alias v.="v ."
-alias vim="nvim"
-alias vifm="vf"
 
 alias u="urxvt &"
 
@@ -27,7 +25,7 @@ complete -cf sudo
 cdl(){ cd "$@" && ls; }
 
 vf(){
-    command vifmi "$@"
+    command vifm "$@"
     if [ -f /tmp/lastdir ]; then
         cd `cat /tmp/lastdir`
     fi

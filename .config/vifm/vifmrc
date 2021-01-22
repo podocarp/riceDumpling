@@ -17,7 +17,7 @@ set vicmd='nvim'
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
 " solution, it's also much slower and doesn't support progress measuring.
 
-" set syscalls
+set syscalls
 
 " Trash Directory
 " The default is to move files that are deleted with dd or :d to
@@ -136,6 +136,7 @@ mark h ~/
 command! df df -h %m 2> /dev/null
 command! diff vim -d %f %F
 command! zip zip -r %f.zip %f
+command! tar tar -cvf %f.tar %f
 command! run !! ./%f
 command! make !!make %a
 command! mkcd :mkdir %a | cd %a
@@ -176,9 +177,7 @@ filextype *.pdf,*.ps
         \ okular %c %i &
 
 fileviewer *.pdf
-        \ vifmimg pdfpreview %px %py %pw %ph %c
-        \ %pc
-        \ vifmimg clear
+        \ pdftotext -layout -l 3 %c -
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
@@ -239,9 +238,7 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ sxiv -t %d &,
 
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif
-        \ vifmimg imgpreview %px %py %pw %ph %c
-        \ %pc
-        \ vifmimg clear
+        \ show-sixel %c %pw %ph %pd
 
 " MD5
 filetype *.md5
@@ -344,7 +341,10 @@ filextype */
         \ Thunar %f &,
 
 " Syntax highlighting in preview
-fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py,*.tex head -n %ph %c | highlight -O xterm256 -s dante --syntax %c:e
+fileviewer *.c,*.h,*.cpp,*.js,*.ts,*.java,*.py,*.tex,*.hs head -n %ph %c | highlight -O xterm256 -s zenburn --syntax %c:e
+
+fileviewer <text/*> head -n %ph %c
+
 "
 " Or leave it for automatic detection
 " May cause slowdowns but generally looks better
@@ -449,9 +449,6 @@ nnoremap t tj
 
 " Sets wallpapers and theme
 nnoremap bw :!wal -i %c<CR>
-
-" Clears the image preview when it bugs out
-nnoremap <c-l> :!vifmimg clear<cr>
 
 command! q :execute '!echo %d > /tmp/lastdir' | quit
 " ------------------------------------------------------------------------------
