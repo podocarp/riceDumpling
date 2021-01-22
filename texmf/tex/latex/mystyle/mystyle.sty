@@ -8,6 +8,9 @@
 
 \DeclareBoolOption[false]{beamermode}
 \DeclareBoolOption[false]{notes}
+\DeclareBoolOption[false]{varepsilon}
+\DeclareBoolOption[false]{varphi}
+\DeclareBoolOption[false]{varpsi}
 
 % Graphics
 \usepackage{float}
@@ -43,7 +46,7 @@
 \usepackage{stmaryrd}
 \SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
 \usepackage[outputdir=_latexmk, cachedir=minted]{minted}
-\usemintedstyle{igor}
+\usemintedstyle{borland}
 
 % Misc
 \usepackage{hyperref}
@@ -68,6 +71,13 @@
 \newcolumntype{L}{>{$}l<{$}} % math-mode versions
 \newcolumntype{C}{>{$}c<{$}}
 \newcolumntype{R}{>{$}R<{$}}
+
+% Shortcuts. Removes some deprecated options.
+\let\ol\overline{}
+\let\bf\relax
+\newcommand{\bf}[1]{{\textup{\textbf{#1}}}}
+\let\tt\relax
+\newcommand{\tt}[1]{{\textup{\texttt{#1}}}}
 
 \ProcessKeyvalOptions*
 
@@ -108,4 +118,20 @@
     \setlist[enumerate]{topsep=0em}
     \usepackage{cleveref} % beamer doesn't work with cleverref
     \usepackage{mytheorems} % beamer creates its own blocks instead
+\fi
+
+\iffam@varepsilon
+    \let\temp\epsilon{}
+    \let\epsilon\varepsilon{}
+    \let\varepsilon\temp{}
+\fi
+\iffam@varphi
+    \let\temp\phi{}
+    \let\phi\varphi{}
+    \let\varphi\temp{}
+\fi
+\iffam@varpsi
+    \let\temp\psi{}
+    \let\psi\varpsi{}
+    \let\varpsi\temp{}
 \fi
