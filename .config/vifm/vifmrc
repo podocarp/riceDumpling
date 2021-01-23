@@ -361,9 +361,12 @@ fileviewer <text/*> head -n %ph %c
 " for unknown file types.
 filetype *
         \ {Open in nvim in new window}
-        \ st -e nvim %c &> /dev/null &,
+        \ xterm -e nvim %c &> /dev/null &,
         \ {xdg-open}
         \ xdg-open &
+
+fileviewer */
+        \ ls -lah --color=always %c
 
 " ------------------------------------------------------------------------------
 
