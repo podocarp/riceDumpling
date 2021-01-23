@@ -76,7 +76,7 @@ myManageHook = composeAll
 -- as a string.
 myExtras' :: [X (Maybe String)]
 -- init takes out the last space
-myExtras' = [withWindowSet (fmap (Just . B.unpack . B.init) . gn . W.hidden)]
+myExtras' = [withWindowSet (fmap safeInit . gn . W.hidden)]
   where
     -- Gets the master window's (if any) name in the workspace
     ripName (W.Workspace i _ (Just stack)) =
@@ -84,6 +84,9 @@ myExtras' = [withWindowSet (fmap (Just . B.unpack . B.init) . gn . W.hidden)]
     ripName _ = return B.empty
     -- Given a stack of workspaces, return a list of names as per above
     gn ws = foldl (liftM2 B.append) (return B.empty) (map ripName ws)
+    -- Gets all but the last element of the bytestring
+    safeInit:: B.ByteString -> Maybe String
+    safeInit s = if B.null s then Nothing else (Just . B.unpack . B.init) s
 
 myLogHook = xmobarPP
   { ppSep = " | "
@@ -93,7 +96,7 @@ myLogHook = xmobarPP
   , ppTitle = xmobarColor "cyan" "" . shorten 100      -- window title format
   , ppSort = getSortByXineramaPhysicalRule horizontalScreenOrderer
   , ppExtras = myExtras'
-  , ppOrder = \(ws:layout:wt:extra) -> [ws] ++ extra ++ [layout, wt]
+  , ppOrder = \(ws:layout:wt:extra) -> [ws, layout] ++ extra ++ [wt]
   }
 
 myDynBar (S n) = spawnPipe $ "xmobar -x " ++ show n
