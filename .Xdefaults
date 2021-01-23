@@ -61,8 +61,7 @@ XTerm*translations: #override \n\
     Ctrl <Key> 0: set-vt-font(d) \n\
     Ctrl Shift <Key> C: copy-selection(CLIPBOARD) \n\
     Ctrl Shift <Key> V: insert-selection(CLIPBOARD) \n\
-XTerm.vt100.backarrowKey: false
-XTerm.vt340.backarrowKey: false
+XTerm*backarrowKey: false
 XTerm.ttyModes: erase ^?
 XTerm*ptyInitialErase: true
 XTerm*decTerminalID: vt340
@@ -70,4 +69,4 @@ XTerm*numColorRegisters: 256
 XTerm*bellIsUrgent: true
 XTerm*selectToClipboard: true
 XTerm*trimSelection: true
-XTerm.termName: xterm-256color
+XTerm.termName: st-256color
