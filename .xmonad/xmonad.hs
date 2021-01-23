@@ -1,16 +1,16 @@
 import XMonad
-import XMonad.Core
 import XMonad.Actions.CycleWS
 import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.WorkspaceNames
 import XMonad.Config.Desktop
+import XMonad.Core
 import XMonad.Hooks.DynamicBars
 import XMonad.Hooks.DynamicLog
+import XMonad.Layout.IndependentScreens
+import XMonad.ManageHook
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Util.Run(spawnPipe)
-import XMonad.ManageHook
-import XMonad.Layout.IndependentScreens
 import XMonad.Util.WorkspaceCompare
 
 import qualified XMonad.StackSet as W
@@ -27,7 +27,7 @@ myKeys =
   , ("M-c", spawn "xmonad --recompile; xmonad --restart") -- reload
   , ("M-S-q", kill) -- close focused window
   , ("M-S-<Return>", spawn myTerm) -- launch terminal
-  , ("M-d", spawn "rofi -show run") -- launch dmenu
+  , ("M-d", spawn "rofi -show combi") -- launch dmenu
 
   -- Xinerama controls, using Actions.PhysicalScreens
   , ("M-a", onPrevNeighbour def W.view)
@@ -35,9 +35,7 @@ myKeys =
   , ("M-S-a", onPrevNeighbour def W.shift)
   , ("M-S-s", onNextNeighbour def W.shift)
 
-  -- Workspace controls, using Actions.CycleWS
   , ("M-<Tab>", toggleWS)
-
   , ("M-n", renameWorkspace def)
   ]
   ++
@@ -74,13 +72,20 @@ myManageHook = composeAll
 
 -- This gives the hidden workspaces and the master window in those workspaces
 -- as a string.
-myExtras' :: [X (Maybe String)]
--- init takes out the last space
-myExtras' = [withWindowSet (fmap safeInit . gn . W.hidden)]
+myExtras :: [X (Maybe String)]
+myExtras = [withWindowSet (fmap safeInit . gn . W.hidden)] -- init takes out the last space
   where
     -- Gets the master window's (if any) name in the workspace
     ripName (W.Workspace i _ (Just stack)) =
-      fmap (\x -> B.pack $ i ++ ":(" ++ shorten 13 x ++ ") ") (runQuery title (W.focus stack))
+      liftM2 (\x y -> header `B.append` x `B.append` dash `B.append` y `B.append` footer) c t
+        where
+          header = B.pack (i ++ ":(")
+          dash = B.pack " - "
+          footer = B.pack ") "
+          fshort = fmap (B.pack . shorten 10)
+          t = fshort (runQuery title (W.focus stack))
+          c = fshort (runQuery className (W.focus stack))
+
     ripName _ = return B.empty
     -- Given a stack of workspaces, return a list of names as per above
     gn ws = foldl (liftM2 B.append) (return B.empty) (map ripName ws)
@@ -88,6 +93,7 @@ myExtras' = [withWindowSet (fmap safeInit . gn . W.hidden)]
     safeInit:: B.ByteString -> Maybe String
     safeInit s = if B.null s then Nothing else (Just . B.unpack . B.init) s
 
+myLogHook :: PP
 myLogHook = xmobarPP
   { ppSep = " | "
   , ppCurrent = xmobarColor "green" "" . wrap "[" "]"
@@ -95,10 +101,11 @@ myLogHook = xmobarPP
   , ppHidden = const ""
   , ppTitle = xmobarColor "cyan" "" . shorten 100      -- window title format
   , ppSort = getSortByXineramaPhysicalRule horizontalScreenOrderer
-  , ppExtras = myExtras'
-  , ppOrder = \(ws:layout:wt:extra) -> [ws, layout] ++ extra ++ [wt]
+  , ppExtras = myExtras
+  , ppOrder = \(ws:layout:wt:extra) -> [layout, ws] ++ extra ++ [wt]
   }
 
+myDynBar :: MonadIO m => ScreenId -> m Handle
 myDynBar (S n) = spawnPipe $ "xmobar -x " ++ show n
 
 main = do
