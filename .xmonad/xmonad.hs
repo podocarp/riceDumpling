@@ -7,7 +7,6 @@ import XMonad.Core
 import XMonad.Hooks.DynamicBars
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.IndependentScreens
-import XMonad.ManageHook
 import XMonad.Prompt.ConfirmPrompt
 import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Util.Run(spawnPipe)
@@ -35,7 +34,7 @@ myKeys =
   , ("M-S-a", onPrevNeighbour def W.shift)
   , ("M-S-s", onNextNeighbour def W.shift)
 
-  , ("M-<Tab>", toggleWS)
+  , ("M-<Tab>", toggleWS) -- exclude those on other screens
   , ("M-n", renameWorkspace def)
   ]
   ++
@@ -93,16 +92,20 @@ myExtras = [withWindowSet (fmap safeInit . gn . W.hidden)] -- init takes out the
     safeInit:: B.ByteString -> Maybe String
     safeInit s = if B.null s then Nothing else (Just . B.unpack . B.init) s
 
-myLogHook :: PP
-myLogHook = xmobarPP
+myLogHookFocused = xmobarPP
   { ppSep = " | "
-  , ppCurrent = xmobarColor "green" "" . wrap "[" "]"
-  , ppVisible = xmobarColor "lightgreen" "" . wrap "[" "]"
+  , ppCurrent = xmobarColor "lightgreen" "" . wrap "[" "]"
+  , ppVisible = xmobarColor "green" "" . wrap "[" "]"
   , ppHidden = const ""
   , ppTitle = xmobarColor "cyan" "" . shorten 100      -- window title format
   , ppSort = getSortByXineramaPhysicalRule horizontalScreenOrderer
   , ppExtras = myExtras
   , ppOrder = \(ws:layout:wt:extra) -> [layout, ws] ++ extra ++ [wt]
+  }
+
+myLogHookUnfocused = myLogHookFocused
+  { ppExtras = [return Nothing]
+  , ppTitle = xmobarColor "lightblue" "" . shorten 100      -- window title format
   }
 
 myDynBar :: MonadIO m => ScreenId -> m Handle
@@ -119,7 +122,6 @@ main = do
     , workspaces = withScreens nScreens (workspaces def)
     , startupHook = dynStatusBarStartup
         myDynBar (return ())
-    , manageHook = myManageHook <+> manageHook def
-    , logHook = multiPP myLogHook myLogHook
+    , logHook = multiPP myLogHookFocused myLogHookUnfocused
     }
     `additionalKeysP` myKeys
