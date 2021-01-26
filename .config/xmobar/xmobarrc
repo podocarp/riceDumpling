@@ -7,9 +7,7 @@ Config {
 , border = NoBorder
 
   -- layout
-, sepChar = "%"
-, alignSep = "} {"
-, template = "%StdinReader% } {  %battery% | %coretemp% | %date%"
+, template = "%StdinReader% }{ %battery% | %coretemp% | %date%"
 
   -- plugins
   -- low color is applied below Low, high when above High, normal otherwise.

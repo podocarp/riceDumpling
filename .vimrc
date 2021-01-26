@@ -226,7 +226,6 @@ augroup END
 " Scroll in wrapped lines
 map <Up> gk
 map <Down> gj
-map <Esc><Esc> :w<CR>
 """"""""""""""""""""""""INSERT MODE MAPS"""""""""""""""""""
 
 " paste
@@ -239,11 +238,13 @@ inoremap <C-k> <C-x><C-x><C-k>
 " Sends things away without overwriting the register
 nnoremap <leader>d "_d
 
-" Open shell (this breaks in vanilla vim)
 nnoremap <C-S> :sp<CR>:term<CR>A
 
 " Remove search highlights
 nnoremap <F3> :noh<CR>
+
+" Easy save
+nnoremap <Esc> :w<CR>
 
 """"""""""""""""""""""SPLIT WINDOWS""""""""""""""""""""""""
 

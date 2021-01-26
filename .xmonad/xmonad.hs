@@ -72,40 +72,52 @@ myManageHook = composeAll
 -- This gives the hidden workspaces and the master window in those workspaces
 -- as a string.
 myExtras :: [X (Maybe String)]
-myExtras = [withWindowSet (fmap safeInit . gn . W.hidden)] -- init takes out the last space
+myExtras = [withWindowSet (fmap safeUnpack . extraFormatting . getNames . W.hidden)] -- init takes out the last space
   where
     -- Gets the master window's (if any) name in the workspace
     ripName (W.Workspace i _ (Just stack)) =
-      liftM2 (\x y -> header `B.append` x `B.append` dash `B.append` y `B.append` footer) c t
+      liftM2 (\x y -> B.concat [header, x, dash, y, footer]) c t
         where
           header = B.pack (i ++ ":(")
           dash = B.pack " - "
           footer = B.pack ") "
-          fshort = fmap (B.pack . shorten 10)
-          t = fshort (runQuery title (W.focus stack))
-          c = fshort (runQuery className (W.focus stack))
-
+          fshorten = fmap (B.pack . shorten 13)
+          t = fshorten (runQuery title (W.focus stack))
+          c = fshorten (runQuery className (W.focus stack))
     ripName _ = return B.empty
     -- Given a stack of workspaces, return a list of names as per above
-    gn ws = foldl (liftM2 B.append) (return B.empty) (map ripName ws)
-    -- Gets all but the last element of the bytestring
-    safeInit:: B.ByteString -> Maybe String
-    safeInit s = if B.null s then Nothing else (Just . B.unpack . B.init) s
+    getNames ws = foldl (liftM2 B.append) (return B.empty) (map ripName ws)
+    extraFormatting = fmap (\s -> front `B.append` s `B.append` back)
+      where
+        front = B.pack "<fc=lightgray>"
+        back = B.pack "</fc>"
+    -- Gets the Maybe String out.
+    safeUnpack s = if B.null s then Nothing else (Just . B.unpack) s
+
+-- Coerces string to be length `n`.
+-- If string is too long, cut and put ellipses, otherwise right pad with spaces.
+fitStr n s
+  | len < targetlen = take n (s ++ repeat ' ')
+  | len == targetlen = s ++ "..."
+  | otherwise = take targetlen s ++ "..."
+    where
+      len = length s
+      targetlen = n-3
 
 myLogHookFocused = xmobarPP
   { ppSep = " | "
-  , ppCurrent = xmobarColor "lightgreen" "" . wrap "[" "]"
-  , ppVisible = xmobarColor "green" "" . wrap "[" "]"
+  , ppCurrent = xmobarColor "green" "" . wrap "[" "]"
+  , ppVisible = xmobarColor "lightgreen" "" . wrap "[" "]"
   , ppHidden = const ""
-  , ppTitle = xmobarColor "cyan" "" . shorten 100      -- window title format
+  , ppTitle = xmobarColor "cyan" "" . shorten 70      -- window title format
   , ppSort = getSortByXineramaPhysicalRule horizontalScreenOrderer
   , ppExtras = myExtras
-  , ppOrder = \(ws:layout:wt:extra) -> [layout, ws] ++ extra ++ [wt]
+  , ppOrder = \(ws:layout:wt:extra) -> [layout, ws, wt] ++ extra
   }
 
 myLogHookUnfocused = myLogHookFocused
   { ppExtras = [return Nothing]
-  , ppTitle = xmobarColor "lightblue" "" . shorten 100      -- window title format
+  , ppTitle = xmobarColor "lightblue" "" . shorten 200      -- window title format
   }
 
 myDynBar :: MonadIO m => ScreenId -> m Handle
@@ -118,7 +130,7 @@ main = do
     , modMask = mod4Mask  -- meta key
     , normalBorderColor = "#999999"
     , focusedBorderColor = "#FF0000"
-    , borderWidth = 5
+    , borderWidth = 3
     , workspaces = withScreens nScreens (workspaces def)
     , startupHook = dynStatusBarStartup
         myDynBar (return ())
